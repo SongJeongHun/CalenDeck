@@ -3,24 +3,50 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A734E2EE25BABF2800795AD8 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A734E2ED25BABF2800795AD8 /* Card.swift */; };
+		A734E2F225BABFB900795AD8 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A734E2F125BABFB900795AD8 /* Scene.swift */; };
+		A734E2F625BAC55900795AD8 /* TimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A734E2F525BAC55900795AD8 /* TimeLineViewController.swift */; };
+		A734E2F925BAC56500795AD8 /* DeckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A734E2F825BAC56500795AD8 /* DeckViewController.swift */; };
+		A734E2FC25BAC57200795AD8 /* DeckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A734E2FB25BAC57200795AD8 /* DeckViewModel.swift */; };
+		A734E2FF25BAC57A00795AD8 /* TimeLineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A734E2FE25BAC57A00795AD8 /* TimeLineViewModel.swift */; };
+		A734E30225BAC58600795AD8 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A734E30125BAC58600795AD8 /* ViewModelType.swift */; };
+		A734E30525BAC5A900795AD8 /* ViewControllerBindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A734E30425BAC5A900795AD8 /* ViewControllerBindableType.swift */; };
+		A734E30825BAC67B00795AD8 /* SceneCoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A734E30725BAC67B00795AD8 /* SceneCoordinatorType.swift */; };
+		A734E30B25BAC68900795AD8 /* TransitionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A734E30A25BAC68900795AD8 /* TransitionStyle.swift */; };
+		A734E31625BACA9C00795AD8 /* StorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A734E31525BACA9C00795AD8 /* StorageType.swift */; };
+		A734E31A25BACAAC00795AD8 /* MemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A734E31925BACAAC00795AD8 /* MemoryStorage.swift */; };
 		A779013125BABE54001FA30D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A779013025BABE54001FA30D /* AppDelegate.swift */; };
 		A779013325BABE54001FA30D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A779013225BABE54001FA30D /* SceneDelegate.swift */; };
-		A779013525BABE54001FA30D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A779013425BABE54001FA30D /* ViewController.swift */; };
 		A779013825BABE54001FA30D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A779013625BABE54001FA30D /* Main.storyboard */; };
 		A779013B25BABE54001FA30D /* CalenDeck.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A779013925BABE54001FA30D /* CalenDeck.xcdatamodeld */; };
 		A779013D25BABE54001FA30D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A779013C25BABE54001FA30D /* Assets.xcassets */; };
 		A779014025BABE54001FA30D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A779013E25BABE54001FA30D /* LaunchScreen.storyboard */; };
+		B3AEA730E65D67F5DC757A1E /* Pods_CalenDeck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E03D23FED6FBD59E9B6717 /* Pods_CalenDeck.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		62E03D23FED6FBD59E9B6717 /* Pods_CalenDeck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalenDeck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DE070122562A23346BB14AC /* Pods-CalenDeck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalenDeck.release.xcconfig"; path = "Target Support Files/Pods-CalenDeck/Pods-CalenDeck.release.xcconfig"; sourceTree = "<group>"; };
+		742DC06493EBEAF89108A511 /* Pods-CalenDeck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalenDeck.debug.xcconfig"; path = "Target Support Files/Pods-CalenDeck/Pods-CalenDeck.debug.xcconfig"; sourceTree = "<group>"; };
+		A734E2ED25BABF2800795AD8 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		A734E2F125BABFB900795AD8 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		A734E2F525BAC55900795AD8 /* TimeLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewController.swift; sourceTree = "<group>"; };
+		A734E2F825BAC56500795AD8 /* DeckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckViewController.swift; sourceTree = "<group>"; };
+		A734E2FB25BAC57200795AD8 /* DeckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckViewModel.swift; sourceTree = "<group>"; };
+		A734E2FE25BAC57A00795AD8 /* TimeLineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewModel.swift; sourceTree = "<group>"; };
+		A734E30125BAC58600795AD8 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		A734E30425BAC5A900795AD8 /* ViewControllerBindableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerBindableType.swift; sourceTree = "<group>"; };
+		A734E30725BAC67B00795AD8 /* SceneCoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinatorType.swift; sourceTree = "<group>"; };
+		A734E30A25BAC68900795AD8 /* TransitionStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionStyle.swift; sourceTree = "<group>"; };
+		A734E31525BACA9C00795AD8 /* StorageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageType.swift; sourceTree = "<group>"; };
+		A734E31925BACAAC00795AD8 /* MemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryStorage.swift; sourceTree = "<group>"; };
 		A779012D25BABE54001FA30D /* CalenDeck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalenDeck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A779013025BABE54001FA30D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A779013225BABE54001FA30D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A779013425BABE54001FA30D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A779013725BABE54001FA30D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A779013A25BABE54001FA30D /* CalenDeck.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalenDeck.xcdatamodel; sourceTree = "<group>"; };
 		A779013C25BABE54001FA30D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -33,17 +59,108 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3AEA730E65D67F5DC757A1E /* Pods_CalenDeck.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		39C1F4827C4BE342BF46A04A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				62E03D23FED6FBD59E9B6717 /* Pods_CalenDeck.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A734E2E625BABEE500795AD8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A734E2ED25BABF2800795AD8 /* Card.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A734E2E725BABEEB00795AD8 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				A734E31425BACA8C00795AD8 /* MemoryStorage */,
+				A734E30D25BACA6700795AD8 /* CoreDataStorage */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		A734E2E825BABEF000795AD8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A734E2FB25BAC57200795AD8 /* DeckViewModel.swift */,
+				A734E2FE25BAC57A00795AD8 /* TimeLineViewModel.swift */,
+				A734E30125BAC58600795AD8 /* ViewModelType.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A734E2E925BABEF600795AD8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A779013625BABE54001FA30D /* Main.storyboard */,
+				A779013E25BABE54001FA30D /* LaunchScreen.storyboard */,
+				A734E2F525BAC55900795AD8 /* TimeLineViewController.swift */,
+				A734E2F825BAC56500795AD8 /* DeckViewController.swift */,
+				A734E30425BAC5A900795AD8 /* ViewControllerBindableType.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A734E2EA25BABEFC00795AD8 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		A734E2EB25BABF0500795AD8 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				A734E2F125BABFB900795AD8 /* Scene.swift */,
+				A734E30725BAC67B00795AD8 /* SceneCoordinatorType.swift */,
+				A734E30A25BAC68900795AD8 /* TransitionStyle.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		A734E2EC25BABF0900795AD8 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		A734E30D25BACA6700795AD8 /* CoreDataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				A779013925BABE54001FA30D /* CalenDeck.xcdatamodeld */,
+			);
+			path = CoreDataStorage;
+			sourceTree = "<group>";
+		};
+		A734E31425BACA8C00795AD8 /* MemoryStorage */ = {
+			isa = PBXGroup;
+			children = (
+				A734E31925BACAAC00795AD8 /* MemoryStorage.swift */,
+				A734E31525BACA9C00795AD8 /* StorageType.swift */,
+			);
+			path = MemoryStorage;
+			sourceTree = "<group>";
+		};
 		A779012425BABE53001FA30D = {
 			isa = PBXGroup;
 			children = (
 				A779012F25BABE54001FA30D /* CalenDeck */,
 				A779012E25BABE54001FA30D /* Products */,
+				EF4AE8636A23C6F5B70A52C3 /* Pods */,
+				39C1F4827C4BE342BF46A04A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,16 +175,28 @@
 		A779012F25BABE54001FA30D /* CalenDeck */ = {
 			isa = PBXGroup;
 			children = (
+				A734E2EC25BABF0900795AD8 /* New Group */,
+				A734E2EB25BABF0500795AD8 /* Scene */,
+				A734E2EA25BABEFC00795AD8 /* Service */,
+				A734E2E925BABEF600795AD8 /* ViewController */,
+				A734E2E825BABEF000795AD8 /* ViewModel */,
+				A734E2E725BABEEB00795AD8 /* Storage */,
+				A734E2E625BABEE500795AD8 /* Model */,
 				A779013025BABE54001FA30D /* AppDelegate.swift */,
 				A779013225BABE54001FA30D /* SceneDelegate.swift */,
-				A779013425BABE54001FA30D /* ViewController.swift */,
-				A779013625BABE54001FA30D /* Main.storyboard */,
 				A779013C25BABE54001FA30D /* Assets.xcassets */,
-				A779013E25BABE54001FA30D /* LaunchScreen.storyboard */,
 				A779014125BABE54001FA30D /* Info.plist */,
-				A779013925BABE54001FA30D /* CalenDeck.xcdatamodeld */,
 			);
 			path = CalenDeck;
+			sourceTree = "<group>";
+		};
+		EF4AE8636A23C6F5B70A52C3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				742DC06493EBEAF89108A511 /* Pods-CalenDeck.debug.xcconfig */,
+				6DE070122562A23346BB14AC /* Pods-CalenDeck.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +206,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A779014425BABE54001FA30D /* Build configuration list for PBXNativeTarget "CalenDeck" */;
 			buildPhases = (
+				4F799F02BEB74C77D822FC92 /* [CP] Check Pods Manifest.lock */,
 				A779012925BABE54001FA30D /* Sources */,
 				A779012A25BABE54001FA30D /* Frameworks */,
 				A779012B25BABE54001FA30D /* Resources */,
+				74473374D9CAA803A46501FB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,15 +266,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4F799F02BEB74C77D822FC92 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CalenDeck-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		74473374D9CAA803A46501FB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CalenDeck/Pods-CalenDeck-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CalenDeck/Pods-CalenDeck-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CalenDeck/Pods-CalenDeck-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A779012925BABE54001FA30D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A779013B25BABE54001FA30D /* CalenDeck.xcdatamodeld in Sources */,
-				A779013525BABE54001FA30D /* ViewController.swift in Sources */,
+				A734E31625BACA9C00795AD8 /* StorageType.swift in Sources */,
+				A734E2FC25BAC57200795AD8 /* DeckViewModel.swift in Sources */,
+				A734E2F225BABFB900795AD8 /* Scene.swift in Sources */,
+				A734E2F925BAC56500795AD8 /* DeckViewController.swift in Sources */,
+				A734E2EE25BABF2800795AD8 /* Card.swift in Sources */,
+				A734E30825BAC67B00795AD8 /* SceneCoordinatorType.swift in Sources */,
 				A779013125BABE54001FA30D /* AppDelegate.swift in Sources */,
 				A779013325BABE54001FA30D /* SceneDelegate.swift in Sources */,
+				A734E31A25BACAAC00795AD8 /* MemoryStorage.swift in Sources */,
+				A734E2FF25BAC57A00795AD8 /* TimeLineViewModel.swift in Sources */,
+				A734E30B25BAC68900795AD8 /* TransitionStyle.swift in Sources */,
+				A734E30225BAC58600795AD8 /* ViewModelType.swift in Sources */,
+				A734E30525BAC5A900795AD8 /* ViewControllerBindableType.swift in Sources */,
+				A734E2F625BAC55900795AD8 /* TimeLineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +471,7 @@
 		};
 		A779014525BABE54001FA30D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 742DC06493EBEAF89108A511 /* Pods-CalenDeck.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -306,6 +491,7 @@
 		};
 		A779014625BABE54001FA30D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DE070122562A23346BB14AC /* Pods-CalenDeck.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
