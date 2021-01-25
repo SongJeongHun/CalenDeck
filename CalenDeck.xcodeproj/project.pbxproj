@@ -25,6 +25,7 @@
 		A779013B25BABE54001FA30D /* CalenDeck.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A779013925BABE54001FA30D /* CalenDeck.xcdatamodeld */; };
 		A779013D25BABE54001FA30D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A779013C25BABE54001FA30D /* Assets.xcassets */; };
 		A779014025BABE54001FA30D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A779013E25BABE54001FA30D /* LaunchScreen.storyboard */; };
+		A7A825CB25BE91F400634821 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A825CA25BE91F400634821 /* Coordinator.swift */; };
 		B3AEA730E65D67F5DC757A1E /* Pods_CalenDeck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E03D23FED6FBD59E9B6717 /* Pods_CalenDeck.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		A779013C25BABE54001FA30D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A779013F25BABE54001FA30D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A779014125BABE54001FA30D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7A825CA25BE91F400634821 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				A734E2F125BABFB900795AD8 /* Scene.swift */,
 				A734E30725BAC67B00795AD8 /* SceneCoordinatorType.swift */,
 				A734E30A25BAC68900795AD8 /* TransitionStyle.swift */,
+				A7A825CA25BE91F400634821 /* Coordinator.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7A825CB25BE91F400634821 /* Coordinator.swift in Sources */,
 				A779013B25BABE54001FA30D /* CalenDeck.xcdatamodeld in Sources */,
 				A734E31625BACA9C00795AD8 /* StorageType.swift in Sources */,
 				A734E2FC25BAC57200795AD8 /* DeckViewModel.swift in Sources */,

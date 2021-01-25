@@ -4,7 +4,6 @@
 //
 //  Created by 송정훈 on 2021/01/22.
 //
-
 import Foundation
 import RxSwift
 import RxCocoa
@@ -31,12 +30,13 @@ class MemoryStorage:StorageType{
         }
         store.onNext(list)
         return Observable.just(newCard)
-        
     }
     @discardableResult
     func delete(card: Card) -> Observable<Card> {
-         
+        if let index = list.firstIndex(where:{ $0 == card}){
+            self.list.remove(at: index)
+        }
+        store.onNext(list)
+        return Observable.just(card)
     }
-    
-    
 }

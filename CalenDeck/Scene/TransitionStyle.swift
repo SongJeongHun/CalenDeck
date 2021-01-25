@@ -11,7 +11,7 @@ enum TransitionStyle{
     case push
     case modal
 }
-enum TransitionError{
+enum TransitionError:Error{
     case navigationMissing
     case cannotPop
     case unKnown    
