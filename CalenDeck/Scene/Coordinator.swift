@@ -70,7 +70,4 @@ class Coordinator:SceneCoordinatorType{
             return Disposables.create()
         }
     }
-    
-   
-    
 }

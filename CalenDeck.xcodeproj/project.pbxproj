@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A703A77D25BFF34C001FABB3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = A703A77C25BFF34C001FABB3 /* Event.swift */; };
+		A703A78125BFF3C5001FABB3 /* EventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A703A78025BFF3C5001FABB3 /* EventHandler.swift */; };
+		A703A78425BFF97B001FABB3 /* EventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A703A78325BFF97B001FABB3 /* EventType.swift */; };
 		A734E2EE25BABF2800795AD8 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A734E2ED25BABF2800795AD8 /* Card.swift */; };
 		A734E2F225BABFB900795AD8 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A734E2F125BABFB900795AD8 /* Scene.swift */; };
 		A734E2F625BAC55900795AD8 /* TimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A734E2F525BAC55900795AD8 /* TimeLineViewController.swift */; };
@@ -33,6 +36,9 @@
 		62E03D23FED6FBD59E9B6717 /* Pods_CalenDeck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalenDeck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DE070122562A23346BB14AC /* Pods-CalenDeck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalenDeck.release.xcconfig"; path = "Target Support Files/Pods-CalenDeck/Pods-CalenDeck.release.xcconfig"; sourceTree = "<group>"; };
 		742DC06493EBEAF89108A511 /* Pods-CalenDeck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalenDeck.debug.xcconfig"; path = "Target Support Files/Pods-CalenDeck/Pods-CalenDeck.debug.xcconfig"; sourceTree = "<group>"; };
+		A703A77C25BFF34C001FABB3 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		A703A78025BFF3C5001FABB3 /* EventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHandler.swift; sourceTree = "<group>"; };
+		A703A78325BFF97B001FABB3 /* EventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventType.swift; sourceTree = "<group>"; };
 		A734E2ED25BABF2800795AD8 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		A734E2F125BABFB900795AD8 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		A734E2F525BAC55900795AD8 /* TimeLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +82,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A703A77B25BFF33C001FABB3 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				A703A77C25BFF34C001FABB3 /* Event.swift */,
+				A703A78025BFF3C5001FABB3 /* EventHandler.swift */,
+				A703A78325BFF97B001FABB3 /* EventType.swift */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
 		A734E2E625BABEE500795AD8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +103,7 @@
 		A734E2E725BABEEB00795AD8 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				A703A77B25BFF33C001FABB3 /* Event */,
 				A734E31425BACA8C00795AD8 /* MemoryStorage */,
 				A734E30D25BACA6700795AD8 /* CoreDataStorage */,
 			);
@@ -133,13 +150,6 @@
 			path = Scene;
 			sourceTree = "<group>";
 		};
-		A734E2EC25BABF0900795AD8 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		A734E30D25BACA6700795AD8 /* CoreDataStorage */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,7 +188,6 @@
 		A779012F25BABE54001FA30D /* CalenDeck */ = {
 			isa = PBXGroup;
 			children = (
-				A734E2EC25BABF0900795AD8 /* New Group */,
 				A734E2EB25BABF0500795AD8 /* Scene */,
 				A734E2EA25BABEFC00795AD8 /* Service */,
 				A734E2E925BABEF600795AD8 /* ViewController */,
@@ -319,14 +328,17 @@
 				A7A825CB25BE91F400634821 /* Coordinator.swift in Sources */,
 				A779013B25BABE54001FA30D /* CalenDeck.xcdatamodeld in Sources */,
 				A734E31625BACA9C00795AD8 /* StorageType.swift in Sources */,
+				A703A78125BFF3C5001FABB3 /* EventHandler.swift in Sources */,
 				A734E2FC25BAC57200795AD8 /* DeckViewModel.swift in Sources */,
 				A734E2F225BABFB900795AD8 /* Scene.swift in Sources */,
 				A734E2F925BAC56500795AD8 /* DeckViewController.swift in Sources */,
 				A734E2EE25BABF2800795AD8 /* Card.swift in Sources */,
 				A734E30825BAC67B00795AD8 /* SceneCoordinatorType.swift in Sources */,
+				A703A77D25BFF34C001FABB3 /* Event.swift in Sources */,
 				A779013125BABE54001FA30D /* AppDelegate.swift in Sources */,
 				A779013325BABE54001FA30D /* SceneDelegate.swift in Sources */,
 				A734E31A25BACAAC00795AD8 /* MemoryStorage.swift in Sources */,
+				A703A78425BFF97B001FABB3 /* EventType.swift in Sources */,
 				A734E2FF25BAC57A00795AD8 /* TimeLineViewModel.swift in Sources */,
 				A734E30B25BAC68900795AD8 /* TransitionStyle.swift in Sources */,
 				A734E30225BAC58600795AD8 /* ViewModelType.swift in Sources */,
@@ -408,7 +420,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -463,7 +475,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

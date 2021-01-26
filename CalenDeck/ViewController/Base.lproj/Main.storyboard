@@ -11,10 +11,10 @@
         <!--타임라인-->
         <scene sceneID="6SK-ik-XKn">
             <objects>
-                <navigationController id="aOc-KZ-bZK" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="timeLine" id="aOc-KZ-bZK" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="타임라인" image="doc.plaintext.fill" catalog="system" id="6Bn-se-6mg"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rOH-g5-3ge">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="rOH-g5-3ge">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -28,10 +28,10 @@
         <!--내 덱-->
         <scene sceneID="9Zo-aG-aH6">
             <objects>
-                <navigationController id="1TI-EB-SbT" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="deck" id="1TI-EB-SbT" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="내 덱" image="greetingcard.fill" catalog="system" id="j3J-co-QtI"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2v6-BV-xIm">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="2v6-BV-xIm">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -45,32 +45,98 @@
         <!--타임라인-->
         <scene sceneID="sWT-0v-upf">
             <objects>
-                <viewController id="I2g-fA-bPF" sceneMemberID="viewController">
+                <viewController id="I2g-fA-bPF" customClass="TimeLineViewController" customModule="CalenDeck" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="quO-RW-kL2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DME-5W-XhG">
-                                <rect key="frame" x="0.0" y="446" width="414" height="367"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ueN-Iw-Mux">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ueN-Iw-Mux" id="aZg-SA-l1Z">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aeh-gU-wGQ" customClass="FSCalendar">
                                 <rect key="frame" x="0.0" y="88" width="414" height="350"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="350" id="6Nr-Go-2Gi"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="firstWeekday">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="headerTitleColor">
+                                        <color key="value" red="0.093752376740000004" green="0.087143383919999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DME-5W-XhG">
+                                <rect key="frame" x="0.0" y="446" width="414" height="367"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="93" id="ueN-Iw-Mux">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="93"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ueN-Iw-Mux" id="aZg-SA-l1Z">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="93"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JH created 3 cards" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gV-hX-UMO">
+                                                    <rect key="frame" x="10" y="5" width="394" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ih-R7-z0e">
+                                                    <rect key="frame" x="10" y="34" width="394" height="54"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCU-xa-KJH">
+                                                            <rect key="frame" x="5" y="28" width="384" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ING-21-Lyw">
+                                                            <rect key="frame" x="366" y="5" width="23" height="22"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="22" id="OxN-LT-Hig"/>
+                                                                <constraint firstAttribute="width" constant="23" id="nkW-pp-P55"/>
+                                                            </constraints>
+                                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <state key="normal" image="hand.thumbsup.fill" catalog="system"/>
+                                                        </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ech-Us-o3m">
+                                                            <rect key="frame" x="5" y="5" width="361" height="21"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="ING-21-Lyw" secondAttribute="trailing" constant="5" id="5Yc-Z7-JdA"/>
+                                                        <constraint firstItem="Ech-Us-o3m" firstAttribute="top" secondItem="4Ih-R7-z0e" secondAttribute="top" constant="5" id="68a-ID-72B"/>
+                                                        <constraint firstAttribute="bottom" secondItem="JCU-xa-KJH" secondAttribute="bottom" constant="5" id="EEv-Mq-2rJ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="JCU-xa-KJH" secondAttribute="trailing" constant="5" id="ESs-Ia-jRZ"/>
+                                                        <constraint firstItem="ING-21-Lyw" firstAttribute="top" secondItem="4Ih-R7-z0e" secondAttribute="top" constant="5" id="I6k-MT-vr8"/>
+                                                        <constraint firstItem="JCU-xa-KJH" firstAttribute="leading" secondItem="4Ih-R7-z0e" secondAttribute="leading" constant="5" id="KKT-Z6-ldP"/>
+                                                        <constraint firstItem="JCU-xa-KJH" firstAttribute="top" secondItem="Ech-Us-o3m" secondAttribute="bottom" constant="2" id="SjM-Kh-Emd"/>
+                                                        <constraint firstItem="Ech-Us-o3m" firstAttribute="leading" secondItem="4Ih-R7-z0e" secondAttribute="leading" constant="5" id="aEz-dc-vZR"/>
+                                                        <constraint firstItem="ING-21-Lyw" firstAttribute="leading" secondItem="Ech-Us-o3m" secondAttribute="trailing" id="qtv-G3-nl5"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4Ih-R7-z0e" firstAttribute="leading" secondItem="aZg-SA-l1Z" secondAttribute="leading" constant="10" id="9C7-BN-Oki"/>
+                                                <constraint firstAttribute="trailing" secondItem="8gV-hX-UMO" secondAttribute="trailing" constant="10" id="9hJ-Yp-cws"/>
+                                                <constraint firstAttribute="trailing" secondItem="4Ih-R7-z0e" secondAttribute="trailing" constant="10" id="CZw-tJ-jeZ"/>
+                                                <constraint firstAttribute="bottom" secondItem="4Ih-R7-z0e" secondAttribute="bottom" constant="5" id="Emt-xF-TbS"/>
+                                                <constraint firstItem="8gV-hX-UMO" firstAttribute="top" secondItem="aZg-SA-l1Z" secondAttribute="top" constant="5" id="RGa-J0-OPM"/>
+                                                <constraint firstItem="8gV-hX-UMO" firstAttribute="leading" secondItem="aZg-SA-l1Z" secondAttribute="leading" constant="10" id="fLA-Gl-vEa"/>
+                                                <constraint firstItem="4Ih-R7-z0e" firstAttribute="top" secondItem="8gV-hX-UMO" secondAttribute="bottom" constant="8" symbolic="YES" id="yxO-bu-1i4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eNl-hG-R9O"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -94,13 +160,13 @@
         <!--내 덱 ( 30 )-->
         <scene sceneID="ds9-7q-fNN">
             <objects>
-                <viewController id="JoK-nM-5JP" sceneMemberID="viewController">
+                <viewController id="JoK-nM-5JP" customClass="DeckViewController" customModule="CalenDeck" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WYz-wo-End">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKE-L0-VKn">
-                                <rect key="frame" x="40" y="148" width="334" height="605"/>
+                                <rect key="frame" x="40" y="200" width="334" height="553"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -117,6 +183,9 @@
                         <barButtonItem key="leftBarButtonItem" title="1월" id="HhH-42-Pjf"/>
                         <barButtonItem key="rightBarButtonItem" title="덱리스트" id="Q50-qp-HuQ"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="currentCard" destination="EKE-L0-VKn" id="FTG-4f-N3a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DW3-7e-ol5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -125,7 +194,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="9Bh-59-eLP">
             <objects>
-                <tabBarController id="4qT-NF-qFC" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="main" id="4qT-NF-qFC" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KKt-e8-Zst">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -147,8 +216,8 @@
             <objects>
                 <navigationController id="DcL-hb-TSC" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="친구" image="person.fill" catalog="system" id="8Mq-vS-dFe"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="c8q-Tb-8I6">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="c8q-Tb-8I6">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                 </navigationController>
@@ -175,6 +244,7 @@
         <image name="doc.plaintext.fill" catalog="system" width="115" height="128"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="greetingcard.fill" catalog="system" width="106" height="128"/>
+        <image name="hand.thumbsup.fill" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
