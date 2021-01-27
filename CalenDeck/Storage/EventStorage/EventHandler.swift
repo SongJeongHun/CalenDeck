@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 import RxSwift
 class EventHandler:EventType{
-
     private let myID: String
     var eventList:[Event] = []
     lazy var store = BehaviorSubject<[Event]>(value: eventList)

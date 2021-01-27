@@ -7,9 +7,11 @@
 
 import Foundation
 class ViewModeltype{
+    let userID:String
     let sceneCoordinator:SceneCoordinatorType
     let storage:StorageType
-    init(sceneCoordinator:SceneCoordinatorType,storage:StorageType){
+    init(sceneCoordinator:SceneCoordinatorType,storage:StorageType,userID:String){
+        self.userID = userID
         self.sceneCoordinator = sceneCoordinator
         self.storage = storage
     }

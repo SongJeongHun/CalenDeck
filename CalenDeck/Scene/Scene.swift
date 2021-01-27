@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 enum Scene{
     case main(TimeLineViewModel,DeckViewModel)
+    case login(LoginViewModel)
 }
 extension Scene{
     func instantiate(from storyboard:String = "Main") -> UIViewController{
@@ -23,6 +24,10 @@ extension Scene{
             timeLineVC.bind(viewModel: timeLineViewModel)
             deckVC.bind(viewModel: deckViewModel)
             return mainTVC
+        case .login(let loginViewModel):
+            guard var loginVC = storyboard.instantiateViewController(identifier: "login") as? LoginViewController else { fatalError() }
+            loginVC.bind(viewModel: loginViewModel)
+            return loginVC
         }
     }
 }

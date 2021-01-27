@@ -10,6 +10,4 @@ import RxSwift
 import RxCocoa
 import Action
 class TimeLineViewModel:ViewModeltype{
-    
-        
 }

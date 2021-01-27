@@ -7,17 +7,18 @@
 
 import UIKit
 import CoreData
+import Firebase
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
         let storage = MemoryStorage()
         let coordinator = Coordinator(window: window!)
-        let timeLineVM = TimeLineViewModel(sceneCoordinator: coordinator, storage: storage)
-        let deckVM = DeckViewModel(sceneCoordinator: coordinator, storage: storage)
-        let timeLineScene = Scene.main(timeLineVM, deckVM)
-        coordinator.trainsition(to: timeLineScene, using: .root, animated: true)
+        let loginVM = LoginViewModel(sceneCoordinator: coordinator, storage: storage, userID: "")
+        let loginScene = Scene.login(loginVM)
+        coordinator.trainsition(to: loginScene, using: .root, animated: true)
         return true
     }
     // MARK: - Core Data stack

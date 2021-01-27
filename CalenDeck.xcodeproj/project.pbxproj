@@ -10,6 +10,7 @@
 		A703A77D25BFF34C001FABB3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = A703A77C25BFF34C001FABB3 /* Event.swift */; };
 		A703A78125BFF3C5001FABB3 /* EventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A703A78025BFF3C5001FABB3 /* EventHandler.swift */; };
 		A703A78425BFF97B001FABB3 /* EventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A703A78325BFF97B001FABB3 /* EventType.swift */; };
+		A703A78A25C0071A001FABB3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A703A78925C0071A001FABB3 /* GoogleService-Info.plist */; };
 		A734E2EE25BABF2800795AD8 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A734E2ED25BABF2800795AD8 /* Card.swift */; };
 		A734E2F225BABFB900795AD8 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A734E2F125BABFB900795AD8 /* Scene.swift */; };
 		A734E2F625BAC55900795AD8 /* TimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A734E2F525BAC55900795AD8 /* TimeLineViewController.swift */; };
@@ -28,6 +29,9 @@
 		A779013B25BABE54001FA30D /* CalenDeck.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A779013925BABE54001FA30D /* CalenDeck.xcdatamodeld */; };
 		A779013D25BABE54001FA30D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A779013C25BABE54001FA30D /* Assets.xcassets */; };
 		A779014025BABE54001FA30D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A779013E25BABE54001FA30D /* LaunchScreen.storyboard */; };
+		A789A9CB25C13C7200B80A76 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A789A9CA25C13C7200B80A76 /* LoginViewController.swift */; };
+		A789A9D125C13E4000B80A76 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A789A9D025C13E4000B80A76 /* LoginViewModel.swift */; };
+		A789A9D425C153EA00B80A76 /* AppleLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A789A9D325C153E900B80A76 /* AppleLoginViewController.swift */; };
 		A7A825CB25BE91F400634821 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A825CA25BE91F400634821 /* Coordinator.swift */; };
 		B3AEA730E65D67F5DC757A1E /* Pods_CalenDeck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E03D23FED6FBD59E9B6717 /* Pods_CalenDeck.framework */; };
 /* End PBXBuildFile section */
@@ -39,6 +43,7 @@
 		A703A77C25BFF34C001FABB3 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		A703A78025BFF3C5001FABB3 /* EventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHandler.swift; sourceTree = "<group>"; };
 		A703A78325BFF97B001FABB3 /* EventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventType.swift; sourceTree = "<group>"; };
+		A703A78925C0071A001FABB3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A734E2ED25BABF2800795AD8 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		A734E2F125BABFB900795AD8 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		A734E2F525BAC55900795AD8 /* TimeLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +64,10 @@
 		A779013C25BABE54001FA30D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A779013F25BABE54001FA30D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A779014125BABE54001FA30D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A789A9CA25C13C7200B80A76 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A789A9CE25C13DB800B80A76 /* CalenDeck.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalenDeck.entitlements; sourceTree = "<group>"; };
+		A789A9D025C13E4000B80A76 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		A789A9D325C153E900B80A76 /* AppleLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginViewController.swift; sourceTree = "<group>"; };
 		A7A825CA25BE91F400634821 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,14 +91,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A703A77B25BFF33C001FABB3 /* Event */ = {
+		A703A77B25BFF33C001FABB3 /* EventStorage */ = {
 			isa = PBXGroup;
 			children = (
 				A703A77C25BFF34C001FABB3 /* Event.swift */,
 				A703A78025BFF3C5001FABB3 /* EventHandler.swift */,
 				A703A78325BFF97B001FABB3 /* EventType.swift */,
 			);
-			path = Event;
+			path = EventStorage;
 			sourceTree = "<group>";
 		};
 		A734E2E625BABEE500795AD8 /* Model */ = {
@@ -103,7 +112,7 @@
 		A734E2E725BABEEB00795AD8 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				A703A77B25BFF33C001FABB3 /* Event */,
+				A703A77B25BFF33C001FABB3 /* EventStorage */,
 				A734E31425BACA8C00795AD8 /* MemoryStorage */,
 				A734E30D25BACA6700795AD8 /* CoreDataStorage */,
 			);
@@ -116,6 +125,7 @@
 				A734E2FB25BAC57200795AD8 /* DeckViewModel.swift */,
 				A734E2FE25BAC57A00795AD8 /* TimeLineViewModel.swift */,
 				A734E30125BAC58600795AD8 /* ViewModelType.swift */,
+				A789A9D025C13E4000B80A76 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -128,6 +138,8 @@
 				A734E2F525BAC55900795AD8 /* TimeLineViewController.swift */,
 				A734E2F825BAC56500795AD8 /* DeckViewController.swift */,
 				A734E30425BAC5A900795AD8 /* ViewControllerBindableType.swift */,
+				A789A9CA25C13C7200B80A76 /* LoginViewController.swift */,
+				A789A9D325C153E900B80A76 /* AppleLoginViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -188,6 +200,7 @@
 		A779012F25BABE54001FA30D /* CalenDeck */ = {
 			isa = PBXGroup;
 			children = (
+				A789A9CE25C13DB800B80A76 /* CalenDeck.entitlements */,
 				A734E2EB25BABF0500795AD8 /* Scene */,
 				A734E2EA25BABEFC00795AD8 /* Service */,
 				A734E2E925BABEF600795AD8 /* ViewController */,
@@ -198,6 +211,7 @@
 				A779013225BABE54001FA30D /* SceneDelegate.swift */,
 				A779013C25BABE54001FA30D /* Assets.xcassets */,
 				A779014125BABE54001FA30D /* Info.plist */,
+				A703A78925C0071A001FABB3 /* GoogleService-Info.plist */,
 			);
 			path = CalenDeck;
 			sourceTree = "<group>";
@@ -271,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A779014025BABE54001FA30D /* LaunchScreen.storyboard in Resources */,
+				A703A78A25C0071A001FABB3 /* GoogleService-Info.plist in Resources */,
 				A779013D25BABE54001FA30D /* Assets.xcassets in Resources */,
 				A779013825BABE54001FA30D /* Main.storyboard in Resources */,
 			);
@@ -328,11 +343,13 @@
 				A7A825CB25BE91F400634821 /* Coordinator.swift in Sources */,
 				A779013B25BABE54001FA30D /* CalenDeck.xcdatamodeld in Sources */,
 				A734E31625BACA9C00795AD8 /* StorageType.swift in Sources */,
+				A789A9D425C153EA00B80A76 /* AppleLoginViewController.swift in Sources */,
 				A703A78125BFF3C5001FABB3 /* EventHandler.swift in Sources */,
 				A734E2FC25BAC57200795AD8 /* DeckViewModel.swift in Sources */,
 				A734E2F225BABFB900795AD8 /* Scene.swift in Sources */,
 				A734E2F925BAC56500795AD8 /* DeckViewController.swift in Sources */,
 				A734E2EE25BABF2800795AD8 /* Card.swift in Sources */,
+				A789A9CB25C13C7200B80A76 /* LoginViewController.swift in Sources */,
 				A734E30825BAC67B00795AD8 /* SceneCoordinatorType.swift in Sources */,
 				A703A77D25BFF34C001FABB3 /* Event.swift in Sources */,
 				A779013125BABE54001FA30D /* AppDelegate.swift in Sources */,
@@ -344,6 +361,7 @@
 				A734E30225BAC58600795AD8 /* ViewModelType.swift in Sources */,
 				A734E30525BAC5A900795AD8 /* ViewControllerBindableType.swift in Sources */,
 				A734E2F625BAC55900795AD8 /* TimeLineViewController.swift in Sources */,
+				A789A9D125C13E4000B80A76 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,8 +509,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CalenDeck/CalenDeck.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CH57QT784A;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CalenDeck/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -511,8 +530,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CalenDeck/CalenDeck.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CH57QT784A;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CalenDeck/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
