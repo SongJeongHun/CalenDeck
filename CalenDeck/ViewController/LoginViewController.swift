@@ -38,6 +38,7 @@ class LoginViewController: UIViewController,ViewControllerBindableType {
         register.layer.cornerRadius = 7.0
         findPassword.layer.cornerRadius = 7.0
         loginStackView.layer.cornerRadius = 7.0
+        userPassword.isSecureTextEntry = true
     }
     func bindViewModel() {
         
