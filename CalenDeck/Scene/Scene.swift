@@ -10,6 +10,7 @@ import UIKit
 enum Scene{
     case main(TimeLineViewModel,DeckViewModel)
     case login(LoginViewModel)
+    case join(JoinViewModel)
 }
 extension Scene{
     func instantiate(from storyboard:String = "Main") -> UIViewController{
@@ -28,6 +29,11 @@ extension Scene{
             guard var loginVC = storyboard.instantiateViewController(identifier: "login") as? LoginViewController else { fatalError() }
             loginVC.bind(viewModel: loginViewModel)
             return loginVC
+        case .join(let joinViewModel):
+            guard var joinVC = storyboard.instantiateViewController(identifier: "join") as? UserJoinViewController else { fatalError() }
+            joinVC.bind(viewModel: joinViewModel)
+            return joinVC
         }
+    
     }
 }

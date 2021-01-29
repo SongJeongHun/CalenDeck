@@ -32,6 +32,8 @@
 		A789A9CB25C13C7200B80A76 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A789A9CA25C13C7200B80A76 /* LoginViewController.swift */; };
 		A789A9D125C13E4000B80A76 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A789A9D025C13E4000B80A76 /* LoginViewModel.swift */; };
 		A789A9D425C153EA00B80A76 /* AppleLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A789A9D325C153E900B80A76 /* AppleLoginViewController.swift */; };
+		A78F4D5325C3D1CF00FC0CB9 /* UserJoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78F4D5225C3D1CF00FC0CB9 /* UserJoinViewController.swift */; };
+		A78F4D5825C3D22B00FC0CB9 /* JoinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78F4D5725C3D22B00FC0CB9 /* JoinViewModel.swift */; };
 		A7A825CB25BE91F400634821 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A825CA25BE91F400634821 /* Coordinator.swift */; };
 		B3AEA730E65D67F5DC757A1E /* Pods_CalenDeck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E03D23FED6FBD59E9B6717 /* Pods_CalenDeck.framework */; };
 /* End PBXBuildFile section */
@@ -68,6 +70,8 @@
 		A789A9CE25C13DB800B80A76 /* CalenDeck.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalenDeck.entitlements; sourceTree = "<group>"; };
 		A789A9D025C13E4000B80A76 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		A789A9D325C153E900B80A76 /* AppleLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginViewController.swift; sourceTree = "<group>"; };
+		A78F4D5225C3D1CF00FC0CB9 /* UserJoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserJoinViewController.swift; sourceTree = "<group>"; };
+		A78F4D5725C3D22B00FC0CB9 /* JoinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewModel.swift; sourceTree = "<group>"; };
 		A7A825CA25BE91F400634821 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,8 +128,9 @@
 			children = (
 				A734E2FB25BAC57200795AD8 /* DeckViewModel.swift */,
 				A734E2FE25BAC57A00795AD8 /* TimeLineViewModel.swift */,
-				A734E30125BAC58600795AD8 /* ViewModelType.swift */,
 				A789A9D025C13E4000B80A76 /* LoginViewModel.swift */,
+				A78F4D5725C3D22B00FC0CB9 /* JoinViewModel.swift */,
+				A734E30125BAC58600795AD8 /* ViewModelType.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -133,13 +138,11 @@
 		A734E2E925BABEF600795AD8 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A78F4D5125C3D13F00FC0CB9 /* Login */,
+				A78F4D5025C3D13C00FC0CB9 /* main */,
 				A779013625BABE54001FA30D /* Main.storyboard */,
 				A779013E25BABE54001FA30D /* LaunchScreen.storyboard */,
-				A734E2F525BAC55900795AD8 /* TimeLineViewController.swift */,
-				A734E2F825BAC56500795AD8 /* DeckViewController.swift */,
 				A734E30425BAC5A900795AD8 /* ViewControllerBindableType.swift */,
-				A789A9CA25C13C7200B80A76 /* LoginViewController.swift */,
-				A789A9D325C153E900B80A76 /* AppleLoginViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -214,6 +217,25 @@
 				A703A78925C0071A001FABB3 /* GoogleService-Info.plist */,
 			);
 			path = CalenDeck;
+			sourceTree = "<group>";
+		};
+		A78F4D5025C3D13C00FC0CB9 /* main */ = {
+			isa = PBXGroup;
+			children = (
+				A734E2F525BAC55900795AD8 /* TimeLineViewController.swift */,
+				A734E2F825BAC56500795AD8 /* DeckViewController.swift */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		A78F4D5125C3D13F00FC0CB9 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A789A9D325C153E900B80A76 /* AppleLoginViewController.swift */,
+				A789A9CA25C13C7200B80A76 /* LoginViewController.swift */,
+				A78F4D5225C3D1CF00FC0CB9 /* UserJoinViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		EF4AE8636A23C6F5B70A52C3 /* Pods */ = {
@@ -342,6 +364,7 @@
 			files = (
 				A7A825CB25BE91F400634821 /* Coordinator.swift in Sources */,
 				A779013B25BABE54001FA30D /* CalenDeck.xcdatamodeld in Sources */,
+				A78F4D5825C3D22B00FC0CB9 /* JoinViewModel.swift in Sources */,
 				A734E31625BACA9C00795AD8 /* StorageType.swift in Sources */,
 				A789A9D425C153EA00B80A76 /* AppleLoginViewController.swift in Sources */,
 				A703A78125BFF3C5001FABB3 /* EventHandler.swift in Sources */,
@@ -352,6 +375,7 @@
 				A789A9CB25C13C7200B80A76 /* LoginViewController.swift in Sources */,
 				A734E30825BAC67B00795AD8 /* SceneCoordinatorType.swift in Sources */,
 				A703A77D25BFF34C001FABB3 /* Event.swift in Sources */,
+				A78F4D5325C3D1CF00FC0CB9 /* UserJoinViewController.swift in Sources */,
 				A779013125BABE54001FA30D /* AppDelegate.swift in Sources */,
 				A779013325BABE54001FA30D /* SceneDelegate.swift in Sources */,
 				A734E31A25BACAAC00795AD8 /* MemoryStorage.swift in Sources */,
