@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import Action
 import AuthenticationServices
 class LoginViewController: UIViewController,ViewControllerBindableType {
     var viewModel:LoginViewModel!
@@ -41,6 +42,6 @@ class LoginViewController: UIViewController,ViewControllerBindableType {
         userPassword.isSecureTextEntry = true
     }
     func bindViewModel() {
-        
+        register.rx.action = viewModel.userJoinAction()
     }
 }

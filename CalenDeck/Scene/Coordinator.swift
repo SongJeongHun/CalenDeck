@@ -16,7 +16,7 @@ extension UIViewController{
 class Coordinator:SceneCoordinatorType{
     private let bag = DisposeBag()
     private var window:UIWindow
-    private var currentVC:UIViewController
+    var currentVC:UIViewController
     required init(window:UIWindow){
         self.window = window
         currentVC = window.rootViewController!
@@ -49,7 +49,6 @@ class Coordinator:SceneCoordinatorType{
         }
         return subject.ignoreElements()
     }
-    
     func close(animated: Bool) -> Completable {
         return Completable.create{[unowned self]completable in
             if let presentingVC = self.currentVC.presentingViewController{
