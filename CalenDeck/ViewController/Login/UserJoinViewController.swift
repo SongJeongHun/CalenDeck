@@ -13,9 +13,11 @@ class UserJoinViewController: UIViewController,ViewControllerBindableType {
     @IBOutlet weak var confirmButton:UIButton!
     @IBOutlet weak var joinPanel:UIView!
     @IBOutlet weak var userID:UITextField!
+    @IBOutlet weak var userIDValidationCheckButton:UIButton!
     @IBOutlet weak var userPassword:UITextField!
     @IBOutlet weak var userPasswordConfirm:UITextField!
     @IBOutlet weak var userEmail:UITextField!
+    var userIDValidationCheck = false
     var userValidationList:[Bool] = [false,false,false,false]
     lazy var userValidation = BehaviorSubject<[Bool]>(value: userValidationList)
     override func viewWillAppear(_ animated: Bool) {
@@ -70,7 +72,7 @@ class UserJoinViewController: UIViewController,ViewControllerBindableType {
         userEmail.rx.text
             .subscribe(onNext:{text in
                 if let email = text{
-                    if self.isValidEmail(testStr: email){
+                    if self.viewModel.isValidEmail(testStr: email){
                         self.userValidationList[3] = true
                         self.userValidation.onNext(self.userValidationList)
                         self.userEmail.layer.borderColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
@@ -92,12 +94,21 @@ class UserJoinViewController: UIViewController,ViewControllerBindableType {
                     self.confirmButton.isEnabled = false
                 }
             })
-            .disposed(by: rx.disposeBag)ç
-    }
-    func isValidEmail(testStr:String) -> Bool {
-          let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-          let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-          return emailTest.evaluate(with: testStr)
+            .disposed(by: rx.disposeBag)
+        userIDValidationCheckButton.rx.action = viewModel.userIDValidationCheckAction()
+        confirmButton.rx.tap
+            .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
+            .subscribe(onNext:{
+                let client = User(userID: self.userID.text!, userPassword: self.userPassword.text!, userEmail: self.userEmail.text!)
+                self.viewModel.userStorage.userJoin(client: client)
+            })
+            .disposed(by: rx.disposeBag)
+        userIDValidationCheckButton.rx.tap
+            .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
+            .subscribe(onNext:{
+                self.viewModel.userStorage.userIDValidationCheck()
+            })
+            .disposed(by: rx.disposeBag)
     }
     func setUI(){
         confirmButton.layer.cornerRadius = 5.0

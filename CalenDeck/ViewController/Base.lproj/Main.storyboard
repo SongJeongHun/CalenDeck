@@ -363,16 +363,30 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Io4-3m-yKG">
+                                        <rect key="frame" x="315" y="10" width="30" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vNH-em-hJU">
+                                        <rect key="frame" x="306" y="10" width="35" height="34"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+                                        <state key="normal" title="중복검사">
+                                            <color key="titleColor" systemColor="systemRedColor"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="JLU-V9-fNV" firstAttribute="top" secondItem="HPH-gn-Vaq" secondAttribute="bottom" constant="20" id="19Q-IB-HaH"/>
                                     <constraint firstAttribute="trailing" secondItem="JLU-V9-fNV" secondAttribute="trailing" constant="8" id="CiM-Y8-D4g"/>
                                     <constraint firstItem="JLU-V9-fNV" firstAttribute="leading" secondItem="mMu-av-sw4" secondAttribute="leading" constant="8" id="Fzt-pl-TxC"/>
+                                    <constraint firstItem="vNH-em-hJU" firstAttribute="bottom" secondItem="YiU-bT-ZUW" secondAttribute="bottom" id="IWR-P0-tnJ"/>
                                     <constraint firstItem="G1Z-a0-wgB" firstAttribute="top" secondItem="YiU-bT-ZUW" secondAttribute="bottom" constant="20" id="Kme-me-y7O"/>
                                     <constraint firstItem="YiU-bT-ZUW" firstAttribute="leading" secondItem="mMu-av-sw4" secondAttribute="leading" constant="8" id="RZU-bZ-WKR"/>
+                                    <constraint firstItem="vNH-em-hJU" firstAttribute="trailing" secondItem="YiU-bT-ZUW" secondAttribute="trailing" constant="-5" id="SAN-ra-LBu"/>
                                     <constraint firstItem="HPH-gn-Vaq" firstAttribute="leading" secondItem="mMu-av-sw4" secondAttribute="leading" constant="8" id="Sdm-Mt-Eu0"/>
                                     <constraint firstAttribute="trailing" secondItem="G1Z-a0-wgB" secondAttribute="trailing" constant="8" id="ZCY-KU-kml"/>
+                                    <constraint firstItem="vNH-em-hJU" firstAttribute="top" secondItem="YiU-bT-ZUW" secondAttribute="top" id="a5W-4p-Xkw"/>
                                     <constraint firstAttribute="trailing" secondItem="YiU-bT-ZUW" secondAttribute="trailing" constant="8" id="ag5-Ic-5US"/>
                                     <constraint firstAttribute="trailing" secondItem="HPH-gn-Vaq" secondAttribute="trailing" constant="8" id="lAe-0k-YKm"/>
                                     <constraint firstItem="YiU-bT-ZUW" firstAttribute="top" secondItem="mMu-av-sw4" secondAttribute="top" constant="10" id="lMf-wG-mnu"/>
@@ -406,13 +420,14 @@
                         <outlet property="joinPanel" destination="mMu-av-sw4" id="QwX-3n-vM9"/>
                         <outlet property="userEmail" destination="JLU-V9-fNV" id="Tbh-Kn-Wwe"/>
                         <outlet property="userID" destination="YiU-bT-ZUW" id="LuO-F4-e1Z"/>
+                        <outlet property="userIDValidationCheckButton" destination="vNH-em-hJU" id="S1G-tm-ObD"/>
                         <outlet property="userPassword" destination="G1Z-a0-wgB" id="BPc-hR-4EW"/>
                         <outlet property="userPasswordConfirm" destination="HPH-gn-Vaq" id="89P-fD-74Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u4I-eJ-289" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="723" y="-258"/>
+            <point key="canvasLocation" x="721.73913043478262" y="-258.48214285714283"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="9Bh-59-eLP">
@@ -475,6 +490,9 @@
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
