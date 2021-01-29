@@ -11,5 +11,5 @@ protocol UserStorageType {
     @discardableResult
     func userJoin(client:User) -> Completable
     @discardableResult
-    func userIDValidationCheck() -> Observable<Bool>
+    func userIDValidationCheck(userID:String) -> Observable<Bool>
 }

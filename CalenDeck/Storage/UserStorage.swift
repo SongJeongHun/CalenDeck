@@ -26,14 +26,17 @@ class UserStorage:UserStorageType{
         return subject.ignoreElements()
     }
     @discardableResult
-    func userIDValidationCheck() -> Observable<Bool> {
-        let subject = BehaviorSubject<Bool>(value:false)
+    func userIDValidationCheck(userID:String) -> Observable<Bool> {
+        let subject = PublishSubject<Bool>()
         ref.child("users").rx
-            .observeEvent(.value)
-            .subscribe(onNext: {data in
-                
-                
-                
+            .observeSingleEvent(.value)
+            .subscribe(onSuccess: {snap in
+                let data = snap.value! as! Dictionary<String,Any>
+                if data.keys.contains(userID){
+                    subject.onNext(false)
+                }else{
+                    subject.onNext(true)
+                }
             })
             .disposed(by: bag)
         return subject

@@ -18,7 +18,7 @@ class UserJoinViewController: UIViewController,ViewControllerBindableType {
     @IBOutlet weak var userPasswordConfirm:UITextField!
     @IBOutlet weak var userEmail:UITextField!
     var userIDValidationCheck = false
-    var userValidationList:[Bool] = [false,false,false,false]
+    var userValidationList:[Bool] = [false,false,false,false,false]
     lazy var userValidation = BehaviorSubject<[Bool]>(value: userValidationList)
     override func viewWillAppear(_ animated: Bool) {
         setUI()
@@ -106,7 +106,21 @@ class UserJoinViewController: UIViewController,ViewControllerBindableType {
         userIDValidationCheckButton.rx.tap
             .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
             .subscribe(onNext:{
-                self.viewModel.userStorage.userIDValidationCheck()
+                self.viewModel.userStorage.userIDValidationCheck(userID: self.userID.text!)
+                    .subscribe(onNext:{valid in
+                        if valid{
+                            self.userValidationList[4] = true
+                            self.userID.isEnabled = false
+                            self.userValidation.onNext(self.userValidationList)
+                            self.userIDValidationCheckButton.titleLabel?.textColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+                        }else{
+                            self.userValidationList[4] = false
+                            self.userValidation.onNext(self.userValidationList)
+                            self.userIDValidationCheckButton.titleLabel?.textColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+                        }
+                    },onError: {error in
+                        print(error)
+                    })
             })
             .disposed(by: rx.disposeBag)
     }
