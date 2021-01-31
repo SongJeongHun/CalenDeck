@@ -16,7 +16,7 @@ class UserStorage:UserStorageType{
     func userJoin(client:User) -> Completable {
         let subject = PublishSubject<Void>()
         ref.child("users").child(client.userID).rx
-            .setValue(["userID":client.userID,"userPassWord":client.userPassword,"userEmail":client.userPassword])
+            .setValue(["userID":client.userID,"userPassWord":client.userPassword,"userEmail":client.userEmail])
             .subscribe { _ in
                 subject.onCompleted()
             } onError: { error in
@@ -37,8 +37,30 @@ class UserStorage:UserStorageType{
                 }else{
                     subject.onNext(true)
                 }
+            },onError: { error in
+                subject.onError(error)
             })
             .disposed(by: bag)
         return subject
+    }
+    @discardableResult
+    func login(userID:String,userPassword:String) -> Completable{
+        let subject = PublishSubject<Void>()
+        ref.child("users").child(userID).rx
+            .observeSingleEvent(.value)
+            .subscribe(onSuccess:{snap in
+                if snap.exists(){
+                    let data = snap.value! as! Dictionary<String,Any>
+                    if data["userPassWord"] as! String == userPassword{
+                        subject.onCompleted()
+                    }else{
+                        subject.onError(UserError.userPasswordMissing)
+                    }
+                }else{
+                    subject.onError(UserError.userIDMissing)
+                }
+            })
+            .disposed(by: bag)
+        return subject.ignoreElements()
     }
 }

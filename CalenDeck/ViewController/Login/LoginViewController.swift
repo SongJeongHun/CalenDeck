@@ -12,8 +12,8 @@ import AuthenticationServices
 class LoginViewController: UIViewController,ViewControllerBindableType {
     var viewModel:LoginViewModel!
     @IBOutlet weak var userID:UITextField!
-    @IBOutlet weak var loginPanel:UIView!
     @IBOutlet weak var userPassword:UITextField!
+    @IBOutlet weak var loginPanel:UIView!
     @IBOutlet weak var submit:UIButton!
     @IBOutlet weak var register:UIButton!
     @IBOutlet weak var findPassword:UIButton!
@@ -43,5 +43,21 @@ class LoginViewController: UIViewController,ViewControllerBindableType {
     }
     func bindViewModel() {
         register.rx.action = viewModel.userJoinAction()
+        submit.rx.tap
+            .throttle(.milliseconds(5000), scheduler: MainScheduler.instance)
+            .subscribe(onNext:{_ in
+                guard let id = self.userID.text else { return }
+                guard let password = self.userPassword.text else { return }
+                if id == "" || password == ""{
+                    self.present(self.viewModel.loginFailAlert(),animated: true,completion: nil)
+                }else{
+                    self.viewModel.userStorage.login(userID:id , userPassword: password)
+                        .subscribe(onCompleted:{
+                            print("성공")
+                        }) { error in
+                            self.present(self.viewModel.loginFailAlert(),animated: true,completion: nil)
+                        }
+                }
+            })
     }
 }

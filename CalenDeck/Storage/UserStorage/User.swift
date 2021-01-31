@@ -16,3 +16,9 @@ struct User :Equatable{
         self.userEmail = userEmail
     }
 }
+enum UserError:Error{
+    case userIDMissing
+    case userPasswordMissing
+    case unknown
+}
+
