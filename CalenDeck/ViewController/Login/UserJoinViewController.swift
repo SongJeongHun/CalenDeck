@@ -95,12 +95,22 @@ class UserJoinViewController: UIViewController,ViewControllerBindableType {
                 }
             })
             .disposed(by: rx.disposeBag)
+        
         userIDValidationCheckButton.rx.action = viewModel.userIDValidationCheckAction()
         confirmButton.rx.tap
             .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
             .subscribe(onNext:{
                 let client = User(userID: self.userID.text!, userPassword: self.userPassword.text!, userEmail: self.userEmail.text!)
                 self.viewModel.userStorage.userJoin(client: client)
+                    .subscribe {_ in
+                        let alertController = UIAlertController(title: "알림", message: "가입 성공!", preferredStyle: .alert)
+                        let ok = UIAlertAction(title: "확인", style: .default, handler: {_ in
+                            self.presentingViewController?.dismiss(animated: true, completion: nil)
+                        })
+                        alertController.addAction(ok)
+                        self.present(alertController,animated: true,completion:nil)
+                    }
+                    .disposed(by: self.rx.disposeBag)
             })
             .disposed(by: rx.disposeBag)
         userIDValidationCheckButton.rx.tap
@@ -121,6 +131,7 @@ class UserJoinViewController: UIViewController,ViewControllerBindableType {
                     },onError: {error in
                         print(error)
                     })
+                    .disposed(by: self.rx.disposeBag)
             })
             .disposed(by: rx.disposeBag)
     }

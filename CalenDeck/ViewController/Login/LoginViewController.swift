@@ -53,11 +53,13 @@ class LoginViewController: UIViewController,ViewControllerBindableType {
                 }else{
                     self.viewModel.userStorage.login(userID:id , userPassword: password)
                         .subscribe(onCompleted:{
-                            print("성공")
+                            self.viewModel.loginSuccessAction(userID: id).execute()
                         }) { error in
                             self.present(self.viewModel.loginFailAlert(),animated: true,completion: nil)
                         }
+                        .disposed(by: self.rx.disposeBag)
                 }
             })
+            .disposed(by: rx.disposeBag)
     }
 }

@@ -23,4 +23,12 @@ class LoginViewModel:ViewModeltype{
         alertController.addAction(ok)
         return alertController        
     }
+    func loginSuccessAction(userID:String) -> CocoaAction{
+        return CocoaAction{_ in
+            let deckViewModel = DeckViewModel(sceneCoordinator: self.sceneCoordinator, storage: self.storage, userID: userID)
+            let timeLineViewModel = TimeLineViewModel(sceneCoordinator: self.sceneCoordinator, storage: self.storage, userID: userID)
+            let mainScene = Scene.main(timeLineViewModel, deckViewModel)
+            return self.sceneCoordinator.trainsition(to: mainScene, using: .root, animated: true).asObservable().map{ _ in }
+        }
+    }
 }
