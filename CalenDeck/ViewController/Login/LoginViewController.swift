@@ -28,6 +28,7 @@ class LoginViewController: UIViewController,ViewControllerBindableType {
         authorizationController.performRequests()
     }
     override func viewDidLoad() {
+        setGesture()
         setUI()
         super.viewDidLoad()
     }
@@ -40,6 +41,11 @@ class LoginViewController: UIViewController,ViewControllerBindableType {
         findPassword.layer.cornerRadius = 7.0
         loginStackView.layer.cornerRadius = 7.0
         userPassword.isSecureTextEntry = true
+    }
+    func setGesture(){
+        let tapGesture:UITapGestureRecognizer = UITapGestureRecognizer()
+        tapGesture.delegate = self
+        self.view.addGestureRecognizer(tapGesture)
     }
     func bindViewModel() {
         register.rx.action = viewModel.userJoinAction()
@@ -61,5 +67,11 @@ class LoginViewController: UIViewController,ViewControllerBindableType {
                 }
             })
             .disposed(by: rx.disposeBag)
+    }
+}
+extension LoginViewController:UIGestureRecognizerDelegate{
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
 }

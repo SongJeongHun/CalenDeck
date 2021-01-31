@@ -22,11 +22,17 @@ class UserJoinViewController: UIViewController,ViewControllerBindableType {
     lazy var userValidation = BehaviorSubject<[Bool]>(value: userValidationList)
     override func viewWillAppear(_ animated: Bool) {
         setUI()
+        setGesture()
         super.viewWillAppear(animated)
     }
     override func viewWillDisappear(_ animated: Bool) {
         viewModel.sceneCoordinator.currentVC = presentingViewController!
         super.viewWillDisappear(animated)
+    }
+    func setGesture(){
+        let tapGesture:UITapGestureRecognizer = UITapGestureRecognizer()
+        tapGesture.delegate = self
+        self.view.addGestureRecognizer(tapGesture)
     }
     func bindViewModel() {
         userID.rx.text
@@ -152,5 +158,11 @@ class UserJoinViewController: UIViewController,ViewControllerBindableType {
         userPassword.layer.borderWidth = 1.0
         userEmail.layer.borderColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
         userEmail.layer.borderWidth = 1.0
+    }
+}
+extension UserJoinViewController:UIGestureRecognizerDelegate{
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
 }
