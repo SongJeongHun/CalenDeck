@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A703A77D25BFF34C001FABB3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = A703A77C25BFF34C001FABB3 /* Event.swift */; };
-		A703A78125BFF3C5001FABB3 /* EventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A703A78025BFF3C5001FABB3 /* EventHandler.swift */; };
+		A703A78125BFF3C5001FABB3 /* EventStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A703A78025BFF3C5001FABB3 /* EventStorage.swift */; };
 		A703A78425BFF97B001FABB3 /* EventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A703A78325BFF97B001FABB3 /* EventType.swift */; };
 		A703A78A25C0071A001FABB3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A703A78925C0071A001FABB3 /* GoogleService-Info.plist */; };
 		A710AF2C25C3FF120050F6B5 /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A710AF2B25C3FF120050F6B5 /* UserStorage.swift */; };
@@ -46,7 +46,7 @@
 		6DE070122562A23346BB14AC /* Pods-CalenDeck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalenDeck.release.xcconfig"; path = "Target Support Files/Pods-CalenDeck/Pods-CalenDeck.release.xcconfig"; sourceTree = "<group>"; };
 		742DC06493EBEAF89108A511 /* Pods-CalenDeck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalenDeck.debug.xcconfig"; path = "Target Support Files/Pods-CalenDeck/Pods-CalenDeck.debug.xcconfig"; sourceTree = "<group>"; };
 		A703A77C25BFF34C001FABB3 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		A703A78025BFF3C5001FABB3 /* EventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHandler.swift; sourceTree = "<group>"; };
+		A703A78025BFF3C5001FABB3 /* EventStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventStorage.swift; sourceTree = "<group>"; };
 		A703A78325BFF97B001FABB3 /* EventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventType.swift; sourceTree = "<group>"; };
 		A703A78925C0071A001FABB3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A710AF2B25C3FF120050F6B5 /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserStorage.swift; path = CalenDeck/Storage/UserStorage.swift; sourceTree = SOURCE_ROOT; };
@@ -105,7 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				A703A77C25BFF34C001FABB3 /* Event.swift */,
-				A703A78025BFF3C5001FABB3 /* EventHandler.swift */,
+				A703A78025BFF3C5001FABB3 /* EventStorage.swift */,
 				A703A78325BFF97B001FABB3 /* EventType.swift */,
 			);
 			path = EventStorage;
@@ -385,7 +385,7 @@
 				A734E31625BACA9C00795AD8 /* StorageType.swift in Sources */,
 				A789A9D425C153EA00B80A76 /* AppleLoginViewController.swift in Sources */,
 				A710AF3525C4013D0050F6B5 /* User.swift in Sources */,
-				A703A78125BFF3C5001FABB3 /* EventHandler.swift in Sources */,
+				A703A78125BFF3C5001FABB3 /* EventStorage.swift in Sources */,
 				A734E2FC25BAC57200795AD8 /* DeckViewModel.swift in Sources */,
 				A734E2F225BABFB900795AD8 /* Scene.swift in Sources */,
 				A734E2F925BAC56500795AD8 /* DeckViewController.swift in Sources */,

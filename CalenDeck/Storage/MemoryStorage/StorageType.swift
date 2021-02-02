@@ -8,12 +8,12 @@
 import Foundation
 import RxSwift
 protocol StorageType {
-    @discardableResult
-    func createCard(year:Int,month:Int,day:Int) -> Observable<Card>
-    @discardableResult
-    func myDeck() -> Observable<[Card]>
-    @discardableResult
-    func update(original:Card,newCard:Card) -> Observable<Card>
-    @discardableResult
-    func delete(card:Card) -> Observable<Card>
+//    @discardableResult
+//    func createCard(year:Int,month:Int,day:Int) -> Observable<Card>
+//    @discardableResult
+//    func myDeck() -> Observable<[Card]>
+//    @discardableResult
+//    func update(original:Card,newCard:Card) -> Observable<Card>
+//    @discardableResult
+//    func delete(card:Card) -> Observable<Card>
 }

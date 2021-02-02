@@ -7,12 +7,14 @@
 
 import Foundation
 import RxSwift
+import Firebase
 protocol EventType{
     @discardableResult
-    func createEvent(style:EventStyle) -> Observable<Event>
+    func createEvent(style:EventStyle) -> Completable
     @discardableResult
-    func getTimeLine() -> Observable<[Event]>
+    func getTimeLine() -> Completable
     @discardableResult
     func delete(type:Event) -> Observable<Event>
+    func convertData(snap:DataSnapshot)
    
 }

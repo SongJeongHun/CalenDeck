@@ -17,6 +17,18 @@ class TimeLineViewController: UIViewController ,ViewControllerBindableType{
         super.viewDidLoad()
     }
     func bindViewModel() {
-        
+        viewModel.eventStorage.createEvent(style: .create(Card(date: Date(), title: "test", content: "test", thumbnail: nil)))
+        viewModel.eventStorage.createEvent(style: .follow("jongkun030"))
+        viewModel.eventStorage.getTimeLine()
+            .subscribe(onCompleted: {
+                print(self.viewModel.eventStorage.eventList)
+            }, onError: {error in
+                print(error)
+            })
     }
+}
+class TimeLineCell:UITableViewCell{
+    @IBOutlet weak var mainTitle:UILabel!
+    @IBOutlet weak var subTitle:UILabel!
+    @IBOutlet weak var content:UILabel!
 }

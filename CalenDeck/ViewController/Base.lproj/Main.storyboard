@@ -72,7 +72,7 @@
                                 <rect key="frame" x="0.0" y="446" width="414" height="367"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="93" id="ueN-Iw-Mux">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimeLineCell" rowHeight="93" id="ueN-Iw-Mux">
                                         <rect key="frame" x="0.0" y="28" width="414" height="93"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ueN-Iw-Mux" id="aZg-SA-l1Z">
@@ -152,6 +152,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="타임라인" id="FJi-WQ-dC8"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="calendar" destination="aeh-gU-wGQ" id="Wjf-Ka-FDz"/>
+                        <outlet property="timeLine" destination="DME-5W-XhG" id="MU3-UJ-T57"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hsi-GX-eQN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -320,7 +324,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cLv-Ok-BgZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-14.492753623188406" y="-258.48214285714283"/>
+            <point key="canvasLocation" x="-917" y="-258"/>
         </scene>
         <!--User Join View Controller-->
         <scene sceneID="9M8-KK-cnu">
@@ -460,7 +464,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u4I-eJ-289" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="721.73913043478262" y="-258.48214285714283"/>
+            <point key="canvasLocation" x="-138" y="-258"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="9Bh-59-eLP">

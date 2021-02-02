@@ -26,6 +26,7 @@ class UserJoinViewController: UIViewController,ViewControllerBindableType {
         super.viewWillAppear(animated)
     }
     override func viewWillDisappear(_ animated: Bool) {
+        print("disappear")
         viewModel.sceneCoordinator.currentVC = presentingViewController!
         super.viewWillDisappear(animated)
     }
@@ -101,8 +102,6 @@ class UserJoinViewController: UIViewController,ViewControllerBindableType {
                 }
             })
             .disposed(by: rx.disposeBag)
-        
-        userIDValidationCheckButton.rx.action = viewModel.userIDValidationCheckAction()
         confirmButton.rx.tap
             .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
             .subscribe(onNext:{
@@ -123,19 +122,25 @@ class UserJoinViewController: UIViewController,ViewControllerBindableType {
             .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
             .subscribe(onNext:{
                 self.viewModel.userStorage.userIDValidationCheck(userID: self.userID.text!)
-                    .subscribe(onNext:{valid in
+                    .subscribe(onNext:{[unowned self]valid in
                         if valid{
+//                            let alertController = UIAlertController(title: "알림", message: "사용 하실수 있는 아이디 입니다.", preferredStyle: .alert)
+//                            let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
+//                            alertController.addAction(ok)
+//                            self.present(alertController,animated: true,completion: nil)
+                            self.userIDValidationCheckButton.titleLabel?.textColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
                             self.userValidationList[4] = true
                             self.userID.isEnabled = false
                             self.userValidation.onNext(self.userValidationList)
-                            self.userIDValidationCheckButton.titleLabel?.textColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
                         }else{
+                            let alertController = UIAlertController(title: "알림", message: "이미 있는 아이디 입니다.", preferredStyle: .alert)
+                            let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
+                            alertController.addAction(ok)
+                            self.present(alertController,animated: true,completion: nil)
+                            self.userIDValidationCheckButton.titleLabel?.textColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
                             self.userValidationList[4] = false
                             self.userValidation.onNext(self.userValidationList)
-                            self.userIDValidationCheckButton.titleLabel?.textColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
                         }
-                    },onError: {error in
-                        print(error)
                     })
                     .disposed(by: self.rx.disposeBag)
             })

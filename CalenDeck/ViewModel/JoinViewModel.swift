@@ -15,9 +15,4 @@ class JoinViewModel:ViewModeltype{
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: testStr)
     }
-    func userIDValidationCheckAction() -> CocoaAction{
-        return CocoaAction{
-            return Observable.empty()
-        }
-    }
 }
