@@ -23,7 +23,7 @@ class EventStorage:EventType{
     }()
     private let myID: String
     var eventList:[Event] = []
-    lazy var store = BehaviorSubject<[Event]>(value: eventList)
+    var store = BehaviorSubject<[Event]>(value: [])
     required init(myID:String){
         self.myID = myID
     }
@@ -50,15 +50,16 @@ class EventStorage:EventType{
             }
         }
     }
-    @discardableResult
     func getTimeLine() -> Completable{
         let subject = PublishSubject<Void>()
         ref.child("users").child(myID).child("events").rx
             .observeSingleEvent(.value)
             .subscribe(onSuccess:{snap in
                 self.convertData(snap: snap)
+                print("store -> on Next\(self.eventList)")
                 self.store.onNext(self.eventList)
                 subject.onCompleted()
+                print("getTimeLine불러오기 끝")
             },onError: { error in
                 subject.onError(error)
             })

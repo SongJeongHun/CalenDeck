@@ -32,6 +32,7 @@
 		A779013B25BABE54001FA30D /* CalenDeck.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A779013925BABE54001FA30D /* CalenDeck.xcdatamodeld */; };
 		A779013D25BABE54001FA30D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A779013C25BABE54001FA30D /* Assets.xcassets */; };
 		A779014025BABE54001FA30D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A779013E25BABE54001FA30D /* LaunchScreen.storyboard */; };
+		A77C543425CA76E9002AB4D1 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77C543325CA76E9002AB4D1 /* MainTabBarViewController.swift */; };
 		A789A9CB25C13C7200B80A76 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A789A9CA25C13C7200B80A76 /* LoginViewController.swift */; };
 		A789A9D125C13E4000B80A76 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A789A9D025C13E4000B80A76 /* LoginViewModel.swift */; };
 		A789A9D425C153EA00B80A76 /* AppleLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A789A9D325C153E900B80A76 /* AppleLoginViewController.swift */; };
@@ -72,6 +73,7 @@
 		A779013C25BABE54001FA30D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A779013F25BABE54001FA30D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A779014125BABE54001FA30D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A77C543325CA76E9002AB4D1 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		A789A9CA25C13C7200B80A76 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A789A9CE25C13DB800B80A76 /* CalenDeck.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalenDeck.entitlements; sourceTree = "<group>"; };
 		A789A9D025C13E4000B80A76 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 			children = (
 				A734E2F525BAC55900795AD8 /* TimeLineViewController.swift */,
 				A734E2F825BAC56500795AD8 /* DeckViewController.swift */,
+				A77C543325CA76E9002AB4D1 /* MainTabBarViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				A734E30825BAC67B00795AD8 /* SceneCoordinatorType.swift in Sources */,
 				A703A77D25BFF34C001FABB3 /* Event.swift in Sources */,
 				A78F4D5325C3D1CF00FC0CB9 /* UserJoinViewController.swift in Sources */,
+				A77C543425CA76E9002AB4D1 /* MainTabBarViewController.swift in Sources */,
 				A779013125BABE54001FA30D /* AppDelegate.swift in Sources */,
 				A779013325BABE54001FA30D /* SceneDelegate.swift in Sources */,
 				A734E31A25BACAAC00795AD8 /* MemoryStorage.swift in Sources */,

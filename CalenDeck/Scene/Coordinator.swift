@@ -22,10 +22,11 @@ class Coordinator:SceneCoordinatorType{
         currentVC = window.rootViewController!
     }
     func trainsition(to scene: Scene, using style: TransitionStyle, animated: Bool) -> Completable {
-        let subject = PublishSubject<Void>()
         let target = scene.instantiate()
+        let subject = PublishSubject<Void>()
         switch style{
         case .root:
+            print("root!")
             currentVC = target
             window.rootViewController = target
             subject.onCompleted()

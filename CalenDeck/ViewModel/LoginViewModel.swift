@@ -8,6 +8,7 @@
 import Foundation
 import RxSwift
 import Action
+
 class LoginViewModel:ViewModeltype{
     let userStorage = UserStorage()
     func userJoinAction() -> CocoaAction {
@@ -27,8 +28,12 @@ class LoginViewModel:ViewModeltype{
         return CocoaAction{_ in
             let deckViewModel = DeckViewModel(sceneCoordinator: self.sceneCoordinator, storage: self.storage, userID: userID)
             let timeLineViewModel = TimeLineViewModel(sceneCoordinator: self.sceneCoordinator, storage: self.storage, userID: userID)
-            let mainScene = Scene.main(timeLineViewModel, deckViewModel)
-            return self.sceneCoordinator.trainsition(to: mainScene, using: .root, animated: true).asObservable().map{ _ in }
+            timeLineViewModel.eventStorage.getTimeLine()
+                .subscribe(onCompleted:{
+                    let mainScene = Scene.main(timeLineViewModel, deckViewModel)
+                    self.sceneCoordinator.trainsition(to: mainScene, using: .root, animated: true)
+                })
+            return Observable.empty()
         }
     }
 }
