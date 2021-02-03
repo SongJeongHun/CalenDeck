@@ -17,6 +17,8 @@ extension Scene{
         let storyboard = UIStoryboard(name: storyboard, bundle: nil)
         switch self{
         case .main(let timeLineViewModel,let deckViewModel):
+            //!!!!! 부모 뷰컨을 중심으로 흐름 잡기!!!!!!!!
+            //하나하나 불러오면 로드 꼬임
             guard var mainTVC = storyboard.instantiateViewController(identifier: "Main") as? MainTabBarViewController else { fatalError() }
             guard var timeLineNC = mainTVC.viewControllers?.first as? UINavigationController else { fatalError() }
             guard var timeLineVC = timeLineNC.viewControllers.first as? TimeLineViewController else { fatalError() }
