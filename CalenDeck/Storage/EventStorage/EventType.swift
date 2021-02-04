@@ -12,9 +12,9 @@ protocol EventType{
     @discardableResult
     func createEvent(style:EventStyle) -> Completable
     @discardableResult
-    func getTimeLine() -> Completable
+    func getTimeLine(to date:Date) -> Completable
     @discardableResult
     func delete(type:Event) -> Observable<Event>
-    func convertData(snap:DataSnapshot)
+    func convertData(snap:DataSnapshot,to date:Date)
    
 }

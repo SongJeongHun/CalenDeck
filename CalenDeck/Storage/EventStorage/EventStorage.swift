@@ -13,12 +13,11 @@ import RxFirebase
 class EventStorage:EventType{
     let bag = DisposeBag()
     let ref = Database.database().reference()
+    var dateArray:[String] = []
     var formatter:DateFormatter = {
         let f = DateFormatter()
-        f.dateFormat = "yyyy/MM/dd HH:mm:ss"
+        f.dateFormat = "yyyy.MM.dd"
         f.locale = Locale(identifier: "Ko_kr")
-        f.dateStyle = .medium
-        f.timeStyle = .medium
         return f
     }()
     private let myID: String
@@ -27,8 +26,8 @@ class EventStorage:EventType{
     required init(myID:String){
         self.myID = myID
     }
-    func convertData(snap:DataSnapshot){
-        let dict = snap.value! as! Dictionary<String,Any>
+    func convertData(snap:DataSnapshot,to date:Date){
+        guard let dict = snap.value! as? Dictionary<String,Any> else { return }
         for i in dict.values{
             let data = i as! Dictionary<String,Any>
             let style = data["style"] as! String
@@ -37,6 +36,8 @@ class EventStorage:EventType{
             let content = data["content"] as! String
             let owner = data["owner"] as! String
             let time = data["time"] as! String
+            self.dateArray.append(time)
+            print(time)
             switch style{
             case "create":
                 let card = Card(date: self.formatter.date(from: time)!, title: subTitle, content: content, thumbnail: nil)
@@ -50,16 +51,17 @@ class EventStorage:EventType{
             }
         }
     }
-    func getTimeLine() -> Completable{
+    func getTimeLine(to date:Date = Date()) -> Completable{
         let subject = PublishSubject<Void>()
         ref.child("users").child(myID).child("events").rx
             .observeSingleEvent(.value)
             .subscribe(onSuccess:{snap in
-                self.convertData(snap: snap)
+                self.convertData(snap: snap,to:date)
                 print("store -> on Next\(self.eventList)")
                 self.store.onNext(self.eventList)
                 subject.onCompleted()
-                print("getTimeLine불러오기 끝")
+                print("getTimeLine 불러오기 끝")
+                print("DArray -> \(self.dateArray)")
             },onError: { error in
                 subject.onError(error)
             })

@@ -13,6 +13,8 @@ import FSCalendar
 import Action
 class TimeLineViewController: UIViewController,ViewControllerBindableType{
     var viewModel : TimeLineViewModel!
+    var selectedDate = BehaviorSubject<Date>(value: Date())
+    var dateArray:[String] = []
     @IBOutlet weak var calendar:FSCalendar!
     @IBOutlet var timeLine:UITableView!
     @IBOutlet weak var calendarHeightConstraint:NSLayoutConstraint!
@@ -24,6 +26,11 @@ class TimeLineViewController: UIViewController,ViewControllerBindableType{
         super.viewDidLoad()
     }
     func bindViewModel() {
+        selectedDate
+            .subscribe(onNext:{date in
+                print(date)
+            })
+            .disposed(by: rx.disposeBag)
         foldButton.rx.action = foldAction()
         viewModel.eventStorage.store
             .bind(to:timeLine.rx.items){tableView,row,data in
@@ -36,7 +43,7 @@ class TimeLineViewController: UIViewController,ViewControllerBindableType{
             .disposed(by: rx.disposeBag)
     }
     @IBAction func refreshAction(refresh:UIRefreshControl){
-        viewModel.eventStorage.getTimeLine()
+        viewModel.eventStorage.createEvent(style: .create(Card(date: Date(), title: "테스트 카드", content: "테스트 중입니다.", thumbnail: nil)))
         refresh.endRefreshing()
         timeLine.reloadData()
     }
@@ -52,7 +59,9 @@ class TimeLineCell:UITableViewCell{
     @IBOutlet weak var subTitle:UILabel!
     @IBOutlet weak var content:UILabel!
     @IBOutlet weak var panel:UIView!
+    @IBOutlet weak var backgroundPanel:UIView!
     override func awakeFromNib() {
+        backgroundPanel.layer.cornerRadius = 7.0
         panel.layer.cornerRadius = 7.0
         super.awakeFromNib()
     }

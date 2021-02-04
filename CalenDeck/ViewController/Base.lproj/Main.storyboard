@@ -447,7 +447,7 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="58W-nz-XiD">
                                 <rect key="frame" x="0.0" y="430" width="414" height="383"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimeLineCell" rowHeight="103" id="LhN-bw-VV0" customClass="TimeLineCell" customModule="CalenDeck" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="103"/>
@@ -517,6 +517,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="backgroundPanel" destination="kdx-aM-uEg" id="CZQ-xx-U5Z"/>
                                             <outlet property="content" destination="nlA-3W-ScT" id="5Rc-oM-AJy"/>
                                             <outlet property="mainTitle" destination="5Wq-0h-QmN" id="Wzd-Cd-3zF"/>
                                             <outlet property="panel" destination="Zfv-GA-MHN" id="OiW-UI-YfA"/>
@@ -528,6 +529,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lRV-Ya-A2O"/>
                         <color key="backgroundColor" red="0.94130003449999999" green="0.94882887599999999" blue="0.96078664059999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="58W-nz-XiD" firstAttribute="bottom" secondItem="lRV-Ya-A2O" secondAttribute="bottom" id="1Xx-w9-Hxc"/>
                             <constraint firstItem="GeM-zo-H8v" firstAttribute="top" secondItem="lRV-Ya-A2O" secondAttribute="top" constant="15" id="FB1-0h-cCG"/>
