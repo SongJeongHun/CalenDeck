@@ -9,8 +9,10 @@ extension TimeLineViewController:FSCalendarDelegate,FSCalendarDataSource,FSCalen
         return CocoaAction{ _ in
             if self.calendar.scope == FSCalendarScope.month{
                 self.calendar.setScope(.week, animated: true)
+                self.foldButton.image = UIImage(systemName: "chevron.down")
             }else{
                 self.calendar.setScope(.month, animated: true)
+                self.foldButton.image = UIImage(systemName: "chevron.up")
             }
             return Observable.empty()
         }
@@ -19,6 +21,7 @@ extension TimeLineViewController:FSCalendarDelegate,FSCalendarDataSource,FSCalen
         calendar.layer.cornerRadius = 5.0
         calendar.delegate = self
         calendar.dataSource = self
+        calendar.appearance.eventSelectionColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         calendar.appearance.headerMinimumDissolvedAlpha = 0.0
         calendar.appearance.headerDateFormat = "YYYY년 M월"
         calendar.locale = Locale(identifier: "Ko_kR")
@@ -27,7 +30,7 @@ extension TimeLineViewController:FSCalendarDelegate,FSCalendarDataSource,FSCalen
         selectedDate.onNext(date)
     }
     func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        selectedDate.onNext(date)
+        
     }
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
         self.calendarHeightConstraint.constant = bounds.height

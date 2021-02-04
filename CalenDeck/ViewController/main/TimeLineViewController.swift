@@ -14,6 +14,7 @@ import Action
 class TimeLineViewController: UIViewController,ViewControllerBindableType{
     var viewModel : TimeLineViewModel!
     var selectedDate = BehaviorSubject<Date>(value: Date())
+    @IBOutlet weak var currentDate:UILabel!
     var dateArray:[String] = []
     @IBOutlet weak var calendar:FSCalendar!
     @IBOutlet var timeLine:UITableView!
@@ -27,7 +28,10 @@ class TimeLineViewController: UIViewController,ViewControllerBindableType{
     }
     func bindViewModel() {
         selectedDate
-            .subscribe(onNext:{date in
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext:{[unowned self]date in
+                let stringDate = viewModel.eventStorage.formatter.string(from: date)
+                self.currentDate.text = stringDate
                 self.viewModel.eventStorage.getTimeLine(to: date)
             })
             .disposed(by: rx.disposeBag)

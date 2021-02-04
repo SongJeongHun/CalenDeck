@@ -26,7 +26,6 @@ class UserJoinViewController: UIViewController,ViewControllerBindableType {
         super.viewWillAppear(animated)
     }
     override func viewWillDisappear(_ animated: Bool) {
-        print("disappear")
         viewModel.sceneCoordinator.currentVC = presentingViewController!
         super.viewWillDisappear(animated)
     }
@@ -39,7 +38,7 @@ class UserJoinViewController: UIViewController,ViewControllerBindableType {
         userID.rx.text
             .subscribe(onNext:{text in
                 if let ID = text{
-                    if ID.count > 3{
+                    if ID.count > 3 && ID.count < 10{
                         self.userValidationList[0] = true
                         self.userValidation.onNext(self.userValidationList)
                         self.userID.layer.borderColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
