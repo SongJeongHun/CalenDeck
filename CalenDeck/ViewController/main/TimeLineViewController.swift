@@ -13,25 +13,18 @@ import FSCalendar
 import Action
 class TimeLineViewController: UIViewController,ViewControllerBindableType{
     var viewModel : TimeLineViewModel!
-//    @IBOutlet weak var calendar:FSCalendar!
+    @IBOutlet weak var calendar:FSCalendar!
     @IBOutlet var timeLine:UITableView!
-    @IBOutlet weak var testButton:UIBarButtonItem!
-    @IBAction func refreshAction(refresh:UIRefreshControl){
-        refresh.endRefreshing()
-        timeLine.reloadData()
-    }
+    @IBOutlet weak var calendarHeightConstraint:NSLayoutConstraint!
+    @IBOutlet weak var foldButton:UIBarButtonItem!
     override func viewDidLoad() {
         refreshControl()
+        calendarSet()
+        timeLine.separatorStyle = .none
         super.viewDidLoad()
     }
-    func refreshControl(){
-        let refresh = UIRefreshControl()
-        refresh.addTarget(self, action: #selector(refreshAction(refresh:)), for: .valueChanged)
-        refresh.attributedTitle = NSAttributedString(string: "새로고침 중")
-        timeLine.refreshControl = refresh
-    }
     func bindViewModel() {
-        print("store구독")
+        foldButton.rx.action = foldAction()
         viewModel.eventStorage.store
             .bind(to:timeLine.rx.items){tableView,row,data in
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TimeLineCell") as! TimeLineCell
@@ -41,6 +34,17 @@ class TimeLineViewController: UIViewController,ViewControllerBindableType{
                 return cell
             }
             .disposed(by: rx.disposeBag)
+    }
+    @IBAction func refreshAction(refresh:UIRefreshControl){
+        viewModel.eventStorage.getTimeLine()
+        refresh.endRefreshing()
+        timeLine.reloadData()
+    }
+    func refreshControl(){
+        let refresh = UIRefreshControl()
+        refresh.addTarget(self, action: #selector(refreshAction(refresh:)), for: .valueChanged)
+        refresh.attributedTitle = NSAttributedString(string: "새로고침 중")
+        timeLine.refreshControl = refresh
     }
 }
 class TimeLineCell:UITableViewCell{
@@ -53,4 +57,3 @@ class TimeLineCell:UITableViewCell{
         super.awakeFromNib()
     }
 }
-

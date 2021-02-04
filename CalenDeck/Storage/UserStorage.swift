@@ -56,6 +56,7 @@ class UserStorage:UserStorageType{
                     }else{
                         subject.onError(UserError.userPasswordMissing)
                     }
+                    subject.onError(UserError.userPasswordMissing)
                 }else{
                     subject.onError(UserError.userIDMissing)
                 }

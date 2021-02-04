@@ -33,6 +33,8 @@ class LoginViewController: UIViewController,ViewControllerBindableType {
         super.viewDidLoad()
     }
     func setUI(){
+        userPassword.isSecureTextEntry = true
+        //Radius
         userID.layer.cornerRadius = 7.0
         loginPanel.layer.cornerRadius = 7.0
         userPassword.layer.cornerRadius = 7.0
@@ -40,7 +42,11 @@ class LoginViewController: UIViewController,ViewControllerBindableType {
         register.layer.cornerRadius = 7.0
         findPassword.layer.cornerRadius = 7.0
         loginStackView.layer.cornerRadius = 7.0
-        userPassword.isSecureTextEntry = true
+        //Shadow Effect
+        loginPanel.layer.shadowRadius = 2.0
+        loginPanel.layer.shadowOffset = CGSize(width: 2, height: 3)
+        loginPanel.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        loginPanel.layer.shadowOpacity = 0.2
     }
     func setGesture(){
         let tapGesture:UITapGestureRecognizer = UITapGestureRecognizer()

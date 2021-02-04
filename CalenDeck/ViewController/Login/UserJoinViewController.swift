@@ -163,6 +163,11 @@ class UserJoinViewController: UIViewController,ViewControllerBindableType {
         userPassword.layer.borderWidth = 1.0
         userEmail.layer.borderColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
         userEmail.layer.borderWidth = 1.0
+        //Shadow Effect
+        joinPanel.layer.shadowRadius = 2.0
+        joinPanel.layer.shadowOffset = CGSize(width: 2, height: 3)
+        joinPanel.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        joinPanel.layer.shadowOpacity = 0.2
     }
 }
 extension UserJoinViewController:UIGestureRecognizerDelegate{

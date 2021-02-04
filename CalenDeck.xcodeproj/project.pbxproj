@@ -26,6 +26,7 @@
 		A734E30B25BAC68900795AD8 /* TransitionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A734E30A25BAC68900795AD8 /* TransitionStyle.swift */; };
 		A734E31625BACA9C00795AD8 /* StorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A734E31525BACA9C00795AD8 /* StorageType.swift */; };
 		A734E31A25BACAAC00795AD8 /* MemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A734E31925BACAAC00795AD8 /* MemoryStorage.swift */; };
+		A7688F1925CBCDA7000DC4CB /* TimeLineViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7688F1825CBCDA7000DC4CB /* TimeLineViewControllerExtension.swift */; };
 		A779013125BABE54001FA30D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A779013025BABE54001FA30D /* AppDelegate.swift */; };
 		A779013325BABE54001FA30D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A779013225BABE54001FA30D /* SceneDelegate.swift */; };
 		A779013825BABE54001FA30D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A779013625BABE54001FA30D /* Main.storyboard */; };
@@ -65,6 +66,7 @@
 		A734E30A25BAC68900795AD8 /* TransitionStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionStyle.swift; sourceTree = "<group>"; };
 		A734E31525BACA9C00795AD8 /* StorageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageType.swift; sourceTree = "<group>"; };
 		A734E31925BACAAC00795AD8 /* MemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryStorage.swift; sourceTree = "<group>"; };
+		A7688F1825CBCDA7000DC4CB /* TimeLineViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewControllerExtension.swift; sourceTree = "<group>"; };
 		A779012D25BABE54001FA30D /* CalenDeck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalenDeck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A779013025BABE54001FA30D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A779013225BABE54001FA30D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				A734E2F525BAC55900795AD8 /* TimeLineViewController.swift */,
+				A7688F1825CBCDA7000DC4CB /* TimeLineViewControllerExtension.swift */,
 				A734E2F825BAC56500795AD8 /* DeckViewController.swift */,
 				A77C543325CA76E9002AB4D1 /* MainTabBarViewController.swift */,
 			);
@@ -400,6 +403,7 @@
 				A703A77D25BFF34C001FABB3 /* Event.swift in Sources */,
 				A78F4D5325C3D1CF00FC0CB9 /* UserJoinViewController.swift in Sources */,
 				A77C543425CA76E9002AB4D1 /* MainTabBarViewController.swift in Sources */,
+				A7688F1925CBCDA7000DC4CB /* TimeLineViewControllerExtension.swift in Sources */,
 				A779013125BABE54001FA30D /* AppDelegate.swift in Sources */,
 				A779013325BABE54001FA30D /* SceneDelegate.swift in Sources */,
 				A734E31A25BACAAC00795AD8 /* MemoryStorage.swift in Sources */,
