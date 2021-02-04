@@ -24,10 +24,10 @@ extension TimeLineViewController:FSCalendarDelegate,FSCalendarDataSource,FSCalen
         calendar.locale = Locale(identifier: "Ko_kR")
     }
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        self.selectedDate.onNext(date)
+        selectedDate.onNext(date)
     }
     func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        
+        selectedDate.onNext(date)
     }
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
         self.calendarHeightConstraint.constant = bounds.height

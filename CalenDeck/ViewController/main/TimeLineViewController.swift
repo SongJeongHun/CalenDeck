@@ -28,7 +28,7 @@ class TimeLineViewController: UIViewController,ViewControllerBindableType{
     func bindViewModel() {
         selectedDate
             .subscribe(onNext:{date in
-                print(date)
+                self.viewModel.eventStorage.getTimeLine(to: date)
             })
             .disposed(by: rx.disposeBag)
         foldButton.rx.action = foldAction()
@@ -43,7 +43,6 @@ class TimeLineViewController: UIViewController,ViewControllerBindableType{
             .disposed(by: rx.disposeBag)
     }
     @IBAction func refreshAction(refresh:UIRefreshControl){
-        viewModel.eventStorage.createEvent(style: .create(Card(date: Date(), title: "테스트 카드", content: "테스트 중입니다.", thumbnail: nil)))
         refresh.endRefreshing()
         timeLine.reloadData()
     }

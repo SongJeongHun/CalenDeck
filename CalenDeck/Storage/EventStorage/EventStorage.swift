@@ -28,6 +28,8 @@ class EventStorage:EventType{
     }
     func convertData(snap:DataSnapshot,to date:Date){
         guard let dict = snap.value! as? Dictionary<String,Any> else { return }
+        eventList = []
+        dateArray = []
         for i in dict.values{
             let data = i as! Dictionary<String,Any>
             let style = data["style"] as! String
@@ -37,17 +39,18 @@ class EventStorage:EventType{
             let owner = data["owner"] as! String
             let time = data["time"] as! String
             self.dateArray.append(time)
-            print(time)
-            switch style{
-            case "create":
-                let card = Card(date: self.formatter.date(from: time)!, title: subTitle, content: content, thumbnail: nil)
-                let evt = Event(style: .create(card), mainTitle: mainTitle, subTitle: subTitle, content: content, owner: owner, time: time)
-                self.eventList.append(evt)
-            case "follow":
-                let evt = Event(style: .follow(subTitle), mainTitle: mainTitle, subTitle: subTitle, content: content, owner: owner, time: time)
-                self.eventList.append(evt)
-            default:
-                fatalError()                
+            if formatter.string(from: date) == time{
+                switch style{
+                case "create":
+                    let card = Card(date: self.formatter.date(from: time)!, title: subTitle, content: content, thumbnail: nil)
+                    let evt = Event(style: .create(card), mainTitle: mainTitle, subTitle: subTitle, content: content, owner: owner, time: time)
+                    self.eventList.append(evt)
+                case "follow":
+                    let evt = Event(style: .follow(subTitle), mainTitle: mainTitle, subTitle: subTitle, content: content, owner: owner, time: time)
+                    self.eventList.append(evt)
+                default:
+                    fatalError()
+                }
             }
         }
     }
