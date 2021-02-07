@@ -11,6 +11,7 @@
 		A703A78125BFF3C5001FABB3 /* EventStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A703A78025BFF3C5001FABB3 /* EventStorage.swift */; };
 		A703A78425BFF97B001FABB3 /* EventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A703A78325BFF97B001FABB3 /* EventType.swift */; };
 		A703A78A25C0071A001FABB3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A703A78925C0071A001FABB3 /* GoogleService-Info.plist */; };
+		A70CC86125CFB735009B739B /* DatePickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70CC86025CFB735009B739B /* DatePickViewController.swift */; };
 		A710AF2C25C3FF120050F6B5 /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A710AF2B25C3FF120050F6B5 /* UserStorage.swift */; };
 		A710AF3225C4006E0050F6B5 /* UserStorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A710AF3125C4006E0050F6B5 /* UserStorageType.swift */; };
 		A710AF3525C4013D0050F6B5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A710AF3425C4013D0050F6B5 /* User.swift */; };
@@ -51,6 +52,7 @@
 		A703A78025BFF3C5001FABB3 /* EventStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventStorage.swift; sourceTree = "<group>"; };
 		A703A78325BFF97B001FABB3 /* EventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventType.swift; sourceTree = "<group>"; };
 		A703A78925C0071A001FABB3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A70CC86025CFB735009B739B /* DatePickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickViewController.swift; sourceTree = "<group>"; };
 		A710AF2B25C3FF120050F6B5 /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserStorage.swift; path = CalenDeck/Storage/UserStorage.swift; sourceTree = SOURCE_ROOT; };
 		A710AF3125C4006E0050F6B5 /* UserStorageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorageType.swift; sourceTree = "<group>"; };
 		A710AF3425C4013D0050F6B5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				A7688F1825CBCDA7000DC4CB /* TimeLineViewControllerExtension.swift */,
 				A734E2F825BAC56500795AD8 /* DeckViewController.swift */,
 				A77C543325CA76E9002AB4D1 /* MainTabBarViewController.swift */,
+				A70CC86025CFB735009B739B /* DatePickViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				TargetAttributes = {
 					A779012C25BABE54001FA30D = {
 						CreatedOnToolsVersion = 12.3;
+						LastSwiftMigration = 1240;
 					};
 				};
 			};
@@ -410,6 +414,7 @@
 				A703A78425BFF97B001FABB3 /* EventType.swift in Sources */,
 				A734E2FF25BAC57A00795AD8 /* TimeLineViewModel.swift in Sources */,
 				A734E30B25BAC68900795AD8 /* TransitionStyle.swift in Sources */,
+				A70CC86125CFB735009B739B /* DatePickViewController.swift in Sources */,
 				A734E30225BAC58600795AD8 /* ViewModelType.swift in Sources */,
 				A734E30525BAC5A900795AD8 /* ViewControllerBindableType.swift in Sources */,
 				A734E2F625BAC55900795AD8 /* TimeLineViewController.swift in Sources */,
@@ -561,6 +566,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = CalenDeck/CalenDeck.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CH57QT784A;
@@ -571,6 +577,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = JH.CalenDeck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -582,6 +589,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = CalenDeck/CalenDeck.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CH57QT784A;

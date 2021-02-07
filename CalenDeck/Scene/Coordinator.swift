@@ -26,7 +26,6 @@ class Coordinator:SceneCoordinatorType{
         let subject = PublishSubject<Void>()
         switch style{
         case .root:
-            print("root!")
             currentVC = target
             window.rootViewController = target
             subject.onCompleted()
@@ -36,17 +35,19 @@ class Coordinator:SceneCoordinatorType{
             }
             currentVC =  target.sceneViewController
         case .push:
-            guard let nav = target.navigationController else {
+            guard let nav = currentVC.children.first as? UINavigationController else{
+                print("error occur. current VC is -> \(currentVC)")
                 subject.onError(TransitionError.navigationMissing)
                 break
             }
             nav.rx.willShow
                 .subscribe(onNext:{[unowned self] event in
-                    self.currentVC = event.viewController.sceneViewController
+                    self.currentVC = event.viewController.sceneViewController.parent!.parent!
                 })
                 .disposed(by: bag)
             nav.pushViewController(target, animated: animated)
             currentVC = target.sceneViewController
+            subject.onCompleted()
         }
         return subject.ignoreElements()
     }

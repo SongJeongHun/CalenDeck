@@ -13,26 +13,39 @@ import FSCalendar
 import Action
 class TimeLineViewController: UIViewController,ViewControllerBindableType{
     var viewModel : TimeLineViewModel!
-    var selectedDate = BehaviorSubject<Date>(value: Date())
     @IBOutlet weak var currentDate:UILabel!
     var dateArray:[String] = []
     @IBOutlet weak var calendar:FSCalendar!
+    @IBOutlet weak var datePickButton:UIBarButtonItem!
     @IBOutlet var timeLine:UITableView!
     @IBOutlet weak var calendarHeightConstraint:NSLayoutConstraint!
     @IBOutlet weak var foldButton:UIBarButtonItem!
     override func viewDidLoad() {
         refreshControl()
         calendarSet()
-        timeLine.separatorStyle = .none
+        setUI()
         super.viewDidLoad()
     }
+    func setUI(){
+        timeLine.layer.cornerRadius = 5.0
+        timeLine.separatorStyle = .none
+        timeLine.layer.shadowRadius = 2.0
+        timeLine.layer.shadowOffset = CGSize(width: 2, height: 3)
+        timeLine.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        timeLine.layer.shadowOpacity = 0.2
+    }
     func bindViewModel() {
-        selectedDate
+        viewModel.selectedDate
             .observeOn(MainScheduler.instance)
             .subscribe(onNext:{[unowned self]date in
                 let stringDate = viewModel.eventStorage.formatter.string(from: date)
-                self.currentDate.text = stringDate
-                self.viewModel.eventStorage.getTimeLine(to: date)
+                if let selectedDate = calendar.selectedDate{
+                    calendar.deselect(selectedDate)
+                }
+                calendar.select(date)
+                calendar.adjustMonthPosition()
+                currentDate.text = stringDate
+                viewModel.eventStorage.getTimeLine(to: date)
             })
             .disposed(by: rx.disposeBag)
         foldButton.rx.action = foldAction()
@@ -45,6 +58,7 @@ class TimeLineViewController: UIViewController,ViewControllerBindableType{
                 return cell
             }
             .disposed(by: rx.disposeBag)
+        datePickButton.rx.action = viewModel.datePickAction()
     }
     @IBAction func refreshAction(refresh:UIRefreshControl){
         refresh.endRefreshing()

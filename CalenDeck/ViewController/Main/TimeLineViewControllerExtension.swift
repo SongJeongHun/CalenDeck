@@ -27,8 +27,9 @@ extension TimeLineViewController:FSCalendarDelegate,FSCalendarDataSource,FSCalen
         calendar.locale = Locale(identifier: "Ko_kR")
     }
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        selectedDate.onNext(date)
+        viewModel.selectedDate.onNext(date)
     }
+    
     func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
         
     }
@@ -38,18 +39,10 @@ extension TimeLineViewController:FSCalendarDelegate,FSCalendarDataSource,FSCalen
     }
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]? {
         let stringDate = viewModel.eventStorage.formatter.string(from: date)
-        if viewModel.eventStorage.dateArray.contains(stringDate){
-            return [#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)]
-        }else{
-            return [#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)]
-        }
+        if viewModel.eventStorage.dateArray.contains(stringDate){ return [#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)] }else{ return [#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)] }
     }
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         let stringDate = viewModel.eventStorage.formatter.string(from: date)
-        if viewModel.eventStorage.dateArray.contains(stringDate){
-            return 1
-        }else{
-            return 0
-        }
+        if viewModel.eventStorage.dateArray.contains(stringDate){ return 1 } else { return 0 }
     }
 }
