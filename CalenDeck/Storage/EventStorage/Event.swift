@@ -21,8 +21,17 @@ struct Event:Equatable{
         self.owner = owner
         self.time = time
     }
+    init(empty style:EventStyle){
+        self.style = .empty
+        self.mainTitle = "empty"
+        self.subTitle = ""
+        self.content = ""
+        self.owner = ""
+        self.time = ""
+    }
 }
 enum EventStyle:Equatable{
     case create(Card)
     case follow(String)
+    case empty
 }

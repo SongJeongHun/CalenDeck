@@ -21,7 +21,8 @@ class TimeLineViewController: UIViewController,ViewControllerBindableType{
     @IBOutlet weak var calendarHeightConstraint:NSLayoutConstraint!
     @IBOutlet weak var foldButton:UIBarButtonItem!
     override func viewDidLoad() {
-        refreshControl()
+        timeLine.rx.setDelegate(self).disposed(by: rx.disposeBag)
+        addRefreshController()
         calendarSet()
         setUI()
         super.viewDidLoad()
@@ -39,6 +40,7 @@ class TimeLineViewController: UIViewController,ViewControllerBindableType{
             .observeOn(MainScheduler.instance)
             .subscribe(onNext:{[unowned self]date in
                 let stringDate = viewModel.eventStorage.formatter.string(from: date)
+                viewModel.selectedDateString = stringDate
                 if let selectedDate = calendar.selectedDate{
                     calendar.deselect(selectedDate)
                 }
@@ -51,20 +53,26 @@ class TimeLineViewController: UIViewController,ViewControllerBindableType{
         foldButton.rx.action = foldAction()
         viewModel.eventStorage.store
             .bind(to:timeLine.rx.items){tableView,row,data in
-                let cell = tableView.dequeueReusableCell(withIdentifier: "TimeLineCell") as! TimeLineCell
-                cell.content.text = data.content
-                cell.mainTitle.text = data.mainTitle
-                cell.subTitle.text = data.subTitle
-                return cell
+                if data.style == .empty{
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyCell") as! EmptyCell
+                    return cell
+                }else{
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "TimeLineCell") as! TimeLineCell
+                    cell.content.text = data.content
+                    cell.mainTitle.text = data.mainTitle
+                    cell.subTitle.text = data.subTitle
+                    return cell
+                }
             }
             .disposed(by: rx.disposeBag)
         datePickButton.rx.action = viewModel.datePickAction()
     }
     @IBAction func refreshAction(refresh:UIRefreshControl){
-        refresh.endRefreshing()
+        viewModel.eventStorage.getTimeLine(to: viewModel.eventStorage.formatter.date(from: viewModel.selectedDateString) ?? Date())
         timeLine.reloadData()
+        refresh.endRefreshing()
     }
-    func refreshControl(){
+    func addRefreshController(){
         let refresh = UIRefreshControl()
         refresh.addTarget(self, action: #selector(refreshAction(refresh:)), for: .valueChanged)
         refresh.attributedTitle = NSAttributedString(string: "새로고침 중")
@@ -81,5 +89,17 @@ class TimeLineCell:UITableViewCell{
         backgroundPanel.layer.cornerRadius = 7.0
         panel.layer.cornerRadius = 7.0
         super.awakeFromNib()
+    }
+}
+class EmptyCell:UITableViewCell{
+    @IBOutlet weak var panel:UIView!
+    override func awakeFromNib() {
+        panel.layer.cornerRadius = 7.0
+        super.awakeFromNib()
+    }
+}
+extension TimeLineViewController:UITableViewDelegate{
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }

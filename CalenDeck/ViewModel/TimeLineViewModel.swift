@@ -12,6 +12,7 @@ import Action
 class TimeLineViewModel:ViewModeltype{
     lazy var eventStorage = EventStorage(myID: userID)
     var selectedDate = BehaviorSubject<Date>(value: Date())
+    var selectedDateString = ""
     func datePickAction() -> CocoaAction{
         return CocoaAction{_ in
             let datePickScene = Scene.datePick(self)

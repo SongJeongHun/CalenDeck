@@ -51,6 +51,8 @@ class EventStorage:EventType{
                 default:
                     fatalError()
                 }
+            }else{
+                self.eventList.append(Event(empty: .empty))
             }
         }
     }
@@ -60,11 +62,8 @@ class EventStorage:EventType{
             .observeSingleEvent(.value)
             .subscribe(onSuccess:{snap in
                 self.convertData(snap: snap,to:date)
-                print("store -> on Next\(self.eventList)")
                 self.store.onNext(self.eventList)
                 subject.onCompleted()
-                print("getTimeLine 불러오기 끝")
-                print("DArray -> \(self.dateArray)")
             },onError: { error in
                 subject.onError(error)
             })
@@ -104,6 +103,8 @@ class EventStorage:EventType{
                 })
                 .disposed(by: bag)
             return subject.ignoreElements()
+        case .empty:
+            return PublishSubject<Void>().ignoreElements()
         }
     }
     @discardableResult
