@@ -11,11 +11,7 @@ target 'CalenDeck' do
   pod 'Action'
   pod 'NSObject+Rx'
   pod 'FSCalendar'
-  pod 'RxFirebase/Firestore'
-  pod 'RxFirebase/RemoteConfig'
   pod 'RxFirebase/Database'
-  pod 'RxFirebase/Storage'
-  pod 'RxFirebase/Auth'
-  pod 'RxFirebase/Functions'
   pod 'Firebase'
+  pod 'SideMenu'
 end
