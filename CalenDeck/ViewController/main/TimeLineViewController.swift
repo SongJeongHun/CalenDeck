@@ -79,6 +79,11 @@ class TimeLineViewController: UIViewController,ViewControllerBindableType{
         timeLine.refreshControl = refresh
     }
 }
+extension TimeLineViewController:UITableViewDelegate{
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+}
 class TimeLineCell:UITableViewCell{
     @IBOutlet weak var mainTitle:UILabel!
     @IBOutlet weak var subTitle:UILabel!
@@ -98,8 +103,4 @@ class EmptyCell:UITableViewCell{
         super.awakeFromNib()
     }
 }
-extension TimeLineViewController:UITableViewDelegate{
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-}
+

@@ -16,6 +16,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2v6-BV-xIm">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemIndigoColor"/>
                     </navigationBar>
                     <connections>
                         <segue destination="JoK-nM-5JP" kind="relationship" relationship="rootViewController" id="Ooi-8o-Kzh"/>
@@ -25,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="1693" y="563"/>
         </scene>
-        <!--내 덱 ( 30 )-->
+        <!--내 덱 -->
         <scene sceneID="ds9-7q-fNN">
             <objects>
                 <viewController id="JoK-nM-5JP" customClass="DeckViewController" customModule="CalenDeck" customModuleProvider="target" sceneMemberID="viewController">
@@ -35,7 +36,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKE-L0-VKn">
                                 <rect key="frame" x="40" y="148" width="334" height="605"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Uii-mM-YMJ"/>
@@ -47,17 +48,122 @@
                             <constraint firstItem="Uii-mM-YMJ" firstAttribute="trailing" secondItem="EKE-L0-VKn" secondAttribute="trailing" constant="40" id="zbh-vn-fk4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="내 덱 ( 30 )" id="CZC-Ce-4cL">
+                    <navigationItem key="navigationItem" title="내 덱 " id="CZC-Ce-4cL">
                         <barButtonItem key="leftBarButtonItem" title="1월" id="HhH-42-Pjf"/>
                         <barButtonItem key="rightBarButtonItem" title="덱리스트" id="Q50-qp-HuQ"/>
                     </navigationItem>
                     <connections>
                         <outlet property="currentCard" destination="EKE-L0-VKn" id="FTG-4f-N3a"/>
+                        <outlet property="deckListButton" destination="Q50-qp-HuQ" id="Ujc-8r-tp1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DW3-7e-ol5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1692.753623188406" y="1241.5178571428571"/>
+        </scene>
+        <!--Side Menu Navigation-->
+        <scene sceneID="Cfb-Jz-wVv">
+            <objects>
+                <navigationController storyboardIdentifier="SideNav" id="Fgs-rL-PwK" customClass="SideMenuNavigation" customModule="CalenDeck" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="X8A-hC-LaQ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ifY-ob-4PQ" kind="relationship" relationship="rootViewController" id="dFr-jZ-fpZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oGw-rW-vIl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="858" y="1242"/>
+        </scene>
+        <!--Deck List View Controller-->
+        <scene sceneID="m3w-3y-NVl">
+            <objects>
+                <viewController storyboardIdentifier="DeckList" id="ifY-ob-4PQ" customClass="DeckListViewController" customModule="CalenDeck" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8pI-YG-gra">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rfE-xP-Gde">
+                                <rect key="frame" x="0.0" y="88" width="414" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moj-l3-wHO">
+                                        <rect key="frame" x="15" y="8" width="70" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="39W-Fl-Ik6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMq-ap-k9A">
+                                        <rect key="frame" x="386" y="30" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="SUU-fZ-PiZ"/>
+                                            <constraint firstAttribute="height" constant="20" id="SbI-ey-ktl"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <state key="normal" title="편집">
+                                            <color key="titleColor" systemColor="systemTealColor"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="11"/>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="February" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4m0-0u-Sxs">
+                                        <rect key="frame" x="85" y="8" width="200" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="ZMr-Zp-GIA"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="tMq-ap-k9A" secondAttribute="trailing" constant="8" id="4qG-Qv-mbQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="4m0-0u-Sxs" secondAttribute="bottom" constant="8" id="5OW-jA-fzo"/>
+                                    <constraint firstItem="4m0-0u-Sxs" firstAttribute="top" secondItem="rfE-xP-Gde" secondAttribute="top" constant="8" id="UTR-Gd-YJt"/>
+                                    <constraint firstItem="moj-l3-wHO" firstAttribute="leading" secondItem="rfE-xP-Gde" secondAttribute="leading" constant="15" id="c8F-Ys-eBO"/>
+                                    <constraint firstItem="moj-l3-wHO" firstAttribute="top" secondItem="rfE-xP-Gde" secondAttribute="top" constant="8" id="dhn-tl-I2h"/>
+                                    <constraint firstItem="4m0-0u-Sxs" firstAttribute="leading" secondItem="moj-l3-wHO" secondAttribute="trailing" id="gp9-ds-J2G"/>
+                                    <constraint firstAttribute="height" constant="50" id="hsO-Pd-ZME"/>
+                                    <constraint firstAttribute="bottom" secondItem="tMq-ap-k9A" secondAttribute="bottom" id="vik-rv-Ksn"/>
+                                    <constraint firstAttribute="bottom" secondItem="moj-l3-wHO" secondAttribute="bottom" constant="8" id="zC9-Ef-z9c"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fXK-oT-SL9">
+                                <rect key="frame" x="0.0" y="138" width="414" height="758"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="l3I-ya-8Ec">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="l3I-ya-8Ec" id="izj-7n-1dZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="di7-Hr-ENt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="rfE-xP-Gde" firstAttribute="leading" secondItem="di7-Hr-ENt" secondAttribute="leading" id="6VA-6P-cpU"/>
+                            <constraint firstItem="rfE-xP-Gde" firstAttribute="top" secondItem="di7-Hr-ENt" secondAttribute="top" id="Gfj-i1-A3H"/>
+                            <constraint firstItem="fXK-oT-SL9" firstAttribute="trailing" secondItem="di7-Hr-ENt" secondAttribute="trailing" id="QBa-9w-Z9h"/>
+                            <constraint firstAttribute="bottom" secondItem="fXK-oT-SL9" secondAttribute="bottom" id="VTi-cu-tNH"/>
+                            <constraint firstItem="fXK-oT-SL9" firstAttribute="top" secondItem="rfE-xP-Gde" secondAttribute="bottom" id="anb-5l-rWv"/>
+                            <constraint firstItem="fXK-oT-SL9" firstAttribute="leading" secondItem="di7-Hr-ENt" secondAttribute="leading" id="mWO-7V-r3u"/>
+                            <constraint firstItem="rfE-xP-Gde" firstAttribute="trailing" secondItem="di7-Hr-ENt" secondAttribute="trailing" id="qxw-oB-yvy"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="OBy-hA-Pw0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yxt-Bf-fwW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="195.6521739130435" y="1251.5625"/>
         </scene>
         <!--Login-->
         <scene sceneID="JBG-3e-Ped">
@@ -188,7 +294,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cLv-Ok-BgZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-897" y="-218"/>
+            <point key="canvasLocation" x="2203" y="-975"/>
         </scene>
         <!--User Join View Controller-->
         <scene sceneID="9M8-KK-cnu">
@@ -328,7 +434,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u4I-eJ-289" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-68" y="-218"/>
+            <point key="canvasLocation" x="3036" y="-975"/>
         </scene>
         <!--Main Tab Bar View Controller-->
         <scene sceneID="9Bh-59-eLP">
@@ -394,7 +500,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pVV-9P-whU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="72" y="563"/>
+            <point key="canvasLocation" x="-897" y="563"/>
         </scene>
         <!--날짜 선택-->
         <scene sceneID="lyO-Jt-glg">
@@ -471,7 +577,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cWj-0f-naq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-897.10144927536237" y="1241.5178571428571"/>
+            <point key="canvasLocation" x="-1717" y="1242"/>
         </scene>
         <!--타임라인-->
         <scene sceneID="w55-BI-Lp8">
@@ -692,7 +798,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Im8-s8-vmY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="69.565217391304358" y="1241.5178571428571"/>
+            <point key="canvasLocation" x="-897" y="1242"/>
         </scene>
     </scenes>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -717,6 +823,9 @@
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

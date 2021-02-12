@@ -10,5 +10,10 @@ import RxSwift
 import RxCocoa
 import Action
 class DeckViewModel:ViewModeltype{
-    
+    func showDeckListAction() -> CocoaAction{
+        return CocoaAction{_ in
+            let deckListScene = Scene.deckList(self)
+            return self.sceneCoordinator.trainsition(to: deckListScene, using: .modal, animated: true).asObservable().map{ _ in }
+        }
+    }
 }

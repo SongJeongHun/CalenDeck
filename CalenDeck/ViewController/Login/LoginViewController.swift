@@ -18,15 +18,6 @@ class LoginViewController: UIViewController,ViewControllerBindableType {
     @IBOutlet weak var register:UIButton!
     @IBOutlet weak var findPassword:UIButton!
     @IBOutlet weak var loginStackView:UIStackView!
-    @IBAction func authorizationApppleIDButtonPress(){
-        let appleIDProvider =  ASAuthorizationAppleIDProvider()
-        let request = appleIDProvider.createRequest()
-        request.requestedScopes = [.fullName, .email]
-        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-        authorizationController.delegate = self
-        authorizationController.presentationContextProvider = self
-        authorizationController.performRequests()
-    }
     override func viewDidLoad() {
         setGesture()
         setUI()
