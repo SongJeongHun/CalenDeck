@@ -10,6 +10,8 @@ import RxSwift
 import RxCocoa
 import Action
 class DeckViewModel:ViewModeltype{
+    lazy var cardStorage = CardStorage(myID: userID)
+    lazy var eventHandler = EventStorage(myID: userID)
     func showDeckListAction() -> CocoaAction{
         return CocoaAction{_ in
             let deckListScene = Scene.deckList(self)
