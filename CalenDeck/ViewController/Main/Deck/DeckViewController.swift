@@ -15,11 +15,17 @@ class DeckViewController: UIViewController,ViewControllerBindableType,SideMenuNa
     let shadowView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     @IBOutlet weak var currentCard:UIView!
     @IBOutlet weak var deckListButton:UIBarButtonItem!
+    @IBOutlet weak var testAddButton:UIBarButtonItem!
     override func viewDidLoad() {
         setUI()
         super.viewDidLoad()
     }
     func bindViewModel() {
+        testAddButton.rx.tap
+            .subscribe(onNext:{_ in
+                let card = Card(date: Date(), title: "테스트 카드", content: "테스트", thumbnail: nil)
+                self.viewModel.cardStorage.addCard(card: card)
+            })
         deckListButton.rx.action = viewModel.showDeckListAction()
         ApplicationNotiCenter.sideMenuWillDisappear.addObserver()
             .observeOn(MainScheduler.instance)
