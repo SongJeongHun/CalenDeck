@@ -28,6 +28,8 @@
 		A734E31625BACA9C00795AD8 /* StorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A734E31525BACA9C00795AD8 /* StorageType.swift */; };
 		A734E31A25BACAAC00795AD8 /* MemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A734E31925BACAAC00795AD8 /* MemoryStorage.swift */; };
 		A747E43125D64E2400792E5E /* ApplicationNotiCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A747E43025D64E2400792E5E /* ApplicationNotiCenter.swift */; };
+		A747E43825D6572600792E5E /* CardStorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A747E43725D6572600792E5E /* CardStorageType.swift */; };
+		A747E43C25D6572D00792E5E /* CardStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A747E43B25D6572D00792E5E /* CardStorage.swift */; };
 		A7688F1925CBCDA7000DC4CB /* TimeLineViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7688F1825CBCDA7000DC4CB /* TimeLineViewControllerExtension.swift */; };
 		A779013125BABE54001FA30D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A779013025BABE54001FA30D /* AppDelegate.swift */; };
 		A779013325BABE54001FA30D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A779013225BABE54001FA30D /* SceneDelegate.swift */; };
@@ -71,6 +73,8 @@
 		A734E31525BACA9C00795AD8 /* StorageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageType.swift; sourceTree = "<group>"; };
 		A734E31925BACAAC00795AD8 /* MemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryStorage.swift; sourceTree = "<group>"; };
 		A747E43025D64E2400792E5E /* ApplicationNotiCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationNotiCenter.swift; sourceTree = "<group>"; };
+		A747E43725D6572600792E5E /* CardStorageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStorageType.swift; sourceTree = "<group>"; };
+		A747E43B25D6572D00792E5E /* CardStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStorage.swift; sourceTree = "<group>"; };
 		A7688F1825CBCDA7000DC4CB /* TimeLineViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewControllerExtension.swift; sourceTree = "<group>"; };
 		A76C739125D2B1340071E780 /* CalenDeck.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalenDeck.entitlements; sourceTree = "<group>"; };
 		A779012D25BABE54001FA30D /* CalenDeck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalenDeck.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,17 +135,10 @@
 			path = UserStorage;
 			sourceTree = "<group>";
 		};
-		A734E2E625BABEE500795AD8 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				A734E2ED25BABF2800795AD8 /* Card.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		A734E2E725BABEEB00795AD8 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				A747E43625D656FD00792E5E /* CardStorage */,
 				A710AF2E25C3FF160050F6B5 /* UserStorage */,
 				A703A77B25BFF33C001FABB3 /* EventStorage */,
 				A734E31425BACA8C00795AD8 /* MemoryStorage */,
@@ -218,6 +215,16 @@
 			path = Notification;
 			sourceTree = "<group>";
 		};
+		A747E43625D656FD00792E5E /* CardStorage */ = {
+			isa = PBXGroup;
+			children = (
+				A734E2ED25BABF2800795AD8 /* Card.swift */,
+				A747E43725D6572600792E5E /* CardStorageType.swift */,
+				A747E43B25D6572D00792E5E /* CardStorage.swift */,
+			);
+			path = CardStorage;
+			sourceTree = "<group>";
+		};
 		A779012425BABE53001FA30D = {
 			isa = PBXGroup;
 			children = (
@@ -245,7 +252,6 @@
 				A734E2E925BABEF600795AD8 /* ViewController */,
 				A734E2E825BABEF000795AD8 /* ViewModel */,
 				A734E2E725BABEEB00795AD8 /* Storage */,
-				A734E2E625BABEE500795AD8 /* Model */,
 				A779013025BABE54001FA30D /* AppDelegate.swift */,
 				A779013225BABE54001FA30D /* SceneDelegate.swift */,
 				A779013C25BABE54001FA30D /* Assets.xcassets */,
@@ -416,6 +422,7 @@
 				A747E43125D64E2400792E5E /* ApplicationNotiCenter.swift in Sources */,
 				A710AF3225C4006E0050F6B5 /* UserStorageType.swift in Sources */,
 				A734E2EE25BABF2800795AD8 /* Card.swift in Sources */,
+				A747E43C25D6572D00792E5E /* CardStorage.swift in Sources */,
 				A789A9CB25C13C7200B80A76 /* LoginViewController.swift in Sources */,
 				A7A0B0E925D4FCF600441972 /* SideMenuNavigation.swift in Sources */,
 				A734E30825BAC67B00795AD8 /* SceneCoordinatorType.swift in Sources */,
@@ -429,6 +436,7 @@
 				A734E31A25BACAAC00795AD8 /* MemoryStorage.swift in Sources */,
 				A703A78425BFF97B001FABB3 /* EventType.swift in Sources */,
 				A734E2FF25BAC57A00795AD8 /* TimeLineViewModel.swift in Sources */,
+				A747E43825D6572600792E5E /* CardStorageType.swift in Sources */,
 				A734E30B25BAC68900795AD8 /* TransitionStyle.swift in Sources */,
 				A70CC86125CFB735009B739B /* DatePickViewController.swift in Sources */,
 				A734E30225BAC58600795AD8 /* ViewModelType.swift in Sources */,

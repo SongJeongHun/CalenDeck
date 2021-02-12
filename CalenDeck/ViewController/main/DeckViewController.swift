@@ -12,25 +12,38 @@ import NSObject_Rx
 import SideMenu
 class DeckViewController: UIViewController,ViewControllerBindableType,SideMenuNavigationControllerDelegate{
     var viewModel:DeckViewModel!
+    let shadowView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     @IBOutlet weak var currentCard:UIView!
     @IBOutlet weak var deckListButton:UIBarButtonItem!
     override func viewDidLoad() {
-        currentCard.layer.cornerRadius = 5.0
+        setUI()
         super.viewDidLoad()
     }
     func bindViewModel() {
         deckListButton.rx.action = viewModel.showDeckListAction()
         ApplicationNotiCenter.sideMenuWillDisappear.addObserver()
-            .subscribe(onNext:{object in
-                guard let object = object as? String else { return }
-                print(object)
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext:{_ in
+                self.shadowView.isHidden = true
             })
             .disposed(by: rx.disposeBag)
         ApplicationNotiCenter.sideMenuWillAppear.addObserver()
-            .subscribe(onNext:{object in
-                guard let object = object as? String else { return }
-                print(object)
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext:{ [unowned self] menuWidth in
+                guard let width = menuWidth as? CGFloat else { return }
+                self.shadowView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - width, height: UIScreen.main.bounds.height)
+                self.shadowView.isHidden = false
             })
             .disposed(by: rx.disposeBag)
+    }
+    func setUI(){
+        setShadowView()
+        currentCard.layer.cornerRadius = 5.0
+    }
+    func setShadowView(){
+        shadowView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.3)
+        shadowView.layer.zPosition = 1
+        UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.addSubview(shadowView)
+        shadowView.isHidden = true
     }
 }
