@@ -164,7 +164,7 @@
 			children = (
 				A747E42F25D64E0B00792E5E /* Notification */,
 				A78F4D5125C3D13F00FC0CB9 /* Login */,
-				A78F4D5025C3D13C00FC0CB9 /* Main */,
+				A78F4D5025C3D13C00FC0CB9 /* main */,
 				A779013625BABE54001FA30D /* Main.storyboard */,
 				A779013E25BABE54001FA30D /* LaunchScreen.storyboard */,
 				A734E30425BAC5A900795AD8 /* ViewControllerBindableType.swift */,
@@ -261,7 +261,7 @@
 			path = CalenDeck;
 			sourceTree = "<group>";
 		};
-		A78F4D5025C3D13C00FC0CB9 /* Main */ = {
+		A78F4D5025C3D13C00FC0CB9 /* main */ = {
 			isa = PBXGroup;
 			children = (
 				A734E2F525BAC55900795AD8 /* TimeLineViewController.swift */,
@@ -272,7 +272,7 @@
 				A7A0B0EC25D4FEF600441972 /* DeckListViewController.swift */,
 				A7A0B0E825D4FCF600441972 /* SideMenuNavigation.swift */,
 			);
-			path = Main;
+			path = main;
 			sourceTree = "<group>";
 		};
 		A78F4D5125C3D13F00FC0CB9 /* Login */ = {
