@@ -225,6 +225,27 @@
 			path = CardStorage;
 			sourceTree = "<group>";
 		};
+		A747E44025D6802900792E5E /* Deck */ = {
+			isa = PBXGroup;
+			children = (
+				A734E2F825BAC56500795AD8 /* DeckViewController.swift */,
+				A7A0B0EC25D4FEF600441972 /* DeckListViewController.swift */,
+				A7A0B0E825D4FCF600441972 /* SideMenuNavigation.swift */,
+			);
+			path = Deck;
+			sourceTree = "<group>";
+		};
+		A747E44125D6803900792E5E /* TimeLine */ = {
+			isa = PBXGroup;
+			children = (
+				A734E2F525BAC55900795AD8 /* TimeLineViewController.swift */,
+				A7688F1825CBCDA7000DC4CB /* TimeLineViewControllerExtension.swift */,
+				A77C543325CA76E9002AB4D1 /* MainTabBarViewController.swift */,
+				A70CC86025CFB735009B739B /* DatePickViewController.swift */,
+			);
+			path = TimeLine;
+			sourceTree = "<group>";
+		};
 		A779012425BABE53001FA30D = {
 			isa = PBXGroup;
 			children = (
@@ -264,13 +285,8 @@
 		A78F4D5025C3D13C00FC0CB9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				A734E2F525BAC55900795AD8 /* TimeLineViewController.swift */,
-				A7688F1825CBCDA7000DC4CB /* TimeLineViewControllerExtension.swift */,
-				A77C543325CA76E9002AB4D1 /* MainTabBarViewController.swift */,
-				A70CC86025CFB735009B739B /* DatePickViewController.swift */,
-				A734E2F825BAC56500795AD8 /* DeckViewController.swift */,
-				A7A0B0EC25D4FEF600441972 /* DeckListViewController.swift */,
-				A7A0B0E825D4FCF600441972 /* SideMenuNavigation.swift */,
+				A747E44125D6803900792E5E /* TimeLine */,
+				A747E44025D6802900792E5E /* Deck */,
 			);
 			path = Main;
 			sourceTree = "<group>";

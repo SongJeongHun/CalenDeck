@@ -16,7 +16,7 @@ class CardStorage{
     let ref = Database.database().reference()
     var formatter:DateFormatter = {
         let f = DateFormatter()
-        f.dateFormat = "dd"
+        f.dateFormat = "yyyy.MM.dd"
         f.locale = Locale(identifier: "Ko_kr")
         return f
     }()
@@ -28,6 +28,25 @@ class CardStorage{
     }
     func getCardList() -> Completable{
         let subject = PublishSubject<Void>()
+        ref.child("users").child(myID).child("cards").rx
+            .observeSingleEvent(.value)
+            .subscribe(onSuccess:{[unowned self]snap in
+                guard let snapValue = snap.value! as? Dictionary<String,Any> else { return }
+                let data = snapValue.values
+                for i in data{
+                    let dict = i as! Dictionary<String,Any>
+                    let title = dict["title"] as! String
+                    let content =  dict["content"] as! String
+                    let date = dict["date"] as! String
+                    let thumbnail = dict["thumbnail"] as! String
+                    let grade = dict["grade"] as! Int
+                    let card = Card(date: self.formatter.date(from: date)!, title: title, content: content, thumbnail: nil)
+                    self.cardList.append(card)
+                    self.store.onNext(self.cardList)
+                }
+                subject.onCompleted()
+            })
+            .disposed(by: bag)
         return subject.ignoreElements()
     }
     func addCard(card:Card) -> Completable{

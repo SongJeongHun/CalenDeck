@@ -17,15 +17,17 @@ class DeckViewController: UIViewController,ViewControllerBindableType,SideMenuNa
     @IBOutlet weak var deckListButton:UIBarButtonItem!
     @IBOutlet weak var testAddButton:UIBarButtonItem!
     override func viewDidLoad() {
+        viewModel.cardStorage.getCardList()
         setUI()
         super.viewDidLoad()
     }
     func bindViewModel() {
         testAddButton.rx.tap
             .subscribe(onNext:{_ in
-                let card = Card(date: Date(), title: "테스트 카드", content: "테스트", thumbnail: nil)
+                let card = Card(date: Date(), title: "테스트 카드2", content: "테스트", thumbnail: nil)
                 self.viewModel.cardStorage.addCard(card: card)
             })
+            .disposed(by: rx.disposeBag)
         deckListButton.rx.action = viewModel.showDeckListAction()
         ApplicationNotiCenter.sideMenuWillDisappear.addObserver()
             .observeOn(MainScheduler.instance)

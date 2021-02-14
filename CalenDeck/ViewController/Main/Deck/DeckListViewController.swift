@@ -7,6 +7,12 @@
 import UIKit
 import SideMenu
 class DeckListViewController: UIViewController,ViewControllerBindableType{
+    var formatter:DateFormatter = {
+        let f = DateFormatter()
+        f.dateFormat = "dd"
+        f.locale = Locale(identifier: "Ko_kr")
+        return f
+    }()
     var viewModel:DeckViewModel!
     @IBOutlet weak var headerView:UIView!
     @IBOutlet weak var editButton:UIButton!
@@ -23,8 +29,8 @@ class DeckListViewController: UIViewController,ViewControllerBindableType{
         viewModel.cardStorage.store
             .bind(to:tableView.rx.items){tableView,row,data in
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "CardListCell") as? CardListCell else { return UITableViewCell() }
-                cell.day.text = self.viewModel.cardStorage.formatter.string(from: data.date)
-                cell.title.text = data.content
+                cell.day.text = self.formatter.string(from: data.date)
+                cell.title.text = data.title
                 return cell
             }
             .disposed(by: rx.disposeBag)
