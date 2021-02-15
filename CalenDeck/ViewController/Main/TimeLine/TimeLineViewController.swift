@@ -14,7 +14,7 @@ import Action
 class TimeLineViewController: UIViewController,ViewControllerBindableType{
     var viewModel : TimeLineViewModel!
     @IBOutlet weak var currentDate:UILabel!
-    var dateArray:[String] = []
+    var dateArray:Set<String> = []
     @IBOutlet weak var calendar:FSCalendar!
     @IBOutlet weak var datePickButton:UIBarButtonItem!
     @IBOutlet var timeLine:UITableView!
@@ -48,10 +48,6 @@ class TimeLineViewController: UIViewController,ViewControllerBindableType{
                 calendar.adjustMonthPosition()
                 currentDate.text = stringDate
                 viewModel.eventStorage.getTimeLine(to: date)
-                    .subscribe(onCompleted:{
-                        self.timeLine.reloadData()
-                    })
-                    .disposed(by: self.rx.disposeBag)
             })
             .disposed(by: rx.disposeBag)
         foldButton.rx.action = foldAction()

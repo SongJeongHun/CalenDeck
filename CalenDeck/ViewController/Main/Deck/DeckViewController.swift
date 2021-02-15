@@ -16,21 +16,19 @@ class DeckViewController: UIViewController,ViewControllerBindableType,SideMenuNa
     @IBOutlet weak var currentCard:UIView!
     @IBOutlet weak var deckListButton:UIBarButtonItem!
     @IBOutlet weak var testAddButton:UIBarButtonItem!
+    @IBOutlet weak var contentPanel:UIView!
+    @IBOutlet weak var thumbnailPanel:UIView!
+    @IBOutlet weak var thumbnailImage:UIImageView!
+    @IBOutlet weak var content:UILabel!
+    @IBOutlet weak var currentDay:UILabel!
+    @IBOutlet weak var currentMonth:UIImageView!
+    var selectedDate = Date()
     override func viewDidLoad() {
         viewModel.cardStorage.getCardList()
         setUI()
         super.viewDidLoad()
     }
     func bindViewModel() {
-        testAddButton.rx.tap
-            .subscribe(onNext:{_ in
-                for i in 0..<10{
-                    let card = Card(date: Date(), title: "테스트 카드\(i)", content: "테스트", thumbnail: nil)
-                    self.viewModel.cardStorage.addCard(card: card)
-                }
-//                self.viewModel.cardStorage.addCard(card: card)
-            })
-            .disposed(by: rx.disposeBag)
         deckListButton.rx.action = viewModel.showDeckListAction()
         ApplicationNotiCenter.sideMenuWillDisappear.addObserver()
             .observeOn(MainScheduler.instance)
@@ -49,6 +47,8 @@ class DeckViewController: UIViewController,ViewControllerBindableType,SideMenuNa
     }
     func setUI(){
         setShadowView()
+        contentPanel.layer.cornerRadius = 5.0
+        thumbnailPanel.layer.cornerRadius = 5.0
         currentCard.layer.cornerRadius = 5.0
     }
     func setShadowView(){

@@ -61,7 +61,7 @@ class EventStorage:EventType{
         let subject = PublishSubject<Void>()
         ref.child("users").child(myID).child("events").rx
             .observeSingleEvent(.value)
-            .subscribe(onSuccess:{[unowned self]snap in
+            .subscribe(onSuccess:{snap in
                 self.convertData(snap: snap,to:date)
                 self.store.onNext(self.eventList)
 //                print("on next -> \(self.eventList.count)")
