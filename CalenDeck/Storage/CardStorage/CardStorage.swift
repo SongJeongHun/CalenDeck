@@ -11,7 +11,7 @@ import Firebase
 import RxFirebaseDatabase
 import NSObject_Rx
 import Foundation
-class CardStorage{
+class CardStorage:CardStorageType{
     let bag = DisposeBag()
     lazy var eventHandler = EventStorage(myID: myID)
     let ref = Database.database().reference()

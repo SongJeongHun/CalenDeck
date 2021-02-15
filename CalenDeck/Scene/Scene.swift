@@ -13,6 +13,7 @@ enum Scene{
     case join(JoinViewModel)
     case datePick(TimeLineViewModel)
     case deckList(DeckViewModel)
+    case monthPick(DeckViewModel)
 }
 extension Scene{
     func instantiate(from storyboard:String = "Main") -> UIViewController{
@@ -46,6 +47,10 @@ extension Scene{
             guard var deckListVC = sideNav.viewControllers.first as? DeckListViewController else { fatalError() }
             deckListVC.bind(viewModel: deckViewModel)
             return sideNav
+        case .monthPick(let deckViewModel):
+            guard var monthPickVC = storyboard.instantiateViewController(identifier: "MonthPick") as? MonthPickViewController else { fatalError() }
+            monthPickVC.bind(viewModel: deckViewModel)
+            return monthPickVC
         }
     }
 }

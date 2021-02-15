@@ -35,19 +35,37 @@ class Coordinator:SceneCoordinatorType{
             }
             currentVC =  target.sceneViewController
         case .push:
-            guard let nav = currentVC.children.first as? UINavigationController else{
-                print("error occur. current VC is -> \(currentVC)")
-                subject.onError(TransitionError.navigationMissing)
-                break
+            if type(of: target) == DatePickViewController.self{
+                guard let nav = currentVC.children.first as? UINavigationController else {
+                    print("error occur. current VC is -> \(currentVC)")
+                    subject.onError(TransitionError.navigationMissing)
+                    break
+                }
+                nav.rx.willShow
+                    .subscribe(onNext:{[unowned self] event in
+                        self.currentVC = event.viewController.sceneViewController.parent!.parent!
+                    })
+                    .disposed(by: bag)
+                nav.pushViewController(target, animated: animated)
+                currentVC = target.sceneViewController
+                subject.onCompleted()
+            }else{
+                guard let nav = currentVC.children.last as? UINavigationController else {
+                    print("error occur. current VC is -> \(currentVC)")
+                    subject.onError(TransitionError.navigationMissing)
+                    break
+                }
+                nav.rx.willShow
+                    .subscribe(onNext:{[unowned self] event in
+                        self.currentVC = event.viewController.sceneViewController.parent!.parent!
+                    })
+                    .disposed(by: bag)
+                nav.pushViewController(target, animated: animated)
+                currentVC = target.sceneViewController
+                subject.onCompleted()
             }
-            nav.rx.willShow
-                .subscribe(onNext:{[unowned self] event in
-                    self.currentVC = event.viewController.sceneViewController.parent!.parent!
-                })
-                .disposed(by: bag)
-            nav.pushViewController(target, animated: animated)
-            currentVC = target.sceneViewController
-            subject.onCompleted()
+           
+            
         }
         return subject.ignoreElements()
     }

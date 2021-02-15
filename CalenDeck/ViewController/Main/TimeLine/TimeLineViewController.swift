@@ -29,7 +29,7 @@ class TimeLineViewController: UIViewController,ViewControllerBindableType{
     }
     func setUI(){
         timeLine.layer.cornerRadius = 5.0
-        timeLine.separatorStyle = .none
+        
         timeLine.layer.shadowRadius = 2.0
         timeLine.layer.shadowOffset = CGSize(width: 2, height: 3)
         timeLine.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
@@ -54,9 +54,11 @@ class TimeLineViewController: UIViewController,ViewControllerBindableType{
         viewModel.eventStorage.store
             .bind(to:timeLine.rx.items){tableView,row,data in
                 if data.style == .empty{
+                    self.timeLine.separatorStyle = .none
                     let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyCell") as! EmptyCell
                     return cell
                 }else{
+                    self.timeLine.separatorStyle = .singleLine
                     let cell = tableView.dequeueReusableCell(withIdentifier: "TimeLineCell") as! TimeLineCell
                     cell.content.text = data.content
                     cell.mainTitle.text = data.mainTitle
