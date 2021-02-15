@@ -51,18 +51,20 @@ class EventStorage:EventType{
                 default:
                     fatalError()
                 }
-            }else{
-                self.eventList.append(Event(empty: .empty))
             }
+        }
+        if !dateArray.contains(formatter.string(from: date)){
+            self.eventList.append(Event(empty: .empty))
         }
     }
     func getTimeLine(to date:Date = Date()) -> Completable{
         let subject = PublishSubject<Void>()
         ref.child("users").child(myID).child("events").rx
             .observeSingleEvent(.value)
-            .subscribe(onSuccess:{snap in
+            .subscribe(onSuccess:{[unowned self]snap in
                 self.convertData(snap: snap,to:date)
                 self.store.onNext(self.eventList)
+//                print("on next -> \(self.eventList.count)")
                 subject.onCompleted()
             },onError: { error in
                 subject.onError(error)

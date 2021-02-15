@@ -49,6 +49,9 @@ class CardListCell:UITableViewCell{
     @IBOutlet weak var day:UILabel!
     @IBOutlet weak var title:UILabel!
     override func awakeFromNib() {
+        panel.layer.borderWidth = 0.5
+        panel.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        panel.layer.cornerRadius = 7.0
         super.awakeFromNib()
     }
 }

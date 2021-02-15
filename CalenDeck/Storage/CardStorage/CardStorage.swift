@@ -13,6 +13,7 @@ import NSObject_Rx
 import Foundation
 class CardStorage{
     let bag = DisposeBag()
+    lazy var eventHandler = EventStorage(myID: myID)
     let ref = Database.database().reference()
     var formatter:DateFormatter = {
         let f = DateFormatter()
@@ -54,6 +55,7 @@ class CardStorage{
         ref.child("users").child(myID).child("cards").child(card.title).rx
             .setValue(["title":card.title,"content":card.content,"date":formatter.string(from: card.date) ,"thumbnail":card.thumbnail ?? "none","grade":card.grade])
             .subscribe(onSuccess:{ _ in
+                self.eventHandler.createEvent(style: .create(card))
                 self.cardList.append(card)
                 self.store.onNext(self.cardList)
                 subject.onCompleted()

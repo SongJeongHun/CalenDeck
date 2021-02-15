@@ -24,8 +24,11 @@ class DeckViewController: UIViewController,ViewControllerBindableType,SideMenuNa
     func bindViewModel() {
         testAddButton.rx.tap
             .subscribe(onNext:{_ in
-                let card = Card(date: Date(), title: "테스트 카드2", content: "테스트", thumbnail: nil)
-                self.viewModel.cardStorage.addCard(card: card)
+                for i in 0..<10{
+                    let card = Card(date: Date(), title: "테스트 카드\(i)", content: "테스트", thumbnail: nil)
+                    self.viewModel.cardStorage.addCard(card: card)
+                }
+//                self.viewModel.cardStorage.addCard(card: card)
             })
             .disposed(by: rx.disposeBag)
         deckListButton.rx.action = viewModel.showDeckListAction()

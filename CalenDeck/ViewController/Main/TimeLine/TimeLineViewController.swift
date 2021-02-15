@@ -48,6 +48,10 @@ class TimeLineViewController: UIViewController,ViewControllerBindableType{
                 calendar.adjustMonthPosition()
                 currentDate.text = stringDate
                 viewModel.eventStorage.getTimeLine(to: date)
+                    .subscribe(onCompleted:{
+                        self.timeLine.reloadData()
+                    })
+                    .disposed(by: self.rx.disposeBag)
             })
             .disposed(by: rx.disposeBag)
         foldButton.rx.action = foldAction()
@@ -69,8 +73,11 @@ class TimeLineViewController: UIViewController,ViewControllerBindableType{
     }
     @IBAction func refreshAction(refresh:UIRefreshControl){
         viewModel.eventStorage.getTimeLine(to: viewModel.eventStorage.formatter.date(from: viewModel.selectedDateString) ?? Date())
-        timeLine.reloadData()
-        refresh.endRefreshing()
+            .subscribe(onCompleted:{
+                self.timeLine.reloadData()
+                refresh.endRefreshing()
+            })
+            .disposed(by: rx.disposeBag)
     }
     func addRefreshController(){
         let refresh = UIRefreshControl()
