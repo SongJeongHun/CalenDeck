@@ -14,7 +14,7 @@ import Action
 class TimeLineViewController: UIViewController,ViewControllerBindableType{
     var viewModel : TimeLineViewModel!
     @IBOutlet weak var currentDate:UILabel!
-    var dateArray:Set<String> = []
+//    var dateArray:Set<String> = []
     @IBOutlet weak var calendar:FSCalendar!
     @IBOutlet weak var datePickButton:UIBarButtonItem!
     @IBOutlet var timeLine:UITableView!
@@ -29,7 +29,6 @@ class TimeLineViewController: UIViewController,ViewControllerBindableType{
     }
     func setUI(){
         timeLine.layer.cornerRadius = 5.0
-        
         timeLine.layer.shadowRadius = 2.0
         timeLine.layer.shadowOffset = CGSize(width: 2, height: 3)
         timeLine.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
@@ -38,7 +37,7 @@ class TimeLineViewController: UIViewController,ViewControllerBindableType{
     func bindViewModel() {
         viewModel.selectedDate
             .observeOn(MainScheduler.instance)
-            .subscribe(onNext:{[unowned self]date in
+            .subscribe(onNext:{ [unowned self] date in
                 let stringDate = viewModel.eventStorage.formatter.string(from: date)
                 viewModel.selectedDateString = stringDate
                 if let selectedDate = calendar.selectedDate{

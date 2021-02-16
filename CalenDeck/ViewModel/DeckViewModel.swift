@@ -12,7 +12,8 @@ import Action
 class DeckViewModel:ViewModeltype{
     lazy var cardStorage = CardStorage(myID: userID)
     lazy var eventHandler = EventStorage(myID: userID)
-    var currentDate = Date()
+    var currentMonth = BehaviorSubject<Int>(value: 0)
+    var currentYear = BehaviorSubject<Int>(value: 0)
     func showDeckListAction() -> CocoaAction{
         return CocoaAction{_ in
             let deckListScene = Scene.deckList(self)

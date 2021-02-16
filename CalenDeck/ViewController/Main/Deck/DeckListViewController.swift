@@ -6,6 +6,7 @@
 //
 import UIKit
 import SideMenu
+import RxSwift
 class DeckListViewController: UIViewController,ViewControllerBindableType{
     var formatter:DateFormatter = {
         let f = DateFormatter()
@@ -16,6 +17,8 @@ class DeckListViewController: UIViewController,ViewControllerBindableType{
     var viewModel:DeckViewModel!
     @IBOutlet weak var headerView:UIView!
     @IBOutlet weak var editButton:UIButton!
+    @IBOutlet weak var selectedYear:UILabel!
+    @IBOutlet weak var selectedMonth:UILabel!
     @IBOutlet weak var tableView:UITableView!
     override func viewDidLoad() {
         setUI()
@@ -26,6 +29,20 @@ class DeckListViewController: UIViewController,ViewControllerBindableType{
         super.viewWillDisappear(animated)
     }
     func bindViewModel() {
+        viewModel.currentYear
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext:{ [unowned self] year in
+                let stringYear = String(year)
+                self.selectedYear.text = stringYear
+            })
+            .disposed(by: rx.disposeBag)
+        viewModel.currentYear
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext:{ [unowned self] month in
+                
+            })
+            .disposed(by: rx.disposeBag)
+        
         viewModel.cardStorage.store
             .bind(to:tableView.rx.items){tableView,row,data in
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "CardListCell") as? CardListCell else { return UITableViewCell() }
@@ -55,3 +72,4 @@ class CardListCell:UITableViewCell{
         super.awakeFromNib()
     }
 }
+

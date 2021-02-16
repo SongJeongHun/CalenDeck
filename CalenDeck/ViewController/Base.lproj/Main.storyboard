@@ -330,6 +330,8 @@
                     <connections>
                         <outlet property="editButton" destination="tMq-ap-k9A" id="GWK-dc-Kb7"/>
                         <outlet property="headerView" destination="rfE-xP-Gde" id="IM5-Hl-Cc3"/>
+                        <outlet property="selectedMonth" destination="4m0-0u-Sxs" id="vSp-uv-KUj"/>
+                        <outlet property="selectedYear" destination="moj-l3-wHO" id="tCI-qO-QEF"/>
                         <outlet property="tableView" destination="fXK-oT-SL9" id="wS7-hP-gTE"/>
                     </connections>
                 </viewController>
@@ -975,7 +977,6 @@
         <!--월 선택-->
         <scene sceneID="XRm-LJ-ToA">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="n0O-Ub-UaS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="MonthPick" title="월 선택" id="n5U-Co-Vt0" customClass="MonthPickViewController" customModule="CalenDeck" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ISi-pb-ST4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -1049,6 +1050,7 @@
                         <outlet property="okButton" destination="wNd-re-eWd" id="Dko-Vg-Y2O"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n0O-Ub-UaS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="919" y="1242"/>
         </scene>

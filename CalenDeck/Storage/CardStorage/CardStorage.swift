@@ -4,7 +4,6 @@
 //
 //  Created by 송정훈 on 2021/02/12.
 //
-
 import RxSwift
 import Action
 import Firebase
@@ -29,6 +28,7 @@ class CardStorage:CardStorageType{
     }
     func getCardList() -> Completable{
         let subject = PublishSubject<Void>()
+        cardList = []
         ref.child("users").child(myID).child("cards").rx
             .observeSingleEvent(.value)
             .subscribe(onSuccess:{[unowned self]snap in

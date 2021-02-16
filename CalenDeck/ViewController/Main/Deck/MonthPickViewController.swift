@@ -23,15 +23,15 @@ class MonthPickViewController: UIViewController,ViewControllerBindableType{
         okButton.rx.tap
             .throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
             .subscribe(onNext:{_ in
-                let date = self.monthPicker.date
-                self.viewModel.currentDate = date
+                let date =  Calendar.current.dateComponents([.month,.year], from: self.monthPicker.date)
+                self.viewModel.currentYear.onNext(date.year!)
+                self.viewModel.currentMonth.onNext(date.month!)
                 self.navigationController?.popViewController(animated: true)
             })
             .disposed(by: rx.disposeBag)
         cancelButton.rx.tap
             .throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
             .subscribe(onNext:{_ in
-                
                 self.navigationController?.popViewController(animated: true)
             })
             .disposed(by: rx.disposeBag)
