@@ -15,6 +15,7 @@ class DeckListViewController: UIViewController,ViewControllerBindableType{
         return f
     }()
     var viewModel:DeckViewModel!
+    @IBOutlet weak var cardAddButton:UIBarButtonItem!
     @IBOutlet weak var headerView:UIView!
     @IBOutlet weak var editButton:UIButton!
     @IBOutlet weak var selectedYear:UILabel!

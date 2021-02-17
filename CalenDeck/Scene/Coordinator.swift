@@ -58,7 +58,9 @@ class Coordinator:SceneCoordinatorType{
                     break
                 }
                 let vc = target as! DeckListViewController
+                vc.navigationItem.title = "덱 편집"
                 vc.editButton.isHidden = true
+                vc.cardAddButton.rx.action = vc.viewModel.cardManageButtonAction()
                 nav.rx.willShow
                     .subscribe(onNext:{[unowned self] event in
                         self.currentVC = event.viewController.sceneViewController.parent!.parent!

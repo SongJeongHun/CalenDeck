@@ -32,4 +32,10 @@ class DeckViewModel:ViewModeltype{
             return self.sceneCoordinator.trainsition(to: deckEditScene, using: .push, animated: true).asObservable().map{ _ in }
         }
     }
+    func cardManageButtonAction() -> CocoaAction{
+        return CocoaAction{ _ in
+            let cardManageScene = Scene.cardManage(self)
+            return self.sceneCoordinator.trainsition(to: cardManageScene, using: .modal, animated: true).asObservable().map{ _ in }
+        }
+    }
 }
