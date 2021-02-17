@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 protocol CardStorageType {
-    func getCardList(to date:Date) -> Completable
+    func getCardList(year:Int,month:Int) -> Completable
     func addCard(card:Card) -> Completable
     
     

@@ -13,7 +13,7 @@ import Foundation
 class CardStorage:CardStorageType{
     let bag = DisposeBag()
     lazy var eventHandler = EventStorage(myID: myID)
-    var dateArray:Set<Date> = []
+    var dateArray:Set<[Int]> = []
     let ref = Database.database().reference()
     var formatter:DateFormatter = {
         let f = DateFormatter()
@@ -27,7 +27,7 @@ class CardStorage:CardStorageType{
     required init(myID:String){
         self.myID = myID
     }
-    func getCardList(to date:Date = Date()) -> Completable{
+    func getCardList(year:Int,month:Int) -> Completable{
         let subject = PublishSubject<Void>()
         cardList = []
         ref.child("users").child(myID).child("cards").rx
@@ -40,11 +40,13 @@ class CardStorage:CardStorageType{
                     let title = dict["title"] as! String
                     let content =  dict["content"] as! String
                     let date = self.formatter.date(from: dict["date"] as! String)!
-                    let thumbnail = dict["thumbnail"] as! String
-                    let grade = dict["grade"] as! Int
-                    let card = Card(date: date, title: title, content: content, thumbnail: nil)
-                    self.dateArray.insert(date)
-                    self.cardList.append(card)
+                    //                    let thumbnail = dict["thumbnail"] as! String
+                    //                    let grade = dict["grade"] as! Int
+                    let dateComponents = Calendar.current.dateComponents([.month,.year], from: date)
+                    if dateComponents.year! == year && dateComponents.month! == month{
+                        let card = Card(date: date, title: title, content: content, thumbnail: nil)
+                        self.cardList.append(card)
+                    }
                     self.store.onNext(self.cardList)
                 }
                 subject.onCompleted()

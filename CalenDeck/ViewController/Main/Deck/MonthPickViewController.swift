@@ -26,6 +26,7 @@ class MonthPickViewController: UIViewController,ViewControllerBindableType{
                 let date =  Calendar.current.dateComponents([.month,.year], from: self.monthPicker.date)
                 self.viewModel.currentYear.onNext(date.year!)
                 self.viewModel.currentMonth.onNext(date.month!)
+                self.viewModel.cardStorage.getCardList(year: date.year!, month: date.month!)
                 self.navigationController?.popViewController(animated: true)
             })
             .disposed(by: rx.disposeBag)

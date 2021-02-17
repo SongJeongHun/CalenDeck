@@ -27,7 +27,7 @@ class DeckViewController: UIViewController,ViewControllerBindableType,SideMenuNa
         let date =  Calendar.current.dateComponents([.month,.year], from: Date())
         viewModel.currentYear.onNext(date.year!)
         viewModel.currentMonth.onNext(date.month!)
-        viewModel.cardStorage.getCardList()
+        viewModel.cardStorage.getCardList(year: date.year!, month: date.month!)
         setUI()
         super.viewDidLoad()
     }
