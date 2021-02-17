@@ -25,14 +25,16 @@ class DeckListViewController: UIViewController,ViewControllerBindableType{
         super.viewDidLoad()
     }
     override func viewWillDisappear(_ animated: Bool) {
-        viewModel.sceneCoordinator.currentVC = presentingViewController!
+        if let presentVC = self.presentingViewController {
+            viewModel.sceneCoordinator.currentVC = presentVC
+        }
         super.viewWillDisappear(animated)
     }
     func bindViewModel() {
+        editButton.rx.action = viewModel.deckEditButtonAction()
         viewModel.currentYear
             .observeOn(MainScheduler.instance)
             .subscribe(onNext:{ [unowned self] year in
-                print("year -> \(year)")
                 let stringYear = String(year)
                 self.selectedYear.text = stringYear
             })
@@ -40,7 +42,6 @@ class DeckListViewController: UIViewController,ViewControllerBindableType{
         viewModel.currentMonth
             .observeOn(MainScheduler.instance)
             .subscribe(onNext:{ [unowned self] month in
-                print("moth -> \(month)")
                 switch month{
                 case 1:
                     self.selectedMonth.text = "January"
@@ -82,6 +83,8 @@ class DeckListViewController: UIViewController,ViewControllerBindableType{
     }
     func setUI(){
         headerView.layer.cornerRadius = 7.0
+        headerView.layer.borderWidth = 0.5
+        headerView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         tableView.separatorStyle = .none
         tableView.layer.cornerRadius = 7.0
         tableView.layer.borderWidth = 0.5

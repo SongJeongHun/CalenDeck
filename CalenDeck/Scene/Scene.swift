@@ -14,6 +14,7 @@ enum Scene{
     case datePick(TimeLineViewModel)
     case deckList(DeckViewModel)
     case monthPick(DeckViewModel)
+    case deckEdit(DeckViewModel)
 }
 extension Scene{
     func instantiate(from storyboard:String = "Main") -> UIViewController{
@@ -49,6 +50,10 @@ extension Scene{
             return sideNav
         case .monthPick(let deckViewModel):
             guard var monthPickVC = storyboard.instantiateViewController(identifier: "MonthPick") as? MonthPickViewController else { fatalError() }
+            monthPickVC.bind(viewModel: deckViewModel)
+            return monthPickVC
+        case .deckEdit(let deckViewModel):
+            guard var monthPickVC = storyboard.instantiateViewController(identifier: "DeckEdit") as? DeckListViewController else { fatalError() }
             monthPickVC.bind(viewModel: deckViewModel)
             return monthPickVC
         }

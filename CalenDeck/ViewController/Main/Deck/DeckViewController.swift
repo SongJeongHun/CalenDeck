@@ -48,6 +48,39 @@ class DeckViewController: UIViewController,ViewControllerBindableType,SideMenuNa
                 self.shadowView.isHidden = false
             })
             .disposed(by: rx.disposeBag)
+        viewModel.currentMonth
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext:{ [unowned self] month in
+                switch month{
+                case 1:
+                    self.currentMonth.image = #imageLiteral(resourceName: "JANUARY")
+                case 2:
+                    self.currentMonth.image = #imageLiteral(resourceName: "FEBRUARY")
+                case 3:
+                    self.currentMonth.image = #imageLiteral(resourceName: "APRIL")
+                case 4:
+                    self.currentMonth.image = #imageLiteral(resourceName: "MARCH")
+                case 5:
+                    self.currentMonth.image = #imageLiteral(resourceName: "MAY")
+                case 6:
+                    self.currentMonth.image = #imageLiteral(resourceName: "JUNE")
+                case 7:
+                    self.currentMonth.image = #imageLiteral(resourceName: "JULY")
+                case 8:
+                    self.currentMonth.image = #imageLiteral(resourceName: "AUGUST")
+                case 9:
+                    self.currentMonth.image = #imageLiteral(resourceName: "NOVEMBER")
+                case 10:
+                    self.currentMonth.image = #imageLiteral(resourceName: "OCTOBER")
+                case 11:
+                    self.currentMonth.image = #imageLiteral(resourceName: "SEPTEMBER")
+                case 12:
+                    self.currentMonth.image = #imageLiteral(resourceName: "DECEMBER")
+                default:
+                    viewModel.currentMonth.onError(UserError.unknown)
+                }
+            })
+            .disposed(by: rx.disposeBag)
     }
     func setUI(){
         setShadowView()

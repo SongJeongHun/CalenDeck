@@ -49,6 +49,24 @@ class Coordinator:SceneCoordinatorType{
                 nav.pushViewController(target, animated: animated)
                 currentVC = target.sceneViewController
                 subject.onCompleted()
+            }else if type(of: target) == DeckListViewController.self{
+                currentVC.dismiss(animated: true, completion: nil)
+                currentVC = window.rootViewController!
+                guard let nav = currentVC.children.last as? UINavigationController else {
+                    print("error occur. current VC is -> \(currentVC)")
+                    subject.onError(TransitionError.navigationMissing)
+                    break
+                }
+                let vc = target as! DeckListViewController
+                vc.editButton.isHidden = true
+                nav.rx.willShow
+                    .subscribe(onNext:{[unowned self] event in
+                        self.currentVC = event.viewController.sceneViewController.parent!.parent!
+                    })
+                    .disposed(by: bag)
+                nav.pushViewController(target, animated: animated)
+                currentVC = target.sceneViewController
+                subject.onCompleted()
             }else{
                 guard let nav = currentVC.children.last as? UINavigationController else {
                     print("error occur. current VC is -> \(currentVC)")
@@ -64,8 +82,6 @@ class Coordinator:SceneCoordinatorType{
                 currentVC = target.sceneViewController
                 subject.onCompleted()
             }
-           
-            
         }
         return subject.ignoreElements()
     }

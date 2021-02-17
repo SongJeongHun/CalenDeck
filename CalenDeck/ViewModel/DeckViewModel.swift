@@ -26,4 +26,10 @@ class DeckViewModel:ViewModeltype{
             return self.sceneCoordinator.trainsition(to: monthPickScene, using: .push, animated: true).asObservable().map{ _ in }
         }
     }
+    func deckEditButtonAction() -> CocoaAction{
+        return CocoaAction{ _ in
+            let deckEditScene = Scene.deckEdit(self)
+            return self.sceneCoordinator.trainsition(to: deckEditScene, using: .push, animated: true).asObservable().map{ _ in }
+        }
+    }
 }
