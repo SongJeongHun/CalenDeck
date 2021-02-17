@@ -24,6 +24,9 @@ class DeckViewController: UIViewController,ViewControllerBindableType,SideMenuNa
     @IBOutlet weak var currentMonth:UIImageView!
     var selectedDate = Date()
     override func viewDidLoad() {
+        let date =  Calendar.current.dateComponents([.month,.year], from: Date())
+        viewModel.currentYear.onNext(date.year!)
+        viewModel.currentMonth.onNext(date.month!)
         viewModel.cardStorage.getCardList()
         setUI()
         super.viewDidLoad()

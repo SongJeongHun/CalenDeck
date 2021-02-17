@@ -45,6 +45,7 @@
 		A7A0B0E925D4FCF600441972 /* SideMenuNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A0B0E825D4FCF600441972 /* SideMenuNavigation.swift */; };
 		A7A0B0ED25D4FEF600441972 /* DeckListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A0B0EC25D4FEF600441972 /* DeckListViewController.swift */; };
 		A7A825CB25BE91F400634821 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A825CA25BE91F400634821 /* Coordinator.swift */; };
+		A7BE9CF525DCEA3800CF46B6 /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BE9CF425DCEA3800CF46B6 /* Month.swift */; };
 		A7F47ED425DA9F4500F4248F /* MonthPickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F47ED325DA9F4500F4248F /* MonthPickViewController.swift */; };
 		B3AEA730E65D67F5DC757A1E /* Pods_CalenDeck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E03D23FED6FBD59E9B6717 /* Pods_CalenDeck.framework */; };
 /* End PBXBuildFile section */
@@ -94,6 +95,7 @@
 		A7A0B0E825D4FCF600441972 /* SideMenuNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuNavigation.swift; sourceTree = "<group>"; };
 		A7A0B0EC25D4FEF600441972 /* DeckListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckListViewController.swift; sourceTree = "<group>"; };
 		A7A825CA25BE91F400634821 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		A7BE9CF425DCEA3800CF46B6 /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		A7F47ED325DA9F4500F4248F /* MonthPickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthPickViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -234,6 +236,7 @@
 				A7A0B0EC25D4FEF600441972 /* DeckListViewController.swift */,
 				A7A0B0E825D4FCF600441972 /* SideMenuNavigation.swift */,
 				A7F47ED325DA9F4500F4248F /* MonthPickViewController.swift */,
+				A7BE9CF425DCEA3800CF46B6 /* Month.swift */,
 			);
 			path = Deck;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				A7F47ED425DA9F4500F4248F /* MonthPickViewController.swift in Sources */,
 				A7A0B0ED25D4FEF600441972 /* DeckListViewController.swift in Sources */,
 				A703A77D25BFF34C001FABB3 /* Event.swift in Sources */,
+				A7BE9CF525DCEA3800CF46B6 /* Month.swift in Sources */,
 				A78F4D5325C3D1CF00FC0CB9 /* UserJoinViewController.swift in Sources */,
 				A77C543425CA76E9002AB4D1 /* MainTabBarViewController.swift in Sources */,
 				A7688F1925CBCDA7000DC4CB /* TimeLineViewControllerExtension.swift in Sources */,

@@ -27,7 +27,10 @@ class EventStorage:EventType{
         self.myID = myID
     }
     func convertData(snap:DataSnapshot,to date:Date){
-        guard let dict = snap.value! as? Dictionary<String,Any> else { return }
+        guard let dict = snap.value! as? Dictionary<String,Any> else {
+            self.eventList = [Event(empty: .empty)]
+            return
+        }
         eventList = []
         dateArray = []
         for i in dict.values{
@@ -54,7 +57,7 @@ class EventStorage:EventType{
             }
         }
         if !dateArray.contains(formatter.string(from: date)){
-            self.eventList.append(Event(empty: .empty))
+            self.eventList = [Event(empty: .empty)]
         }
     }
     func getTimeLine(to date:Date = Date()) -> Completable{

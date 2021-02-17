@@ -32,17 +32,45 @@ class DeckListViewController: UIViewController,ViewControllerBindableType{
         viewModel.currentYear
             .observeOn(MainScheduler.instance)
             .subscribe(onNext:{ [unowned self] year in
+                print("year -> \(year)")
                 let stringYear = String(year)
                 self.selectedYear.text = stringYear
             })
             .disposed(by: rx.disposeBag)
-        viewModel.currentYear
+        viewModel.currentMonth
             .observeOn(MainScheduler.instance)
             .subscribe(onNext:{ [unowned self] month in
-                
+                print("moth -> \(month)")
+                switch month{
+                case 1:
+                    self.selectedMonth.text = "January"
+                case 2:
+                    self.selectedMonth.text = "February"
+                case 3:
+                    self.selectedMonth.text = "April"
+                case 4:
+                    self.selectedMonth.text = "March"
+                case 5:
+                    self.selectedMonth.text = "May"
+                case 6:
+                    self.selectedMonth.text = "June"
+                case 7:
+                    self.selectedMonth.text = "July"
+                case 8:
+                    self.selectedMonth.text = "August"
+                case 9:
+                    self.selectedMonth.text = "November"
+                case 10:
+                    self.selectedMonth.text = "October"
+                case 11:
+                    self.selectedMonth.text = "September"
+                case 12:
+                    self.selectedMonth.text = "December"
+                default:
+                    viewModel.currentMonth.onError(UserError.unknown)
+                }
             })
             .disposed(by: rx.disposeBag)
-        
         viewModel.cardStorage.store
             .bind(to:tableView.rx.items){tableView,row,data in
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "CardListCell") as? CardListCell else { return UITableViewCell() }
