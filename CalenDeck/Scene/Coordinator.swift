@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import RxSwift
+import NSObject_Rx
 extension UIViewController{
     var sceneViewController:UIViewController{
         return self.children.first ?? self
@@ -61,6 +62,15 @@ class Coordinator:SceneCoordinatorType{
                 vc.navigationItem.title = "덱 편집"
                 vc.editButton.isHidden = true
                 vc.cardAddButton.rx.action = vc.viewModel.cardManageButtonAction()
+                vc.tableView.rx.itemDeleted
+                    .subscribe(onNext:{ index in
+                        let year = vc.viewModel.selectedYear
+                        let month = vc.viewModel.selectedMonth
+                        let card = vc.viewModel.cardStorage.cardList[index.row]
+                        vc.viewModel.cardStorage.deleteCard(card: card)
+                        vc.viewModel.cardStorage.getCardList(year:year , month: month)
+                    })
+                    .disposed(by: bag)
                 nav.rx.willShow
                     .subscribe(onNext:{[unowned self] event in
                         self.currentVC = event.viewController.sceneViewController.parent!.parent!

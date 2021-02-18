@@ -24,6 +24,8 @@ class MonthPickViewController: UIViewController,ViewControllerBindableType{
             .throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
             .subscribe(onNext:{_ in
                 let date =  Calendar.current.dateComponents([.month,.year], from: self.monthPicker.date)
+                self.viewModel.selectedMonth = date.month!
+                self.viewModel.selectedYear = date.year!
                 self.viewModel.currentYear.onNext(date.year!)
                 self.viewModel.currentMonth.onNext(date.month!)
                 self.viewModel.cardStorage.getCardList(year: date.year!, month: date.month!)

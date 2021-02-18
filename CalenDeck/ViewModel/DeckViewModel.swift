@@ -13,7 +13,9 @@ class DeckViewModel:ViewModeltype{
     lazy var cardStorage = CardStorage(myID: userID)
     lazy var eventHandler = EventStorage(myID: userID)
     var currentMonth = BehaviorSubject<Int>(value: 0)
+    var selectedMonth = 0
     var currentYear = BehaviorSubject<Int>(value: 0)
+    var selectedYear = 0
     func showDeckListAction() -> CocoaAction{
         return CocoaAction{_ in
             let deckListScene = Scene.deckList(self)
@@ -38,4 +40,9 @@ class DeckViewModel:ViewModeltype{
             return self.sceneCoordinator.trainsition(to: cardManageScene, using: .modal, animated: true).asObservable().map{ _ in }
         }
     }
+    lazy var cardDeleteAction: Action<Card,Swift.Never> = {
+        return Action{card in
+            return self.cardStorage.deleteCard(card: card)
+        }
+    }()
 }

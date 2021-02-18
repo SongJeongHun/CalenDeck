@@ -7,7 +7,7 @@
 import UIKit
 import SideMenu
 import RxSwift
-class DeckListViewController: UIViewController,ViewControllerBindableType{
+class DeckListViewController: UIViewController,ViewControllerBindableType,UITableViewDelegate{
     var formatter:DateFormatter = {
         let f = DateFormatter()
         f.dateFormat = "dd"
@@ -23,6 +23,7 @@ class DeckListViewController: UIViewController,ViewControllerBindableType{
     @IBOutlet weak var tableView:UITableView!
     override func viewDidLoad() {
         setUI()
+        tableView.rx.setDelegate(self).disposed(by: rx.disposeBag)
         super.viewDidLoad()
     }
     override func viewWillDisappear(_ animated: Bool) {
