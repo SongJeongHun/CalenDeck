@@ -29,6 +29,7 @@ class MonthPickViewController: UIViewController,ViewControllerBindableType{
                 self.viewModel.currentYear.onNext(date.year!)
                 self.viewModel.currentMonth.onNext(date.month!)
                 self.viewModel.cardStorage.getCardList(year: date.year!, month: date.month!)
+                    
                 self.navigationController?.popViewController(animated: true)
             })
             .disposed(by: rx.disposeBag)

@@ -24,7 +24,7 @@ class CardStorage:CardStorageType{
     private let myID:String
     var cardList:[Card] = []
     var store = BehaviorSubject<[Card]>(value: [])
-    lazy var seletedModel = BehaviorSubject<Card>(value: Card(date: Date(), title: "f", content: "f", thumbnail: nil))
+    lazy var seletedModel = BehaviorSubject<Card>(value: Card(date: Date(), title: "카드가 없습니다!!", content: "카드를 만들어 보세요.", thumbnail: nil))
     required init(myID:String){
         self.myID = myID
     }
@@ -49,6 +49,11 @@ class CardStorage:CardStorageType{
                         self.cardList.append(card)
                     }
                     self.cardList.sort(by:{$0.date < $1.date})
+                    if self.cardList.count == 0{
+                        self.seletedModel.onNext(Card(date: Date(), title: "카드가 없습니다!!", content: "카드를 만들어 보세요.", thumbnail: nil))
+                    }else{
+                        self.seletedModel.onNext(self.cardList[0])
+                    }
                     self.store.onNext(self.cardList)
                 }
                 subject.onCompleted()

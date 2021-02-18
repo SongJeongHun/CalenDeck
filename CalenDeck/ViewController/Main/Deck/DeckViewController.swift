@@ -34,6 +34,7 @@ class DeckViewController: UIViewController,ViewControllerBindableType,SideMenuNa
             .subscribe(onCompleted:{
                 self.viewModel.cardStorage.seletedModel.onNext(self.viewModel.cardStorage.cardList[0])
             })
+            .disposed(by: rx.disposeBag)
         setUI()
         super.viewDidLoad()
     }
