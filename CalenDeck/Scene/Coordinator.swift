@@ -62,6 +62,7 @@ class Coordinator:SceneCoordinatorType{
                 vc.navigationItem.title = "덱 편집"
                 vc.editButton.isHidden = true
                 vc.cardAddButton.rx.action = vc.viewModel.cardManageButtonAction()
+                
                 vc.tableView.rx.itemDeleted
                     .subscribe(onNext:{ index in
                         let year = vc.viewModel.selectedYear

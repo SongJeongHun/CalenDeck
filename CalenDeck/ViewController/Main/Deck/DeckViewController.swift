@@ -22,6 +22,7 @@ class DeckViewController: UIViewController,ViewControllerBindableType,SideMenuNa
     @IBOutlet weak var content:UILabel!
     @IBOutlet weak var currentDay:UILabel!
     @IBOutlet weak var currentMonth:UIImageView!
+    @IBOutlet weak var cardTitle:UILabel!
     var selectedDate = Date()
     override func viewDidLoad() {
         let date =  Calendar.current.dateComponents([.month,.year], from: Date())
@@ -30,10 +31,23 @@ class DeckViewController: UIViewController,ViewControllerBindableType,SideMenuNa
         viewModel.currentYear.onNext(date.year!)
         viewModel.currentMonth.onNext(date.month!)
         viewModel.cardStorage.getCardList(year: date.year!, month: date.month!)
+            .subscribe(onCompleted:{
+                self.viewModel.cardStorage.seletedModel.onNext(self.viewModel.cardStorage.cardList[0])
+            })
         setUI()
         super.viewDidLoad()
     }
     func bindViewModel() {
+        viewModel.cardStorage.seletedModel
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext:{[unowned self]card in
+                let firstCard = card
+                let dateComponents = Calendar.current.dateComponents([.month,.year,.day], from: firstCard.date)
+                self.content.text = firstCard.content
+                self.currentDay.text = String(dateComponents.day!)
+                self.cardTitle.text = firstCard.title
+            })
+            .disposed(by: rx.disposeBag)
         monthSelectButton.rx.action = viewModel.monthPickAction()
         deckListButton.rx.action = viewModel.showDeckListAction()
         ApplicationNotiCenter.sideMenuWillDisappear.addObserver()

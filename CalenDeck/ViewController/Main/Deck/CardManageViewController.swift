@@ -28,7 +28,6 @@ class CardManageViewController: UIViewController,ViewControllerBindableType{
         
     }
     func setUI(){
-        navigationItem.title = "카드 관리"
         currentCard.layer.shadowRadius = 5.0
         currentCard.layer.shadowOffset = CGSize(width: 5, height: 5)
         currentCard.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)

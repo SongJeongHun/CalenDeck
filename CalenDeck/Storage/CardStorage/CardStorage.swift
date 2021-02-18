@@ -24,6 +24,7 @@ class CardStorage:CardStorageType{
     private let myID:String
     var cardList:[Card] = []
     var store = BehaviorSubject<[Card]>(value: [])
+    lazy var seletedModel = BehaviorSubject<Card>(value: Card(date: Date(), title: "f", content: "f", thumbnail: nil))
     required init(myID:String){
         self.myID = myID
     }
@@ -47,6 +48,7 @@ class CardStorage:CardStorageType{
                         let card = Card(date: date, title: title, content: content, thumbnail: nil)
                         self.cardList.append(card)
                     }
+                    self.cardList.sort(by:{$0.date < $1.date})
                     self.store.onNext(self.cardList)
                 }
                 subject.onCompleted()
