@@ -45,7 +45,13 @@ class DeckViewController: UIViewController,ViewControllerBindableType,SideMenuNa
                 let firstCard = card
                 let dateComponents = Calendar.current.dateComponents([.month,.year,.day], from: firstCard.date)
                 self.content.text = firstCard.content
-                self.currentDay.text = String(dateComponents.day!)
+                if firstCard.title == "카드가 없습니다!!"{
+                    self.thumbnailImage.image = #imageLiteral(resourceName: "folder")
+                    self.currentDay.text = String(0)
+                }else{
+                    self.thumbnailImage.image = #imageLiteral(resourceName: "Image")
+                    self.currentDay.text = String(dateComponents.day!)
+                }
                 self.cardTitle.text = firstCard.title
             })
             .disposed(by: rx.disposeBag)

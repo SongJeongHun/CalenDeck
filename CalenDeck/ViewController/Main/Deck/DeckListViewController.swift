@@ -33,6 +33,13 @@ class DeckListViewController: UIViewController,ViewControllerBindableType,UITabl
         super.viewWillDisappear(animated)
     }
     func bindViewModel() {
+        tableView.rx.modelSelected(Card.self)
+            .subscribe(onNext:{ [unowned self] card in
+                let firstIndex = self.viewModel.cardStorage.cardList.firstIndex(of: card)
+                tableView.deselectRow(at: IndexPath(row: firstIndex!, section: 0),animated: true)
+                self.viewModel.cardStorage.seletedModel.onNext(card)
+            })
+            .disposed(by: rx.disposeBag)
         editButton.rx.action = viewModel.deckEditButtonAction()
         viewModel.currentYear
             .observeOn(MainScheduler.instance)
