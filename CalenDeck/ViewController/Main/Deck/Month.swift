@@ -15,9 +15,9 @@ enum Month{
     case June
     case July
     case August
-    case November
-    case October
     case September
+    case October
+    case November
     case December
     var stringMonth:String{
         switch self {
@@ -37,12 +37,12 @@ enum Month{
             return "July"
         case .August:
             return "August"
-        case .November:
-            return "November"
-        case .October:
-            return "October"
         case .September:
             return "September"
+        case .October:
+            return "October"
+        case .November:
+            return "November"
         case .December:
             return "December"
         }

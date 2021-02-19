@@ -16,6 +16,9 @@ class CardManageViewController: UIViewController,ViewControllerBindableType{
     @IBOutlet weak var content:UILabel!
     @IBOutlet weak var currentDay:UILabel!
     @IBOutlet weak var currentMonth:UIImageView!
+    @IBOutlet weak var thumbnailButton:UIButton!
+    @IBOutlet weak var titleButton:UIButton!
+    @IBOutlet weak var contentButton:UIButton!
     override func viewWillDisappear(_ animated: Bool) {
         viewModel.sceneCoordinator.currentVC = presentingViewController!
         super.viewWillDisappear(animated)
@@ -25,6 +28,11 @@ class CardManageViewController: UIViewController,ViewControllerBindableType{
         super.viewDidLoad()
     }
     func bindViewModel() {
+        thumbnailButton.rx.tap
+            .subscribe(onNext:{_ in
+                print("thumbnailButton tapped")
+            })
+            .disposed(by: rx.disposeBag)
         
     }
     func setUI(){

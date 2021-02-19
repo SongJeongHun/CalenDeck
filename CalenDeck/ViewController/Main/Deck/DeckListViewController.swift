@@ -69,11 +69,11 @@ class DeckListViewController: UIViewController,ViewControllerBindableType,UITabl
                 case 8:
                     self.selectedMonth.text = "August"
                 case 9:
-                    self.selectedMonth.text = "November"
+                    self.selectedMonth.text = "September"
                 case 10:
                     self.selectedMonth.text = "October"
                 case 11:
-                    self.selectedMonth.text = "September"
+                    self.selectedMonth.text = "November"
                 case 12:
                     self.selectedMonth.text = "December"
                 default:

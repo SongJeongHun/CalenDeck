@@ -29,7 +29,6 @@
         <!--내 덱 -->
         <scene sceneID="ds9-7q-fNN">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DW3-7e-ol5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="JoK-nM-5JP" customClass="DeckViewController" customModule="CalenDeck" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WYz-wo-End">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -53,7 +52,7 @@
                                             <constraint firstAttribute="trailing" secondItem="6WD-mX-LxT" secondAttribute="trailing" id="Ksq-fQ-nFk"/>
                                             <constraint firstAttribute="bottom" secondItem="6WD-mX-LxT" secondAttribute="bottom" id="LNm-kL-8Lt"/>
                                             <constraint firstItem="6WD-mX-LxT" firstAttribute="top" secondItem="3LU-X3-mTf" secondAttribute="top" id="TVv-cv-4Su"/>
-                                            <constraint firstAttribute="height" constant="250" id="U64-fq-LG3"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="250" id="U64-fq-LG3"/>
                                             <constraint firstAttribute="width" constant="65" id="sIS-ce-ZTE"/>
                                         </constraints>
                                     </view>
@@ -185,6 +184,7 @@
                         <outlet property="thumbnailPanel" destination="M1K-9F-MkK" id="6sc-LS-xdG"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DW3-7e-ol5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1692.753623188406" y="1241.5178571428571"/>
         </scene>
@@ -435,17 +435,17 @@
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.stack.3d.up.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="HoY-ki-gXT">
                                 <rect key="frame" x="27" y="282" width="75" height="53"/>
-                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CalenDeck" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="W9d-x8-iZe">
                                 <rect key="frame" x="110" y="279" width="274" height="58.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="49"/>
-                                <color key="textColor" systemColor="systemIndigoColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VIt-bE-UhP"/>
-                        <color key="backgroundColor" red="0.94130003449999999" green="0.94882887599999999" blue="0.96078664059999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.41096329575700247" green="0.44654108886948712" blue="0.89196321153149161" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="b3p-an-m3K" firstAttribute="leading" secondItem="VIt-bE-UhP" secondAttribute="leading" constant="20" id="13o-n7-vUh"/>
                             <constraint firstItem="PeL-Cb-WiQ" firstAttribute="leading" secondItem="VIt-bE-UhP" secondAttribute="leading" constant="30" id="1Ux-6v-irF"/>
@@ -1109,6 +1109,9 @@
                                                 <rect key="frame" x="5" y="5" width="244" height="305"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gm5-cd-nGt">
+                                                <rect key="frame" x="112" y="142.5" width="30" height="30"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -1116,6 +1119,8 @@
                                             <constraint firstAttribute="height" constant="315" id="KN1-IW-lu9"/>
                                             <constraint firstItem="isx-L2-ASo" firstAttribute="top" secondItem="IYH-Wo-CGd" secondAttribute="top" constant="5" id="Sgn-tH-yts"/>
                                             <constraint firstAttribute="bottom" secondItem="isx-L2-ASo" secondAttribute="bottom" constant="5" id="ZhV-1v-0g1"/>
+                                            <constraint firstItem="Gm5-cd-nGt" firstAttribute="centerY" secondItem="IYH-Wo-CGd" secondAttribute="centerY" id="wSH-Xi-uHj"/>
+                                            <constraint firstItem="Gm5-cd-nGt" firstAttribute="centerX" secondItem="IYH-Wo-CGd" secondAttribute="centerX" id="xPa-nh-PrN"/>
                                             <constraint firstAttribute="trailing" secondItem="isx-L2-ASo" secondAttribute="trailing" constant="5" id="z9e-QQ-BUA"/>
                                         </constraints>
                                     </view>
@@ -1129,12 +1134,17 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9L1-xW-KMy">
+                                                <rect key="frame" x="152" y="80.5" width="30" height="30"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="9L1-xW-KMy" firstAttribute="centerY" secondItem="tGa-tJ-o2q" secondAttribute="centerY" id="5eS-XY-YX7"/>
                                             <constraint firstAttribute="bottom" secondItem="ToD-oq-t81" secondAttribute="bottom" constant="8" id="MgU-Do-yGd"/>
                                             <constraint firstAttribute="trailing" secondItem="ToD-oq-t81" secondAttribute="trailing" constant="8" id="VdP-wf-QOg"/>
                                             <constraint firstItem="ToD-oq-t81" firstAttribute="top" secondItem="tGa-tJ-o2q" secondAttribute="top" constant="8" id="WLk-ug-3v5"/>
+                                            <constraint firstItem="9L1-xW-KMy" firstAttribute="centerX" secondItem="tGa-tJ-o2q" secondAttribute="centerX" id="bsM-Zk-3yG"/>
                                             <constraint firstItem="ToD-oq-t81" firstAttribute="leading" secondItem="tGa-tJ-o2q" secondAttribute="leading" constant="8" id="xNq-yk-1Qp"/>
                                         </constraints>
                                     </view>
@@ -1150,16 +1160,23 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPr-Fx-Leb">
+                                                <rect key="frame" x="134" y="4" width="46" height="30"/>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="MuF-2C-Unp" firstAttribute="top" secondItem="xMW-Ko-NUj" secondAttribute="top" id="Alg-Yj-wbX"/>
+                                            <constraint firstAttribute="bottom" secondItem="aPr-Fx-Leb" secondAttribute="bottom" constant="20" symbolic="YES" id="FRx-XP-bNA"/>
+                                            <constraint firstItem="aPr-Fx-Leb" firstAttribute="top" secondItem="xMW-Ko-NUj" secondAttribute="top" constant="4" id="Nkm-ee-JDg"/>
                                             <constraint firstItem="GIt-t0-TZ1" firstAttribute="leading" secondItem="xMW-Ko-NUj" secondAttribute="leading" id="Vaw-H8-wzS"/>
                                             <constraint firstAttribute="trailing" secondItem="GIt-t0-TZ1" secondAttribute="trailing" id="YBs-AC-fn4"/>
                                             <constraint firstAttribute="trailing" secondItem="MuF-2C-Unp" secondAttribute="trailing" constant="28" id="bIM-3G-9XL"/>
+                                            <constraint firstAttribute="trailing" secondItem="aPr-Fx-Leb" secondAttribute="trailing" constant="134" id="etk-ml-YmJ"/>
                                             <constraint firstAttribute="bottom" secondItem="GIt-t0-TZ1" secondAttribute="bottom" id="fK7-Qp-duR"/>
                                             <constraint firstItem="GIt-t0-TZ1" firstAttribute="top" secondItem="xMW-Ko-NUj" secondAttribute="top" id="iFM-hr-Xaq"/>
                                             <constraint firstItem="MuF-2C-Unp" firstAttribute="leading" secondItem="xMW-Ko-NUj" secondAttribute="leading" constant="28" id="imF-ye-FRA"/>
                                             <constraint firstAttribute="bottom" secondItem="MuF-2C-Unp" secondAttribute="bottom" constant="15" id="k3L-P1-Wnh"/>
+                                            <constraint firstItem="aPr-Fx-Leb" firstAttribute="leading" secondItem="xMW-Ko-NUj" secondAttribute="leading" constant="134" id="msu-FI-EgH"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1191,7 +1208,11 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fvd-ug-g8N">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <items>
-                                    <navigationItem title="카드 관리" id="TRB-OO-3fc"/>
+                                    <navigationItem title="카드 관리" id="TRB-OO-3fc">
+                                        <barButtonItem key="leftBarButtonItem" title="날짜 선택" id="8Vt-Ti-nKT">
+                                            <color key="tintColor" systemColor="systemIndigoColor"/>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -1207,12 +1228,15 @@
                     </view>
                     <connections>
                         <outlet property="content" destination="ToD-oq-t81" id="O31-u6-uwH"/>
+                        <outlet property="contentButton" destination="9L1-xW-KMy" id="UpF-UV-AZo"/>
                         <outlet property="contentPanel" destination="tGa-tJ-o2q" id="aML-M6-cl3"/>
                         <outlet property="currentCard" destination="VOq-cJ-L18" id="cmN-Ws-Hx6"/>
                         <outlet property="currentDay" destination="RcV-lZ-zR4" id="XRl-Ta-c7Z"/>
                         <outlet property="currentMonth" destination="3R3-db-qDG" id="II2-Zc-3DQ"/>
+                        <outlet property="thumbnailButton" destination="Gm5-cd-nGt" id="Mfb-8l-dKh"/>
                         <outlet property="thumbnailImage" destination="isx-L2-ASo" id="0iZ-e0-WNL"/>
                         <outlet property="thumbnailPanel" destination="IYH-Wo-CGd" id="m0b-a3-Z8U"/>
+                        <outlet property="titleButton" destination="aPr-Fx-Leb" id="DWS-Vx-5r3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vbk-YD-yuE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
