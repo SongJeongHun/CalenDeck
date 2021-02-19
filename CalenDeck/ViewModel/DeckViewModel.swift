@@ -45,4 +45,9 @@ class DeckViewModel:ViewModeltype{
             return self.cardStorage.deleteCard(card: card)
         }
     }()
+//    func contentButtonAction(content:String) -> CocoaAction{
+//        return CocoaAction{_ in
+//
+//        }
+//    }
 }
