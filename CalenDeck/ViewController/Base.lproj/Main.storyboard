@@ -1192,7 +1192,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VOq-cJ-L18">
-                                <rect key="frame" x="30" y="97" width="354" height="605"/>
+                                <rect key="frame" x="30" y="157" width="354" height="605"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="szr-FU-fyM">
                                         <rect key="frame" x="10" y="70" width="65" height="250"/>
@@ -1346,7 +1346,7 @@
                             <constraint firstItem="VOq-cJ-L18" firstAttribute="centerX" secondItem="1or-1G-6v4" secondAttribute="centerX" id="c1I-Ru-ZUA"/>
                             <constraint firstItem="fvd-ug-g8N" firstAttribute="trailing" secondItem="euB-oR-CFt" secondAttribute="trailing" id="del-lh-6Sq"/>
                             <constraint firstItem="fvd-ug-g8N" firstAttribute="top" secondItem="1or-1G-6v4" secondAttribute="top" id="iJF-uz-8Xc"/>
-                            <constraint firstItem="euB-oR-CFt" firstAttribute="bottom" secondItem="VOq-cJ-L18" secondAttribute="bottom" constant="160" id="usM-QJ-YW7"/>
+                            <constraint firstItem="euB-oR-CFt" firstAttribute="bottom" secondItem="VOq-cJ-L18" secondAttribute="bottom" constant="100" id="usM-QJ-YW7"/>
                             <constraint firstItem="fvd-ug-g8N" firstAttribute="leading" secondItem="euB-oR-CFt" secondAttribute="leading" id="vhg-xg-Esc"/>
                         </constraints>
                     </view>

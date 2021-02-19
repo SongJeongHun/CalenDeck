@@ -10,8 +10,9 @@ import RxSwift
 import NSObject_Rx
 import Action
 
-class CardManageViewController: UIViewController,ViewControllerBindableType{
+class CardManageViewController: UIViewController,ViewControllerBindableType, UINavigationControllerDelegate{
     var viewModel:DeckViewModel!
+    let picker = UIImagePickerController()
     @IBOutlet weak var currentCard:UIView!
     @IBOutlet weak var contentPanel:UIView!
     @IBOutlet weak var thumbnailPanel:UIView!
@@ -31,12 +32,14 @@ class CardManageViewController: UIViewController,ViewControllerBindableType{
     override func viewDidLoad() {
         setUI()
         setGesture()
+        picker.delegate = self
         super.viewDidLoad()
     }
     func bindViewModel() {
         thumbnailButton.rx.tap
             .throttle(.milliseconds(5000), scheduler:MainScheduler.instance)
             .subscribe(onNext:{_ in
+                self.addThumbnailAlert()
                 
             })
             .disposed(by: rx.disposeBag)
@@ -44,16 +47,7 @@ class CardManageViewController: UIViewController,ViewControllerBindableType{
             .observeOn(MainScheduler.instance)
             .throttle(.milliseconds(5000), scheduler:MainScheduler.instance)
             .subscribe(onNext:{_ in
-                let alert = UIAlertController(title: "카드 관리", message: "제목을 입력하세요.", preferredStyle: .alert)
-                alert.addTextField(configurationHandler: nil)
-                let okAction = UIAlertAction(title: "확인", style: .default) { action in
-                    guard let str = alert.textFields?[0].text else { return }
-                    self.cardTitle.text = str
-                }
-                let cancel = UIAlertAction(title: "취소", style: .default, handler:nil)
-                alert.addAction(okAction)
-                alert.addAction(cancel)
-                self.present(alert, animated: true, completion: nil)
+                self.addSetTitleAlert()
             })
             .disposed(by: rx.disposeBag)
         NotificationCenter.default.rx.notification(UIResponder.keyboardWillShowNotification)
@@ -70,7 +64,7 @@ class CardManageViewController: UIViewController,ViewControllerBindableType{
             .subscribe(onNext:{ [unowned self] info in
                 if let frame = info?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue{
                     let keyboardHeight = frame.cgRectValue.height
-                    self.bottomConstraint.constant = 160
+                    self.bottomConstraint.constant = 100
                 }
             })
             .disposed(by: rx.disposeBag)
