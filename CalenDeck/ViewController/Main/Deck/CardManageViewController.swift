@@ -18,6 +18,7 @@ class CardManageViewController: UIViewController,ViewControllerBindableType{
     @IBOutlet weak var thumbnailImage:UIImageView!
     @IBOutlet weak var content:UITextView!
     @IBOutlet weak var currentDay:UILabel!
+    @IBOutlet weak var cardTitle:UILabel!
     @IBOutlet weak var currentMonth:UIImageView!
     @IBOutlet weak var thumbnailButton:UIButton!
     @IBOutlet weak var titleButton:UIButton!
@@ -29,6 +30,7 @@ class CardManageViewController: UIViewController,ViewControllerBindableType{
     }
     override func viewDidLoad() {
         setUI()
+        setGesture()
         super.viewDidLoad()
     }
     func bindViewModel() {
@@ -39,9 +41,19 @@ class CardManageViewController: UIViewController,ViewControllerBindableType{
             })
             .disposed(by: rx.disposeBag)
         titleButton.rx.tap
+            .observeOn(MainScheduler.instance)
             .throttle(.milliseconds(5000), scheduler:MainScheduler.instance)
             .subscribe(onNext:{_ in
-                
+                let alert = UIAlertController(title: "카드 관리", message: "제목을 입력하세요.", preferredStyle: .alert)
+                alert.addTextField(configurationHandler: nil)
+                let okAction = UIAlertAction(title: "확인", style: .default) { action in
+                    guard let str = alert.textFields?[0].text else { return }
+                    self.cardTitle.text = str
+                }
+                let cancel = UIAlertAction(title: "취소", style: .default, handler:nil)
+                alert.addAction(okAction)
+                alert.addAction(cancel)
+                self.present(alert, animated: true, completion: nil)
             })
             .disposed(by: rx.disposeBag)
         NotificationCenter.default.rx.notification(UIResponder.keyboardWillShowNotification)
@@ -58,13 +70,10 @@ class CardManageViewController: UIViewController,ViewControllerBindableType{
             .subscribe(onNext:{ [unowned self] info in
                 if let frame = info?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue{
                     let keyboardHeight = frame.cgRectValue.height
-                    self.bottomConstraint.constant -= keyboardHeight
+                    self.bottomConstraint.constant = 160
                 }
             })
             .disposed(by: rx.disposeBag)
-        
-       
-        
     }
     func setUI(){
         currentCard.layer.shadowRadius = 5.0
@@ -76,5 +85,16 @@ class CardManageViewController: UIViewController,ViewControllerBindableType{
         contentPanel.layer.cornerRadius = 5.0
         thumbnailPanel.layer.cornerRadius = 5.0
         currentCard.layer.cornerRadius = 5.0
+    }
+    func setGesture(){
+        let tapGesture:UITapGestureRecognizer = UITapGestureRecognizer()
+        tapGesture.delegate = self
+        self.view.addGestureRecognizer(tapGesture)
+    }
+}
+extension CardManageViewController:UIGestureRecognizerDelegate{
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
 }
