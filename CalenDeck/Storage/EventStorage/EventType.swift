@@ -13,8 +13,7 @@ protocol EventType{
     func createEvent(style:EventStyle) -> Completable
     @discardableResult
     func getTimeLine(to date:Date) -> Completable
-    @discardableResult
-    func delete(type:Event) -> Observable<Event>
+    
     func convertData(snap:DataSnapshot,to date:Date)
    
 }

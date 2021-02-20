@@ -78,7 +78,20 @@ class CardStorage:CardStorageType{
     }
     func deleteCard(card:Card) -> Completable{
         let subject = PublishSubject<Void>()
+        deleteEvent(card: card)
         ref.child("users").child(myID).child("cards").child(card.title).rx
+            .removeValue()
+            .subscribe(onSuccess:{_ in
+                subject.onCompleted()
+            }) { error in
+                subject.onError(error)
+            }
+            .disposed(by: bag)
+        return subject.ignoreElements()
+    }
+    func deleteEvent(card:Card) -> Completable{
+        let subject = PublishSubject<Void>()
+        ref.child("users").child(myID).child("events").child(card.title).rx
             .removeValue()
             .subscribe(onSuccess:{_ in
                 subject.onCompleted()

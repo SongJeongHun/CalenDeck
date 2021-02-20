@@ -112,12 +112,4 @@ class EventStorage:EventType{
             return PublishSubject<Void>().ignoreElements()
         }
     }
-    @discardableResult
-    func delete(type: Event) -> Observable<Event> {
-        if let index = eventList.firstIndex(where: {$0 == type}){
-            eventList.remove(at: index)
-        }
-        store.onNext(eventList)
-        return Observable.just(type)
-    }
 }
