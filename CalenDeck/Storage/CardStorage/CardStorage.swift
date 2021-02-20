@@ -9,12 +9,14 @@ import Action
 import Firebase
 import RxFirebaseDatabase
 import NSObject_Rx
+import RxFirebaseStorage
 import Foundation
 class CardStorage:CardStorageType{
     let bag = DisposeBag()
     lazy var eventHandler = EventStorage(myID: myID)
     var dateArray:Set<[Int]> = []
     let ref = Database.database().reference()
+    let storeRef = Storage.storage()
     var formatter:DateFormatter = {
         let f = DateFormatter()
         f.dateFormat = "yyyy.MM.dd"
@@ -86,4 +88,20 @@ class CardStorage:CardStorageType{
             .disposed(by: bag)
         return subject.ignoreElements()
     }
+}
+extension CardStorage{
+    func saveThumbnail(card:Card,img:UIImage) -> Completable{
+        let subject = PublishSubject<Void>()
+        var data = img.jpegData(compressionQuality: 0.8)!
+        let ref = storeRef.reference().child("users/\(myID)/cardsThumbnail").child("\(card.title)_thumbnail").rx
+            .putData(data)
+            .subscribe(onNext:{metadata in
+                subject.onCompleted()
+            }) { error in
+                subject.onError(error)
+            }
+            .disposed(by: bag)
+        return subject.ignoreElements()
+    }
+
 }

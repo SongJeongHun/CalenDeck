@@ -40,6 +40,7 @@ extension CardManageViewController:UIImagePickerControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let userImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             self.thumbnailImage.image =  userImage
+            self.currentImage = userImage               
         }
         dismiss(animated: true, completion: nil)
     }

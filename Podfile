@@ -14,4 +14,6 @@ target 'CalenDeck' do
   pod 'RxFirebase/Database'
   pod 'Firebase'
   pod 'SideMenu'
+  pod 'RxFirebase/Storage'
+
 end

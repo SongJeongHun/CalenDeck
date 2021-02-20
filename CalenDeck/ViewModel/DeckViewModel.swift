@@ -14,6 +14,8 @@ class DeckViewModel:ViewModeltype{
     lazy var eventHandler = EventStorage(myID: userID)
     var currentMonth = BehaviorSubject<Int>(value: 0)
     var selectedMonth = 0
+    var currentDate = BehaviorSubject<Date>(value:Date())
+    var selectedDate = Date()
     var currentYear = BehaviorSubject<Int>(value: 0)
     var selectedYear = 0
     func showDeckListAction() -> CocoaAction{
@@ -26,6 +28,12 @@ class DeckViewModel:ViewModeltype{
         return CocoaAction{_ in
             let monthPickScene = Scene.monthPick(self)
             return self.sceneCoordinator.trainsition(to: monthPickScene, using: .push, animated: true).asObservable().map{ _ in }
+        }
+    }
+    func monthPickModalAction() -> CocoaAction{
+        return CocoaAction{_ in
+            let monthPickScene = Scene.monthPick(self)
+            return self.sceneCoordinator.trainsition(to: monthPickScene, using: .modal, animated: true).asObservable().map{ _ in }
         }
     }
     func deckEditButtonAction() -> CocoaAction{
@@ -45,5 +53,16 @@ class DeckViewModel:ViewModeltype{
             return self.cardStorage.deleteCard(card: card)
         }
     }()
-    
+    func cardSaveAction(card:Card,img:UIImage?) -> Completable{
+        let subject = PublishSubject<Void>()
+        if let image = img{
+            self.cardStorage.saveThumbnail(card: card, img: image)
+                .subscribe(onCompleted:{
+                    subject.onCompleted()
+                })
+        }
+        self.cardStorage.addCard(card: card)
+        self.eventHandler.createEvent(style: .create(card))
+        return subject.ignoreElements()
+    }
 }

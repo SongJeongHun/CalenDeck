@@ -98,7 +98,7 @@ class DeckListViewController: UIViewController,ViewControllerBindableType,UITabl
         tableView.layer.cornerRadius = 7.0
         tableView.layer.borderWidth = 0.5
         tableView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        editButton.layer.zPosition = 101
+        editButton.titleLabel?.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     }
 }
 class CardListCell:UITableViewCell{

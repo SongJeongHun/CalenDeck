@@ -92,11 +92,11 @@ class DeckViewController: UIViewController,ViewControllerBindableType,SideMenuNa
                 case 8:
                     self.currentMonth.image = #imageLiteral(resourceName: "AUGUST")
                 case 9:
-                    self.currentMonth.image = #imageLiteral(resourceName: "NOVEMBER")
+                    self.currentMonth.image = #imageLiteral(resourceName: "SEPTEMBER")
                 case 10:
                     self.currentMonth.image = #imageLiteral(resourceName: "OCTOBER")
                 case 11:
-                    self.currentMonth.image = #imageLiteral(resourceName: "SEPTEMBER")
+                    self.currentMonth.image = #imageLiteral(resourceName: "NOVEMBER")
                 case 12:
                     self.currentMonth.image = #imageLiteral(resourceName: "DECEMBER")
                 default:
