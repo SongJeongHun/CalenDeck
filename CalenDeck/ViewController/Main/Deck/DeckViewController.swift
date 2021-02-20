@@ -13,6 +13,7 @@ import SideMenu
 class DeckViewController: UIViewController,ViewControllerBindableType,SideMenuNavigationControllerDelegate{
     var viewModel:DeckViewModel!
     let shadowView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+    @IBOutlet weak var indicator : UIActivityIndicatorView!
     @IBOutlet weak var currentCard:UIView!
     @IBOutlet weak var deckListButton:UIBarButtonItem!
     @IBOutlet weak var monthSelectButton:UIBarButtonItem!
@@ -25,6 +26,7 @@ class DeckViewController: UIViewController,ViewControllerBindableType,SideMenuNa
     @IBOutlet weak var cardTitle:UILabel!
     var selectedDate = Date()
     override func viewDidLoad() {
+        indicator.isHidden = true
         let date =  Calendar.current.dateComponents([.month,.year], from: Date())
         viewModel.selectedMonth = date.month!
         viewModel.selectedYear = date.year!
@@ -42,17 +44,22 @@ class DeckViewController: UIViewController,ViewControllerBindableType,SideMenuNa
         viewModel.cardStorage.seletedModel
             .observeOn(MainScheduler.instance)
             .subscribe(onNext:{[unowned self]card in
+                indicator.isHidden = false
+                indicator.startAnimating()
                 let firstCard = card
                 let dateComponents = Calendar.current.dateComponents([.month,.year,.day], from: firstCard.date)
                 self.content.text = firstCard.content
                 if firstCard.title == "카드가 없습니다!!"{
+                    indicator.stopAnimating()
                     self.thumbnailImage.image = #imageLiteral(resourceName: "folder")
                     self.currentDay.text = String(0)
                 }else{
-                    self.viewModel.cardStorage.getThumbnail(card: Card(date: Date(), title: "테스트!", content: "", thumbnail: nil))
+                    self.viewModel.cardStorage.getThumbnail(card: card)
                         .observeOn(MainScheduler.instance)
                         .subscribe(onNext:{img in
                             self.thumbnailImage.image = img
+                            indicator.stopAnimating()
+                            indicator.isHidden = true
                         })
 //                    self.thumbnailImage.image = #imageLiteral(resourceName: "Image")
                     self.currentDay.text = String(dateComponents.day!)

@@ -76,13 +76,23 @@
                                                 <rect key="frame" x="5" y="5" width="244" height="305"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                             </imageView>
+                                            <activityIndicatorView opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="c2D-YH-eo0">
+                                                <rect key="frame" x="0.0" y="0.0" width="254" height="315"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="315" id="Rsg-cn-noq"/>
+                                                </constraints>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="c2D-YH-eo0" firstAttribute="top" secondItem="M1K-9F-MkK" secondAttribute="top" id="0mw-eq-CTM"/>
                                             <constraint firstItem="Byg-ZB-QQ3" firstAttribute="leading" secondItem="M1K-9F-MkK" secondAttribute="leading" constant="5" id="BR1-vU-io2"/>
                                             <constraint firstAttribute="bottom" secondItem="Byg-ZB-QQ3" secondAttribute="bottom" constant="5" id="C7I-Hy-gtk"/>
+                                            <constraint firstItem="c2D-YH-eo0" firstAttribute="leading" secondItem="M1K-9F-MkK" secondAttribute="leading" id="Qhf-vd-4dL"/>
                                             <constraint firstAttribute="trailing" secondItem="Byg-ZB-QQ3" secondAttribute="trailing" constant="5" id="Zfd-hA-NZH"/>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="315" id="dOS-97-1uw"/>
+                                            <constraint firstAttribute="trailing" secondItem="c2D-YH-eo0" secondAttribute="trailing" id="lBj-Qn-aOE"/>
                                             <constraint firstItem="Byg-ZB-QQ3" firstAttribute="top" secondItem="M1K-9F-MkK" secondAttribute="top" constant="5" id="tIJ-4N-q8U"/>
                                         </constraints>
                                     </view>
@@ -179,6 +189,7 @@
                         <outlet property="currentDay" destination="rwl-6i-WXV" id="jVM-6i-YKn"/>
                         <outlet property="currentMonth" destination="6WD-mX-LxT" id="af5-Fr-0PD"/>
                         <outlet property="deckListButton" destination="Q50-qp-HuQ" id="Ujc-8r-tp1"/>
+                        <outlet property="indicator" destination="c2D-YH-eo0" id="6wk-8g-j4E"/>
                         <outlet property="monthSelectButton" destination="HhH-42-Pjf" id="3OJ-Bt-CkE"/>
                         <outlet property="thumbnailImage" destination="Byg-ZB-QQ3" id="HGL-UN-v48"/>
                         <outlet property="thumbnailPanel" destination="M1K-9F-MkK" id="6sc-LS-xdG"/>
