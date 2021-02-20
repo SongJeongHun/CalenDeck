@@ -116,5 +116,20 @@ extension CardStorage{
             .disposed(by: bag)
         return subject.ignoreElements()
     }
+    func getThumbnail(card:Card) -> Observable<UIImage>{
+        let subject = PublishSubject<UIImage>()
+        let ref = storeRef.reference(forURL: "gs://calendeck-e28b2.appspot.com/users/\(myID)/cardsThumbnail/\(card.title)_thumbnail").rx
+//        let localURL = URL(string:"users/\(myID)/cardsThumbnail/\(card.title)_thumbnail")!
+        ref.downloadURL()
+            .observeOn(ConcurrentDispatchQueueScheduler(qos: .default))
+            .subscribe(onNext:{url in
+                let data = try! Data(contentsOf: url)
+                subject.onNext(UIImage(data: data)!)
+            }) { error in
+                print(error)
+            }
+            .disposed(by: bag)
+        return subject
+    }
 
 }

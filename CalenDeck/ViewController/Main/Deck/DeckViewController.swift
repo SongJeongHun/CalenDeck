@@ -49,7 +49,12 @@ class DeckViewController: UIViewController,ViewControllerBindableType,SideMenuNa
                     self.thumbnailImage.image = #imageLiteral(resourceName: "folder")
                     self.currentDay.text = String(0)
                 }else{
-                    self.thumbnailImage.image = #imageLiteral(resourceName: "Image")
+                    self.viewModel.cardStorage.getThumbnail(card: Card(date: Date(), title: "테스트!", content: "", thumbnail: nil))
+                        .observeOn(MainScheduler.instance)
+                        .subscribe(onNext:{img in
+                            self.thumbnailImage.image = img
+                        })
+//                    self.thumbnailImage.image = #imageLiteral(resourceName: "Image")
                     self.currentDay.text = String(dateComponents.day!)
                 }
                 self.cardTitle.text = firstCard.title
