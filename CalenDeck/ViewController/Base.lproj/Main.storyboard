@@ -76,9 +76,9 @@
                                                 <rect key="frame" x="5" y="5" width="244" height="305"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                             </imageView>
-                                            <activityIndicatorView opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="c2D-YH-eo0">
+                                            <activityIndicatorView opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="c2D-YH-eo0">
                                                 <rect key="frame" x="0.0" y="0.0" width="254" height="315"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="315" id="Rsg-cn-noq"/>
                                                 </constraints>

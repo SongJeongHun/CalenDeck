@@ -34,7 +34,7 @@ class DeckViewController: UIViewController,ViewControllerBindableType,SideMenuNa
         viewModel.currentMonth.onNext(date.month!)
         viewModel.cardStorage.getCardList(year: date.year!, month: date.month!)
             .subscribe(onCompleted:{
-                self.viewModel.cardStorage.seletedModel.onNext(self.viewModel.cardStorage.cardList[0])
+//                self.viewModel.cardStorage.seletedModel.onNext(self.viewModel.cardStorage.cardList[0])
             })
             .disposed(by: rx.disposeBag)
         setUI()
